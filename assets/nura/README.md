@@ -1,0 +1,1 @@
+These media files came from the Nura Framer website capture supplied by the project owner on 2026-10-05. Confirm rights to use the original images and video before publishing the Reply2Lead site commercially.

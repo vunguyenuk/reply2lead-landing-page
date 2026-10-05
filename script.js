@@ -343,3 +343,53 @@ industryTabs.forEach((button, index) => {
     if (delta) { event.preventDefault(); const target = industryTabs[(index + delta + industryTabs.length) % industryTabs.length]; showIndustry(target); target.focus(); }
   });
 });
+
+/* The portrait leads; the product conversation arrives when the overview is seen. */
+const heroVideo = $('.hero-video');
+if (heroVideo) {
+  const syncHeroVideo = () => {
+    if (reduceMotion.matches) heroVideo.pause();
+    else if (heroVideo.getBoundingClientRect().bottom > 0 && heroVideo.getBoundingClientRect().top < innerHeight) heroVideo.play().catch(() => {});
+  };
+  syncHeroVideo();
+  reduceMotion.addEventListener('change', syncHeroVideo);
+  new IntersectionObserver(([entry]) => {
+    if (reduceMotion.matches) return;
+    if (entry.isIntersecting) heroVideo.play().catch(() => {});
+    else heroVideo.pause();
+  }, { threshold: .05 }).observe(heroVideo);
+}
+
+const overviewChat = $('.overview-chat');
+let overviewChatTimer;
+function replayOverviewChat() {
+  if (!overviewChat || reduceMotion.matches) return;
+  clearTimeout(overviewChatTimer);
+  overviewChat.classList.remove('is-playing');
+  void overviewChat.offsetWidth;
+  overviewChat.classList.add('is-playing');
+  overviewChatTimer = setTimeout(() => overviewChat.classList.remove('is-playing'), 2050);
+}
+$('.overview-replay')?.addEventListener('click', replayOverviewChat);
+if (overviewChat) {
+  const chatObserver = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    replayOverviewChat();
+    chatObserver.disconnect();
+  }, { threshold: .35 });
+  chatObserver.observe($('.statement-media'));
+}
+
+if (!reduceMotion.matches) {
+  const revealTargets = $$('.statement-intro, .performance-section>.section-tag, .performance-section>h2, .performance-card, .story-heading, .support-heading, .qual-intro, .handoff-heading, .setup-heading, .inbox-heading, .learning-heading, .industries-heading');
+  revealTargets.forEach((element) => element.classList.add('motion-reveal'));
+  document.body.classList.add('motion-ready');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: .12, rootMargin: '0px 0px -35px 0px' });
+  revealTargets.forEach((element) => revealObserver.observe(element));
+}

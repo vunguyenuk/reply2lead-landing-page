@@ -1,17 +1,5 @@
 /* Reply2Lead's denser conversation-led visual system. */
 :root {
-  --cream: oklch(97% .014 95);
-  --paper: oklch(99% .006 100);
-  --ink: oklch(23% .027 158);
-  --muted: oklch(48% .025 158);
-  --brand: oklch(75% .18 151);
-  --brand-dark: oklch(41% .12 153);
-  --brand-pale: oklch(94% .052 149);
-  --blue: oklch(93% .027 190);
-  --lime: oklch(91% .072 137);
-  --peach: oklch(89% .044 53);
-  --line: oklch(86% .018 155);
-  --shadow: 0 14px 36px oklch(23% .027 158 / .12);
   --space-xs: 8px;
   --space-sm: 12px;
   --space-md: 24px;

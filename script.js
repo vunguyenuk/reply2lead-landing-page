@@ -156,7 +156,11 @@ function renderSupportStep(step) {
 function playSupport(key) {
   clearSupportTimers();
   const scenario = supportScenarios[key];
-  $$('.scenario-button').forEach((button) => button.classList.toggle('is-active', button.dataset.scenario === key));
+  $$('.scenario-button').forEach((button) => {
+    const active = button.dataset.scenario === key;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
   $('#support-counter').textContent = scenario.count;
   $('#support-messages').replaceChildren();
   $('#support-status').textContent = 'Reading the conversation…';
@@ -242,9 +246,10 @@ const channelMessages = {
   TikTok: 'New question about an appointment',
 };
 $$('#channel-buttons [data-channel]').forEach((button) => button.addEventListener('click', () => {
-  if (button.classList.contains('connected')) return;
-  button.classList.add('connected');
-  $('.channel-state', button).textContent = 'Connected ✓';
+  if (button.classList.contains('is-previewed')) return;
+  button.classList.add('is-previewed');
+  button.setAttribute('aria-pressed', 'true');
+  $('.channel-state', button).textContent = 'Previewed ✓';
   const empty = $('.empty-line', $('#channel-inbox'));
   if (empty) empty.remove();
   const item = document.createElement('p');

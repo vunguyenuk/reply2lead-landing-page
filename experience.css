@@ -1,19 +1,4 @@
-/* Reply2Lead product storytelling: one brand system, observable states. */
-:root {
-  --cream: oklch(97.2% .011 145);
-  --paper: oklch(99.2% .005 145);
-  --ink: oklch(20% .037 159);
-  --muted: oklch(46% .023 155);
-  --brand: oklch(72% .17 151);
-  --brand-dark: oklch(38% .115 156);
-  --brand-pale: oklch(94.5% .039 150);
-  --blue: oklch(93% .036 156);
-  --lime: oklch(94% .05 151);
-  --peach: oklch(96% .012 145);
-  --line: oklch(87% .017 155);
-  --ease: cubic-bezier(.22, 1, .36, 1);
-  --display: 'Hanken Grotesk', 'Helvetica Neue', sans-serif;
-}
+/* Reply2Lead product storytelling. Palette and type tokens live in styles.css. */
 body { background: var(--cream); }
 h1, h2 { font-weight: 700; letter-spacing: -.048em; font-kerning: normal; }
 .hero h1, .statement-section h2, .final-section h2,
@@ -153,4 +138,134 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand-dark); ou
 @media (max-width: 600px) {
   :root { --section-heading-size: clamp(2.4rem, 8.5vw, 3.05rem); }
   .story-sticky.lead-scene, .qual-sticky.qual-display { position: relative; top: auto; }
+}
+
+/* Editorial rhythm: one clear headline, compact supporting copy, then the product proof. */
+:root {
+  --control-height: 50px;
+  --section-gap: clamp(27px, 3vw, 38px);
+}
+.story-heading, .support-heading, .qual-intro, .handoff-heading,
+.setup-heading, .inbox-heading, .learning-heading, .industries-heading {
+  margin-bottom: var(--section-gap);
+}
+.story-heading>p:last-child, .support-heading>p:last-child, .qual-intro>p:last-child,
+.handoff-heading>p:last-child, .setup-heading>p:last-child, .inbox-heading>p:last-child,
+.learning-heading>p:last-child {
+  max-width: 57ch;
+  margin-top: 12px;
+  font-size: clamp(.98rem, 1.2vw, 1.08rem);
+  line-height: 1.55;
+}
+.statement-section { padding-block: clamp(54px, 5vw, 74px); }
+.statement-section p:last-child { max-width: 62ch; }
+.story-layout, .qual-layout { gap: clamp(25px, 4vw, 55px); }
+.story-beat, .qual-beats .story-beat { min-height: 164px; opacity: 1; }
+.story-beat:not(.is-current) strong { color: var(--muted); }
+.story-beat.is-current strong, .story-beat:hover strong { color: var(--ink); }
+.story-beat>span { color: var(--brand-dark); }
+.story-beats, .qual-beats { padding-bottom: 28px; }
+.nurture-strip { margin-top: 8px; }
+.setup-panel { gap: clamp(30px, 5vw, 70px); }
+.setup-panel-copy h3 { font-size: clamp(2.05rem, 3vw, 3.3rem); line-height: 1.07; }
+.setup-panel-copy h3, .qual-current { letter-spacing: -.045em; }
+.setup-panel-copy p { margin-top: 14px; }
+.industry-preview { min-height: 400px; }
+
+/* All primary and secondary actions use a deliberate button silhouette. */
+.button {
+  min-height: var(--control-height);
+  gap: 16px;
+  padding: 12px 20px;
+  font-size: .9rem;
+  line-height: 1.2;
+}
+.button-primary { background: var(--brand); color: var(--ink); }
+.button-primary:hover { background: oklch(79% .17 151); color: var(--ink); }
+.button-ghost {
+  background: oklch(99% .005 145 / .06);
+  border-color: oklch(99% .005 145 / .7);
+  color: var(--paper);
+}
+.button-ghost:hover { background: oklch(99% .005 145 / .14); }
+.button-soft { background: var(--brand-pale); color: var(--brand-dark); border-color: var(--line); }
+.button-soft:hover { background: var(--brand-pale); border-color: var(--brand-dark); }
+.hero-actions, .final-actions { gap: 12px; }
+.handoff-foot .button { min-height: 44px; padding: 9px 16px; font-size: .82rem; }
+.inbox-filter button.is-active, .avatar-ray, .skip-link { color: var(--ink); }
+.inbox-filter button { min-height: 38px; font-size: .78rem; }
+.scenario-button { font-size: .8rem; }
+
+/* The channel rows are preview controls, with a compact filled action at the edge. */
+.channel-buttons button { gap: 10px; padding: 9px 10px 9px 14px; min-height: 57px; }
+.channel-buttons button .channel-state {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 76px;
+  padding: 7px 10px;
+  border-radius: 100px;
+  background: var(--brand-pale);
+  color: var(--brand-dark);
+  font-size: .72rem;
+  line-height: 1.1;
+}
+.channel-buttons button:hover .channel-state { background: var(--brand); color: var(--ink); }
+.channel-buttons button.is-previewed { background: var(--brand-pale); border-color: var(--brand); }
+.channel-buttons button.is-previewed .channel-state { background: var(--brand); color: var(--ink); }
+.unified-inbox .empty-line { font-size: .88rem; }
+
+/* Product UI stays readable while remaining visibly secondary to the page headline. */
+.hero-message, .hero-outcome { font-size: .86rem; }
+.message-by, .lead-sender { font-size: .73rem; letter-spacing: .01em; }
+.lead-detection, .source-note, .scenario-counter { font-size: .75rem; }
+.scene-status, .support-status { font-size: .82rem; }
+.inbox-row b { font-size: .86rem; }
+.inbox-row small, .inbox-row em { font-size: .75rem; }
+.learning-fact>span, .learning-label { font-size: .71rem; letter-spacing: .09em; }
+.learning-fact p { font-size: .86rem; line-height: 1.45; }
+.learning-action .button { min-height: 45px; font-size: .81rem; }
+.post-label small, .conversation-heading small, .handoff-reason small,
+.human-owner small, .knowledge-score small, .owner-answer small,
+.industry-quote>span, .learning-confirmation { font-size: .75rem; }
+.test-correction span, .knowledge-actions button span { font-size: .75rem; }
+
+@media (max-width: 850px) {
+  .hero-actions .button-ghost { color: var(--ink); border-color: var(--ink); background: transparent; }
+  .hero-actions .button-ghost:hover { background: var(--brand-pale); }
+}
+@media (max-width: 600px) {
+  :root { --section-gap: 24px; }
+  .hero-actions { align-items: stretch; flex-direction: row; flex-wrap: wrap; gap: 10px; }
+  .hero-actions .button, .final-actions .button { min-height: 47px; font-size: .82rem; }
+  .hero-message { font-size: .78rem; max-width: 72%; }
+  .hero-outcome { font-size: .74rem; max-width: 79%; }
+  .message-by, .lead-sender { font-size: .75rem; }
+  .post-caption { font-size: .78rem; }
+  .lead-shift, .lead-private .scene-status, .nurture-track { font-size: .75rem; }
+  .handoff-state, .handoff-reason small, .human-owner small { font-size: .75rem; }
+  .setup-tab, .test-result, .route-line { font-size: .75rem; }
+  .story-beat, .qual-beats .story-beat { min-height: 116px; }
+  .story-beat strong { font-size: 1.45rem; }
+  .story-beat small { font-size: .82rem; }
+  .story-beats, .qual-beats { padding-bottom: 16px; }
+  .setup-panel-copy h3 { font-size: clamp(2rem, 7.5vw, 2.55rem); }
+  .channel-buttons button { min-height: 67px; }
+  .channel-buttons button .channel-state { min-width: 0; font-size: .75rem; }
+  .scenario-button { font-size: .76rem; }
+  .support-conversation { min-height: 285px; }
+  .support-message-stack { padding-block: 12px; }
+  .inbox-row b { font-size: .8rem; }
+  .inbox-row small { font-size: .7rem; }
+  .inbox-row em { font-size: .75rem; }
+  .learning-demo { grid-template-columns: 1fr 1fr; }
+  .learning-fact { min-height: 148px; padding: 17px 16px; }
+  .learning-fact:first-child { padding-left: 0; }
+  .learning-fact:nth-child(2) { border-right: 0; }
+  .learning-fact:nth-child(3) { grid-column: 1 / -1; min-height: 120px; display: grid; grid-template-columns: 90px 1fr; align-content: center; column-gap: 14px; border-top: 1px solid oklch(80% .02 158 / .33); border-right: 0; padding-left: 0; }
+  .learning-fact:nth-child(3)>span { grid-column: 1 / -1; }
+  .learning-fact:nth-child(3) strong { grid-column: 1; margin-top: 8px; }
+  .learning-fact:nth-child(3) p { grid-column: 2; align-self: center; margin-top: 8px; }
+  .learning-fact>span, .learning-label { font-size: .75rem; }
+  .learning-fact p { font-size: .78rem; }
+  .learning-action { grid-column: 1 / -1; padding: 22px 0 5px; border-top: 1px solid oklch(80% .02 158 / .33); }
 }

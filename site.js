@@ -52,8 +52,67 @@ if (heroFlow) {
   }
 }
 
+const productTour = document.querySelector('[data-product-tour]');
+if (productTour) {
+  const tourButtons = [...productTour.querySelectorAll('[data-tour-step]')];
+  const tourPanels = [...productTour.querySelectorAll('[data-tour-panel]')];
+  const tourCount = productTour.querySelector('.tour-screen-count');
+  let currentStep = 0;
+  let tourVisible = false;
+  let tourPaused = false;
+  let tourInteracted = false;
+  let tourTimer;
+
+  const stopTour = () => {
+    clearTimeout(tourTimer);
+    tourTimer = undefined;
+  };
+  const showTourStep = index => {
+    currentStep = (index + tourButtons.length) % tourButtons.length;
+    tourButtons.forEach((button, position) => {
+      const active = position === currentStep;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    tourPanels.forEach((panel, position) => {
+      const active = position === currentStep;
+      panel.classList.toggle('is-active', active);
+      panel.setAttribute('aria-hidden', String(!active));
+    });
+    tourCount.textContent = `0${currentStep + 1} / 03`;
+  };
+  const scheduleTour = () => {
+    stopTour();
+    if (prefersReducedMotion || !tourVisible || tourPaused || tourInteracted || document.hidden) return;
+    tourTimer = setTimeout(() => {
+      showTourStep(currentStep + 1);
+      scheduleTour();
+    }, 5200);
+  };
+
+  tourButtons.forEach((button, index) => button.addEventListener('click', () => {
+    tourInteracted = true;
+    stopTour();
+    showTourStep(index);
+  }));
+  productTour.addEventListener('pointerenter', () => { tourPaused = true; stopTour(); });
+  productTour.addEventListener('pointerleave', () => { tourPaused = false; scheduleTour(); });
+  productTour.addEventListener('focusin', () => { tourPaused = true; stopTour(); });
+  productTour.addEventListener('focusout', event => {
+    if (!productTour.contains(event.relatedTarget)) { tourPaused = false; scheduleTour(); }
+  });
+  document.addEventListener('visibilitychange', scheduleTour);
+  if (!prefersReducedMotion) {
+    const tourObserver = new IntersectionObserver(([entry]) => {
+      tourVisible = entry.isIntersecting;
+      scheduleTour();
+    }, { threshold: .25 });
+    tourObserver.observe(productTour);
+  }
+}
+
 if (!prefersReducedMotion) {
-  const revealTargets = [...document.querySelectorAll('.section-head, .performance-grid .card, .planning-copy, .flow-card, .product-stage, .sales-knowledge-heading, .sales-knowledge-benefits article, .story-tiles article, .step-card, .proof-photo, .proof-content, .assistant-stage, .faq-heading, .faq-list, .final-inner')];
+  const revealTargets = [...document.querySelectorAll('.section-head, .performance-grid .perf-photo, .planning-copy, .flow-card, .product-stage, .sales-knowledge-heading, .sales-knowledge-benefits article, .story-tiles article, .step-card, .proof-photo, .proof-content, .assistant-stage, .faq-heading, .faq-list, .final-inner')];
   revealTargets.forEach((target, index) => {
     target.classList.add('reveal-target');
     target.style.setProperty('--reveal-delay', `${(index % 4) * 55}ms`);
@@ -69,11 +128,11 @@ if (!prefersReducedMotion) {
   }, { threshold: .08, rootMargin: '0px 0px -20px 0px' });
   revealTargets.forEach(target => revealObserver.observe(target));
 
-  const storyStages = document.querySelectorAll('.performance-grid .card, .flow-art, .sales-knowledge-stage, .steps-grid .step-card, .assistant-stage, .final-cta');
+  const storyStages = document.querySelectorAll('.performance-grid .card, .flow-art, .sales-knowledge-stage, .final-cta');
   const storyObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      if (entry.target.matches('.flow-art, .assistant-stage')) {
+      if (entry.target.matches('.flow-art')) {
         entry.target.closest('section')?.classList.add('demo-active');
       } else {
         entry.target.classList.add('demo-active');
@@ -82,6 +141,41 @@ if (!prefersReducedMotion) {
     });
   }, { threshold: .35 });
   storyStages.forEach(stage => storyObserver.observe(stage));
+}
+
+// Loop the phone conversation while it is in view so the handoff reads as a real exchange.
+const assistantStage = document.querySelector('.assistant-stage');
+if (assistantStage && !prefersReducedMotion) {
+  let phoneVisible = false;
+  let phoneTimers = [];
+  const clearPhoneTimers = () => {
+    phoneTimers.forEach(clearTimeout);
+    phoneTimers = [];
+  };
+  const playPhoneChat = () => {
+    if (!phoneVisible || document.hidden) return;
+    clearPhoneTimers();
+    assistantStage.dataset.chatPhase = 'question';
+    [[1050, 'typing'], [2050, 'reply'], [3150, 'complete']].forEach(([delay, phase]) => {
+      phoneTimers.push(setTimeout(() => {
+        if (phoneVisible && !document.hidden) assistantStage.dataset.chatPhase = phase;
+      }, delay));
+    });
+    phoneTimers.push(setTimeout(playPhoneChat, 7800));
+  };
+  const phoneObserver = new IntersectionObserver(([entry]) => {
+    phoneVisible = entry.isIntersecting;
+    if (phoneVisible) playPhoneChat();
+    else {
+      clearPhoneTimers();
+      assistantStage.dataset.chatPhase = 'complete';
+    }
+  }, { threshold: .18 });
+  phoneObserver.observe(assistantStage);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearPhoneTimers();
+    else if (phoneVisible) playPhoneChat();
+  });
 }
 
 const creditDemo = document.querySelector('.credit-demo');
@@ -181,7 +275,7 @@ const demoBubbles = [...document.querySelectorAll('.demo-window .demo-bubble')];
 const demoTyping = document.querySelector('.demo-window .demo-typing');
 const demoStatus = document.getElementById('demo-status');
 const demoPauseButton = document.querySelector('.demo-pause');
-const demoDelays = [8500, 5000, 11500, 4500, 11500, 4500];
+const demoDelays = [1100, 1700, 1200, 2200, 1200, 2200, 1100, 3600];
 let demoTimer;
 let demoStep = -1;
 let demoVisible = false;
@@ -205,23 +299,26 @@ function holdDemo() {
 function showDemoStep(nextStep) {
   demoStep = nextStep;
   demoBubbles.forEach((bubble, index) => bubble.classList.toggle('is-shown', index <= nextStep));
-  demoTyping?.classList.toggle('is-typing', nextStep === 1 || nextStep === 3 || nextStep === 5);
+  demoTyping?.classList.toggle('is-typing', nextStep === 0 || nextStep === 2 || nextStep === 4 || nextStep === 6);
   if (demoMessages && nextStep > 0) {
     requestAnimationFrame(() => demoMessages.scrollTo({ top: demoMessages.scrollHeight, behavior: 'smooth' }));
   }
   if (demoStatus) {
-    demoStatus.textContent = nextStep === 6 ? 'Checkout link sent' :
-      nextStep % 2 === 1 ? 'Ray is typing a reply' : 'Ray is handling this conversation';
+    demoStatus.textContent = nextStep === demoBubbles.length - 1 ? 'Specialist follow-up requested' :
+      nextStep % 2 === 0 ? 'Ray is reviewing the buyer’s context' : 'Ray is handling this conversation';
   }
-  if (demoPauseButton) demoPauseButton.hidden = nextStep === demoBubbles.length - 1;
+  if (demoPauseButton) demoPauseButton.hidden = false;
 }
 
 function advanceDemo() {
   clearTimeout(demoTimer);
   if (demoPaused || !demoVisible || document.visibilityState !== 'visible') return;
-  if (demoStep >= demoBubbles.length - 1) return;
+  if (demoStep >= demoBubbles.length - 1) {
+    restartDemo();
+    return;
+  }
   showDemoStep(demoStep + 1);
-  if (demoStep < demoBubbles.length - 1) scheduleDemo(demoDelays[demoStep]);
+  scheduleDemo(demoStep < demoBubbles.length - 1 ? demoDelays[demoStep] : 4200);
 }
 
 function restartDemo() {
@@ -247,7 +344,7 @@ demoPauseButton?.addEventListener('click', () => {
   demoPauseButton.textContent = demoPaused ? 'Play' : 'Pause';
   demoPauseButton.setAttribute('aria-label', demoPaused ? 'Resume conversation' : 'Pause conversation');
   if (demoPaused) holdDemo();
-  else if (demoVisible && document.visibilityState === 'visible') scheduleDemo(demoRemaining || demoDelays[demoStep]);
+  else if (demoVisible && document.visibilityState === 'visible') scheduleDemo(demoRemaining || (demoStep < demoBubbles.length - 1 ? demoDelays[demoStep] : 4200));
 });
 if (demoWindow && !prefersReducedMotion) {
   const observer = new IntersectionObserver(entries => {
@@ -256,13 +353,13 @@ if (demoWindow && !prefersReducedMotion) {
     demoVisible = inView;
     if (demoVisible && !demoPaused && document.visibilityState === 'visible') {
       if (demoStep < 0) advanceDemo();
-      else if (demoStep < demoBubbles.length - 1) scheduleDemo(demoRemaining || demoDelays[demoStep]);
+      else scheduleDemo(demoRemaining || (demoStep < demoBubbles.length - 1 ? demoDelays[demoStep] : 4200));
     }
   }, { threshold: [.28] });
   observer.observe(demoWindow);
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') holdDemo();
-    else if (demoVisible && !demoPaused && demoStep < demoBubbles.length - 1) scheduleDemo(demoRemaining || demoDelays[demoStep]);
+    else if (demoVisible && !demoPaused) scheduleDemo(demoRemaining || (demoStep < demoBubbles.length - 1 ? demoDelays[demoStep] : 4200));
   });
 } else if (demoWindow) {
   showDemoStep(demoBubbles.length - 1);
@@ -271,11 +368,6 @@ if (demoWindow && !prefersReducedMotion) {
 
 const shopThread = document.querySelector('.shop-thread');
 const shopExtra = document.querySelector('.shop-extra');
-const shopReplies = {
-  discount: 'I do not have a verified student discount. I can ask the team for you.',
-  returns: 'I do not have a verified return policy yet. I can pass your question to the team.',
-  shipping: 'I do not have verified international shipping details. I can ask the team before promising a delivery date.'
-};
 function appendShopMessage(kind, message) {
   const bubble = document.createElement('div');
   bubble.className = `shop-extra-message ${kind}`;
@@ -287,44 +379,58 @@ function appendShopMessage(kind, message) {
 function scrollShopThread() {
   requestAnimationFrame(() => shopThread?.scrollTo({ top: shopThread.scrollHeight, behavior: prefersReducedMotion ? 'auto' : 'smooth' }));
 }
-document.querySelectorAll('[data-shop-prompt]').forEach(button => button.addEventListener('click', () => {
-  appendShopMessage('customer', button.textContent.trim());
-  appendShopMessage('ray', shopReplies[button.dataset.shopPrompt]);
-  scrollShopThread();
-}));
 document.querySelector('[data-shop-action="buy"]')?.addEventListener('click', () => {
-  appendShopMessage('ray', 'A sample checkout link is ready. A live store would use your own verified checkout settings.');
+  appendShopMessage('ray', 'I have the quantity and deadline. A specialist can confirm the invoice, stock, and delivery quote before you commit.');
   scrollShopThread();
 });
 document.querySelector('[data-shop-action="details"]')?.addEventListener('click', () => {
-  appendShopMessage('ray', 'Nova Mini · $149 · 2-year warranty · free shipping.');
+  appendShopMessage('ray', 'Nova Mini · listed at $149 per unit. Volume pricing and Friday delivery need team confirmation.');
   scrollShopThread();
 });
-const shopSuggestions = document.getElementById('shop-suggestions');
-document.querySelector('.shop-suggest-toggle')?.addEventListener('click', event => {
-  shopSuggestions.hidden = !shopSuggestions.hidden;
-  event.currentTarget.setAttribute('aria-expanded', String(!shopSuggestions.hidden));
-});
-document.querySelector('.shop-compose')?.addEventListener('submit', event => {
-  event.preventDefault();
-  const input = event.currentTarget.elements.question;
-  const question = input.value.trim();
-  if (!question) return;
-  appendShopMessage('customer', question);
-  appendShopMessage('ray', 'I do not have a verified answer to that yet. I can hand your question to the team.');
-  input.value = '';
-  scrollShopThread();
-});
+
+const calcInputs = ['calc-hours', 'calc-rate', 'calc-share'].map(id => document.getElementById(id));
+const calcPlan = document.getElementById('calc-plan');
+const calcResult = document.getElementById('calc-result');
+const calcEquation = document.getElementById('calc-equation');
+const calcResultLabel = document.getElementById('calc-result-label');
+const calcNote = document.getElementById('calc-note');
+function updateEconomics() {
+  if (!calcResult || calcInputs.some(input => !input)) return;
+  const [hours, rate, share] = calcInputs.map(input => Number(input.value));
+  const valid = calcInputs.every(input => input.value !== '' && input.checkValidity()) && (!calcPlan?.value || calcPlan.checkValidity());
+  if (!valid || !Number.isFinite(hours * rate * share)) {
+    calcResult.innerHTML = '—<span>/mo</span>';
+    if (calcEquation) calcEquation.textContent = 'Enter your numbers to see the calculation';
+    return;
+  }
+  const laborValue = Math.round(hours * (52 / 12) * rate * Math.min(share, 100) / 100);
+  const hasPlan = calcPlan?.value !== '';
+  const estimate = hasPlan ? laborValue - Number(calcPlan.value) : laborValue;
+  const currency = value => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
+  const amount = document.createTextNode(currency(Math.abs(estimate)));
+  const suffix = document.createElement('span');
+  suffix.textContent = '/mo';
+  calcResult.replaceChildren(amount, suffix);
+  if (calcResultLabel) calcResultLabel.textContent = hasPlan
+    ? estimate < 0 ? 'Plan cost above covered labor' : 'Potential monthly cost difference'
+    : 'Monthly wage-equivalent hours';
+  if (calcEquation) calcEquation.textContent = `${hours} h/week × 4.33 weeks × ${currency(rate)}/h × ${share}%${hasPlan ? ` − ${currency(Number(calcPlan.value))} plan` : ''}`;
+  if (calcNote) calcNote.textContent = hasPlan
+    ? 'This is an editable scenario, not measured savings. Cash savings require fewer paid hours or an avoided hire. The starting BLS wage excludes benefits; results are not guaranteed.'
+    : 'An editable scenario, not measured savings. The starting BLS wage excludes benefits. Cash savings require fewer paid hours or an avoided hire; enter your full Reply2Lead quote to compare.';
+}
+[...calcInputs, calcPlan].forEach(input => input?.addEventListener('input', updateEconomics));
+updateEconomics();
 
 const inboxItems = [...document.querySelectorAll('.inbox-item')];
 const inboxFilters = [...document.querySelectorAll('.inbox-tabs button')];
 function selectConversation(item) {
   const rayActivity = {
-    'Maya L.': '✳ Ray shared the product and delivery details.',
-    'Elliot K.': '✳ Ray paused so your team can clarify the warranty.',
-    'Amara P.': '✳ Ray gathered the preferred booking time.',
-    'Noah R.': '✳ Ray answered the opening-hours question.',
-    'Iris C.': '✳ Ray is checking online availability.'
+    'Maya L.': '✳ Ray confirmed the scope and asked about the launch date.',
+    'Elliot K.': '✳ Ray paused so your team can approve the contract exception.',
+    'Amara P.': '✳ Ray captured the team size and preferred consultation time.',
+    'Noah R.': '✳ Ray answered from the approved service guide.',
+    'Iris C.': '✳ Ray is checking the client’s eligibility criteria.'
   };
   inboxItems.forEach(row => row.classList.toggle('is-selected', row === item));
   document.getElementById('detail-name').textContent = item.dataset.person;
@@ -384,31 +490,31 @@ document.querySelector('.story-crm-button')?.addEventListener('click', (event) =
 
 const examples = [
   {
-    quote: '“Can someone explain which service is right for me?”',
-    description: 'Ray can collect what the customer needs, then bring in your team for a personal recommendation.',
-    question: 'Can someone explain which service is right for me?',
-    answer: 'Sure. What do you offer, and where are bookings getting stuck?',
-    detail: 'I run a yoga studio. Private sessions keep getting missed.',
-    followup: 'Got it. I’ll pass along the studio and private session details so our team can recommend the right setup.',
-    result: 'Team has the full conversation'
+    quote: '“Could we start with one site and add the second later?”',
+    description: 'Ray recognizes a phased rollout question, checks the buyer’s deadline, and leaves the custom quote to your team.',
+    question: 'Could we start with one site and add the second later?',
+    answer: 'Our approved scope supports phases. Is your first opening date fixed?',
+    detail: 'Yes, six weeks. Site two is waiting on permits.',
+    followup: 'I’ll ask a specialist to quote site one now and confirm how site two can be scheduled after permits clear.',
+    result: 'Scope and deadline sent to your team'
   },
   {
-    quote: '“I’m interested, but can we talk next month?”',
-    description: 'Ray keeps the context and follows up when the customer asked — even after your team moves on to other chats.',
-    question: 'I’m interested, but can we talk next month?',
-    answer: 'Absolutely. What changes next month?',
-    detail: 'Our new location opens then.',
-    followup: 'I’ll check in next month about the new location, so we can pick up where we left off.',
-    result: 'Follow-up set for next month'
+    quote: '“Our budget opens next quarter. Can you wait?”',
+    description: 'Ray keeps the buying context and follows up when the budget opens, without restarting the sales conversation.',
+    question: 'Our budget opens next quarter. Can you wait?',
+    answer: 'Of course. What would you need to evaluate before then?',
+    detail: 'A case study from a 10-person team and a pilot price.',
+    followup: 'I’ll share an approved case study now and bring your pilot request to the team. I can follow up when your budget opens.',
+    result: 'Pilot request saved · Follow-up planned'
   },
   {
-    quote: '“Could I speak with someone about a custom order?”',
-    description: 'Ray recognizes when a person is needed and passes the request to your team with the conversation attached.',
-    question: 'Could I speak with someone about a custom order?',
-    answer: 'Certainly. What do you need made, and when?',
-    detail: '120 branded gift boxes by early December.',
-    followup: 'Thanks. I’ll send those details to the team so they can confirm options and timing.',
-    result: 'Team notified with order details'
+    quote: '“Can you guarantee that exception in our contract?”',
+    description: 'Ray never invents a special term. It gathers the reason, then sends the exception to a person who can approve it.',
+    question: 'Can you guarantee that exception in our contract?',
+    answer: 'I can explain the standard policy, but an exception needs approval. Which term is the blocker?',
+    detail: 'We need a 30-day exit if the launch is delayed.',
+    followup: 'I’ve captured the clause and launch risk. I’ll ask a specialist to confirm what can be offered.',
+    result: 'Contract exception awaiting approval'
   }
 ];
 let exampleIndex = 0;

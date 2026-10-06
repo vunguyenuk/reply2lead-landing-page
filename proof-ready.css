@@ -16,7 +16,7 @@
 .proof .proof-content{min-width:0;padding:17px 0 5px;display:flex;flex-direction:column;align-items:flex-start}
 .proof .proof-content .eyebrow{color:#526157;font-size:12px;letter-spacing:.15em}
 .proof .proof-content h2{max-width:680px;margin:24px 0 28px;font-size:clamp(58px,5.3vw,92px);font-weight:500;line-height:.98;letter-spacing:-.072em}
-.proof .proof-content h2 em{font-family:var(--serif);font-weight:400;letter-spacing:-.065em}
+.proof .proof-content h2 em{font-family:var(--sans);font-style:normal;font-weight:inherit;letter-spacing:-.065em}
 .proof .proof-content>.button{min-height:54px;padding-inline:24px;min-width:178px;justify-content:space-between}
 .proof .example-slider{margin-top:auto;padding-top:31px;border-top:1px solid #d7ded8}
 .proof .example-quote{min-height:0;max-width:600px;font-size:clamp(23px,1.9vw,32px);line-height:1.15;letter-spacing:-.045em}

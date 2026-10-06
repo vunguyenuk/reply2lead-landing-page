@@ -14,13 +14,42 @@ mobileMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click',
   mobileMenu.hidden = true;
 }));
 
-const heroVideo = document.querySelector('.hero-video');
-if (prefersReducedMotion && heroVideo) heroVideo.pause();
-if (heroVideo && !prefersReducedMotion) {
-  const heroObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => entry.isIntersecting ? heroVideo.play().catch(() => {}) : heroVideo.pause());
-  }, { threshold: .08 });
-  heroObserver.observe(heroVideo);
+const heroFlow = document.querySelector('.hero-flow');
+let heroFlowTimers = [];
+let heroFlowVisible = false;
+function stopHeroFlow() {
+  heroFlowTimers.forEach(clearTimeout);
+  heroFlowTimers = [];
+}
+function playHeroFlow() {
+  if (!heroFlow || prefersReducedMotion || !heroFlowVisible || document.hidden) return;
+  stopHeroFlow();
+  heroFlow.dataset.stage = 'question';
+  [
+    [850, 'typing'],
+    [1650, 'reply'],
+    [3100, 'followup'],
+    [4400, 'booking'],
+  ].forEach(([delay, stage]) => heroFlowTimers.push(setTimeout(() => {
+    if (heroFlowVisible && !document.hidden) heroFlow.dataset.stage = stage;
+  }, delay)));
+  heroFlowTimers.push(setTimeout(playHeroFlow, 11400));
+}
+if (heroFlow) {
+  if (prefersReducedMotion) {
+    heroFlow.dataset.stage = 'booking';
+  } else {
+    const heroFlowObserver = new IntersectionObserver(entries => {
+      heroFlowVisible = entries[0].isIntersecting;
+      if (heroFlowVisible) playHeroFlow();
+      else stopHeroFlow();
+    }, { threshold: .08 });
+    heroFlowObserver.observe(heroFlow);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopHeroFlow();
+      else if (heroFlowVisible) playHeroFlow();
+    });
+  }
 }
 
 if (!prefersReducedMotion) {
@@ -40,7 +69,7 @@ if (!prefersReducedMotion) {
   }, { threshold: .08, rootMargin: '0px 0px -20px 0px' });
   revealTargets.forEach(target => revealObserver.observe(target));
 
-  const storyStages = document.querySelectorAll('.performance-grid .card, .flow-art, .sales-knowledge-stage, .steps-grid .step-card, .assistant-stage');
+  const storyStages = document.querySelectorAll('.performance-grid .card, .flow-art, .sales-knowledge-stage, .steps-grid .step-card, .assistant-stage, .final-cta');
   const storyObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -181,7 +210,7 @@ function showDemoStep(nextStep) {
     requestAnimationFrame(() => demoMessages.scrollTo({ top: demoMessages.scrollHeight, behavior: 'smooth' }));
   }
   if (demoStatus) {
-    demoStatus.textContent = nextStep === 6 ? 'Checkout link sent · example conversation' :
+    demoStatus.textContent = nextStep === 6 ? 'Checkout link sent' :
       nextStep % 2 === 1 ? 'Ray is typing a reply' : 'Ray is handling this conversation';
   }
   if (demoPauseButton) demoPauseButton.hidden = nextStep === demoBubbles.length - 1;
@@ -243,9 +272,9 @@ if (demoWindow && !prefersReducedMotion) {
 const shopThread = document.querySelector('.shop-thread');
 const shopExtra = document.querySelector('.shop-extra');
 const shopReplies = {
-  discount: 'I do not have a verified student discount in this demo. I can ask the team for you.',
-  returns: 'I do not have a verified return policy in this demo yet. I can pass your question to the team.',
-  shipping: 'I do not have verified international shipping details in this demo. I can ask the team before promising a delivery date.'
+  discount: 'I do not have a verified student discount. I can ask the team for you.',
+  returns: 'I do not have a verified return policy yet. I can pass your question to the team.',
+  shipping: 'I do not have verified international shipping details. I can ask the team before promising a delivery date.'
 };
 function appendShopMessage(kind, message) {
   const bubble = document.createElement('div');
@@ -268,7 +297,7 @@ document.querySelector('[data-shop-action="buy"]')?.addEventListener('click', ()
   scrollShopThread();
 });
 document.querySelector('[data-shop-action="details"]')?.addEventListener('click', () => {
-  appendShopMessage('ray', 'Demo product details: Nova Mini · $149 · 2-year warranty · free shipping.');
+  appendShopMessage('ray', 'Nova Mini · $149 · 2-year warranty · free shipping.');
   scrollShopThread();
 });
 const shopSuggestions = document.getElementById('shop-suggestions');
@@ -350,7 +379,7 @@ document.querySelector('.story-crm-button')?.addEventListener('click', (event) =
   const added = button.getAttribute('aria-pressed') === 'true';
   button.setAttribute('aria-pressed', String(!added));
   button.textContent = added ? '↗ Add to CRM' : '✓ Added to CRM';
-  button.setAttribute('aria-label', added ? 'Add this example lead to CRM' : 'Remove this example lead from CRM');
+  button.setAttribute('aria-label', added ? 'Add lead to CRM' : 'Remove lead from CRM');
 });
 
 const examples = [
@@ -358,25 +387,62 @@ const examples = [
     quote: '“Can someone explain which service is right for me?”',
     description: 'Ray can collect what the customer needs, then bring in your team for a personal recommendation.',
     question: 'Can someone explain which service is right for me?',
-    answer: "I can help with that. Here's a quick summary based on your needs...",
-    points: ['Your goals and use case', 'Recommended option', 'Next steps']
+    answer: 'Sure. What do you offer, and where are bookings getting stuck?',
+    detail: 'I run a yoga studio. Private sessions keep getting missed.',
+    followup: 'Got it. I’ll pass along the studio and private session details so our team can recommend the right setup.',
+    result: 'Team has the full conversation'
   },
   {
     quote: '“I’m interested, but can we talk next month?”',
     description: 'Ray keeps the context and follows up when the customer asked — even after your team moves on to other chats.',
     question: 'I’m interested, but can we talk next month?',
-    answer: 'Of course. I’ll remember what matters and check in when you’re ready.',
-    points: ['Interest recorded', 'Timing saved', 'Follow-up scheduled']
+    answer: 'Absolutely. What changes next month?',
+    detail: 'Our new location opens then.',
+    followup: 'I’ll check in next month about the new location, so we can pick up where we left off.',
+    result: 'Follow-up set for next month'
   },
   {
     quote: '“Could I speak with someone about a custom order?”',
     description: 'Ray recognizes when a person is needed and passes the request to your team with the conversation attached.',
     question: 'Could I speak with someone about a custom order?',
-    answer: 'Absolutely. I’ll bring in the right teammate and pass along what we’ve discussed.',
-    points: ['Request identified', 'Context summarized', 'Team notified']
+    answer: 'Certainly. What do you need made, and when?',
+    detail: '120 branded gift boxes by early December.',
+    followup: 'Thanks. I’ll send those details to the team so they can confirm options and timing.',
+    result: 'Team notified with order details'
   }
 ];
 let exampleIndex = 0;
+const proofPanel = document.querySelector('.proof-chat-panel');
+const proofThread = document.querySelector('.proof-chat-thread');
+const proofSteps = [...document.querySelectorAll('[data-proof-step]')];
+let proofTimers = [];
+let proofVisible = false;
+
+function clearProofTimers() {
+  proofTimers.forEach(clearTimeout);
+  proofTimers = [];
+}
+
+function showProofStep(stage) {
+  proofSteps.forEach(element => {
+    const step = Number(element.dataset.proofStep);
+    element.classList.toggle('is-visible', element.classList.contains('proof-typing') ? step === stage : step <= stage);
+  });
+  if (stage > 0) requestAnimationFrame(() => proofThread?.scrollTo({ top: proofThread.scrollHeight, behavior: 'smooth' }));
+}
+
+function playProofConversation() {
+  if (!proofPanel || prefersReducedMotion || !proofVisible || document.hidden) return;
+  clearProofTimers();
+  showProofStep(0);
+  [[160, 1], [1300, 2], [2350, 3], [4750, 4], [6100, 5], [7250, 6], [10300, 7]].forEach(([delay, stage]) => {
+    proofTimers.push(setTimeout(() => {
+      if (proofVisible && !document.hidden) showProofStep(stage);
+    }, delay));
+  });
+  proofTimers.push(setTimeout(playProofConversation, 18000));
+}
+
 function setExample(next) {
   exampleIndex = (next + examples.length) % examples.length;
   const example = examples[exampleIndex];
@@ -385,11 +451,25 @@ function setExample(next) {
   document.getElementById('example-count').textContent = `0${exampleIndex + 1} / 0${examples.length}`;
   document.getElementById('proof-customer-question').textContent = example.question;
   document.getElementById('proof-ray-answer').textContent = example.answer;
-  document.querySelectorAll('#proof-ray-points li').forEach((item, index) => { item.textContent = example.points[index]; });
-  const panel = document.querySelector('.proof-chat-panel');
-  panel.classList.remove('is-changing');
-  void panel.offsetWidth;
-  panel.classList.add('is-changing');
+  document.getElementById('proof-customer-detail').textContent = example.detail;
+  document.getElementById('proof-ray-followup').textContent = example.followup;
+  document.getElementById('proof-chat-result').textContent = example.result;
+  if (proofVisible) playProofConversation();
+  else if (!prefersReducedMotion) showProofStep(7);
 }
 document.getElementById('example-prev')?.addEventListener('click', () => setExample(exampleIndex - 1));
 document.getElementById('example-next')?.addEventListener('click', () => setExample(exampleIndex + 1));
+if (proofPanel && !prefersReducedMotion) {
+  proofPanel.classList.add('proof-running');
+  showProofStep(7);
+  const proofObserver = new IntersectionObserver(entries => {
+    proofVisible = entries[0].isIntersecting;
+    if (proofVisible) playProofConversation();
+    else clearProofTimers();
+  }, { threshold: .35 });
+  proofObserver.observe(proofPanel);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearProofTimers();
+    else if (proofVisible) playProofConversation();
+  });
+}

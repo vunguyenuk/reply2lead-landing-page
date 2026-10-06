@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f7f8f6" />
   <meta name="description" content="Ray is an AI sales rep for social DMs: it answers from your business knowledge, keeps track of buying intent, and helps follow up." />
-  <title>Reply2Lead — Sales don’t stop when you log off</title>
+  <title>Reply2Lead — Stop losing leads in your DMs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./site.css?v=22" />
   <link rel="stylesheet" href="./story-cards.css?v=2" />
   <link rel="stylesheet" href="./proof-ready.css?v=2" />
-  <script src="./site.js?v=17" defer></script>
+  <link rel="stylesheet" href="./hero-conversation.css?v=1" />
+  <link rel="stylesheet" href="./final-cta.css?v=1" />
+  <link rel="stylesheet" href="./phone-device.css?v=1" />
+  <script src="./site.js?v=18" defer></script>
   <noscript><style>.demo-bubble,.reveal-target{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
@@ -32,29 +35,40 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <main id="main">
     <section class="hero frame" id="top" aria-labelledby="hero-title">
-      <video class="hero-video" autoplay muted playsinline loop poster="./assets/nura/hero-poster.webp" aria-hidden="true"><source src="./assets/nura/hero.mp4" type="video/mp4"></video>
+      <img class="hero-image" src="./assets/hero-conversation.webp" alt="A customer smiles while reading messages on her phone at home" fetchpriority="high" />
       <div class="hero-overlay" aria-hidden="true"></div>
       <header class="nav-bar">
-        <a class="wordmark wordmark-light" href="#top" aria-label="Reply2Lead home">reply<span>2</span>lead<span class="wordmark-spark">✳</span></a>
+        <a class="wordmark" href="#top" aria-label="Reply2Lead home">reply<span>2</span>lead<span class="wordmark-spark">✳</span></a>
         <nav class="nav-links" aria-label="Main navigation"><a href="#performance">Why Reply2Lead</a><a href="#product">Product</a><a href="#steps">How it works</a><a href="#faq">FAQ</a></nav>
         <a class="nav-button" href="#contact">Talk to us <span aria-hidden="true">↗</span></a>
         <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
       </header>
       <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden><a href="#performance">Why Reply2Lead</a><a href="#product">Product</a><a href="#steps">How it works</a><a href="#faq">FAQ</a><a href="#contact">Talk to us ↗</a></nav>
       <div class="hero-content">
-        <h1 id="hero-title">Sales don’t stop<br><em>when you log off.</em></h1>
-        <p>Ray is your AI sales rep in DMs. It answers from your business knowledge, keeps track of leads that go quiet, and brings your team in when a person is needed.</p>
-        <a class="button button-white" href="#overview">Watch a sales conversation <span aria-hidden="true">↗</span></a>
+        <h1 id="hero-title"><span>Stop losing leads</span><em>in your DMs.</em></h1>
+        <p>Ray answers with your prices, services, and policies. When someone is ready to buy or book, your team gets the full thread.</p>
+        <a class="button hero-button" href="#overview">See Ray handle a DM <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="hero-bottom"><span>A question answered. A lead remembered.</span><span>Scroll to explore ↓</span></div>
+      <div class="hero-flow" aria-label="A customer asks on Instagram, Ray replies, then a booking is captured">
+        <span class="hero-social hero-social-instagram" aria-label="Instagram"><svg class="social-icon" aria-hidden="true"><use href="#social-instagram"></use></svg></span>
+        <span class="hero-social hero-social-whatsapp" aria-label="WhatsApp"><svg class="social-icon" aria-hidden="true"><use href="#social-whatsapp"></use></svg></span>
+        <span class="hero-social hero-social-messenger" aria-label="Messenger"><svg class="social-icon" aria-hidden="true"><use href="#social-messenger"></use></svg></span>
+        <div class="hero-message hero-message-question"><svg class="social-icon instagram" aria-hidden="true"><use href="#social-instagram"></use></svg><span>Is this still available?</span><time>10:24 AM</time></div>
+        <div class="hero-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="hero-message hero-message-ray"><span class="hero-ray-mark" aria-hidden="true">✳</span><div class="hero-ray-body"><div class="hero-ray-head"><strong>Ray (AI)</strong><time>10:25 AM</time></div><p>Yes! It’s available.<br>Here are the details and pricing...</p><div class="hero-product-preview" aria-hidden="true"><img src="./assets/story-support-bg.webp" alt=""><span class="hero-product-lines"><i></i><i></i><i></i><b></b></span></div></div></div>
+        <span class="hero-send" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 21 42 6 29 43l-7-16-17-6Zm17 6L42 6"/></svg></span>
+        <div class="hero-message hero-message-followup"><svg class="social-icon messenger" aria-hidden="true"><use href="#social-messenger"></use></svg><span>Can I book for this weekend?</span><time>10:27 AM</time></div>
+        <div class="hero-message hero-message-booking"><span class="hero-calendar" aria-hidden="true">▦</span><div><strong>New booking</strong><i></i><i></i></div><time>10:28 AM</time></div>
+      </div>
+      <div class="hero-bottom"><span>A question. A useful reply. A clear next step.</span><a href="#overview">Scroll to explore ↓</a></div>
     </section>
 
     <section class="overview section-pad" id="overview" aria-labelledby="overview-title">
       <div class="section-head two-col shell"><span class="eyebrow">Overview</span><div><h2 id="overview-title">A price question <em>is just the opening.</em></h2><p>Watch Ray turn a simple product question into a conversation that reaches checkout.</p></div></div>
       <div class="overview-media shell">
-        <img src="./assets/nura/overview.webp" alt="A person relaxing outdoors" loading="lazy" />
+        <img src="./assets/overview-oxfords.webp" alt="Ivory Oxford shoes in an open shoebox beside a phone" loading="lazy" />
         <div class="overview-wash" aria-hidden="true"></div>
-        <div class="demo-window" aria-label="Example customer conversation with Ray">
+        <div class="demo-window" aria-label="Customer conversation with Ray">
           <div class="demo-top"><span class="demo-avatar">S</span><div><strong>Solace Studio</strong><small>Instagram DM · After hours</small></div><svg class="social-icon instagram" aria-hidden="true"><use href="#social-instagram"></use></svg></div>
           <div class="demo-messages" id="demo-messages" aria-live="off">
             <div class="demo-bubble ray"><small>✳ Ray AI</small>Hi there! Yes, we have the <strong>Classic Oxford in Size 10</strong> in stock. Shipping to California typically takes <strong>2-3 business days</strong> with our standard shipping. If you need them sooner, we also offer overnight delivery! Are you buying these for a specific event or everyday wear?</div>
@@ -68,7 +82,6 @@
           </div>
           <div class="demo-footer"><span><i></i><strong id="demo-status">Ray is handling this conversation</strong></span><div class="demo-controls"><button class="demo-pause" type="button" aria-label="Pause conversation">Pause</button><button class="demo-replay" type="button" aria-label="Replay conversation">Replay ↻</button></div></div>
         </div>
-        <span class="demo-disclaimer">Illustrative scenario · Product, policies, shipping, discount and link are examples</span>
       </div>
     </section>
 
@@ -82,7 +95,7 @@
           <div class="perf-photo-copy"><h2 id="performance-title">Give the answer<br>they came for.</h2><p>Prices, policies, services — Ray replies with the facts you gave it.</p></div>
           <span class="photo-mark">REPLY2LEAD ✳</span>
         </div>
-        <div class="perf-answer card" aria-label="Illustrative customer and Ray conversation">
+        <div class="perf-answer card" aria-label="Customer and Ray conversation">
           <div class="shop-thread">
             <div class="shop-question"><span class="shop-customer-avatar"><img src="./assets/nura/lead.webp" alt="" loading="lazy"></span><div><strong>How much is the Nova Mini?</strong><small>10:24 AM <span aria-hidden="true">✓✓</span></small></div></div>
             <div class="shop-ray-row"><span class="shop-ray-avatar" aria-hidden="true">✳</span><div class="shop-reply-wrap"><div class="shop-ray-name">Ray <span>AI</span></div><div class="shop-reply"><p>The Nova Mini is <strong>$149</strong> and available now. It comes with a 2-year warranty and free shipping.</p><div class="shop-product"><span class="shop-product-art"><svg viewBox="0 0 128 128" role="img" aria-label="Black headphones"><defs><linearGradient id="headphone-body" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#344c54"/><stop offset="1" stop-color="#07171d"/></linearGradient></defs><path d="M25 68V54c0-25 16-40 39-40s39 15 39 40v14" fill="none" stroke="#152a32" stroke-width="13" stroke-linecap="round"/><path d="M31 62V54c0-20 12-32 33-32s33 12 33 32v8" fill="none" stroke="#65777a" stroke-width="3" stroke-linecap="round" opacity=".55"/><rect x="16" y="60" width="28" height="51" rx="13" fill="url(#headphone-body)"/><rect x="84" y="60" width="28" height="51" rx="13" fill="url(#headphone-body)"/><path d="M43 82c13 12 29 12 42 0" fill="none" stroke="#0a1d23" stroke-width="8"/><path d="M23 68v32M91 68v32" stroke="#859696" stroke-width="2" opacity=".5"/></svg></span><span class="shop-product-copy"><strong>Nova Mini</strong><b>$149</b><span>In stock</span></span><span class="shop-product-arrow" aria-hidden="true">›</span></div><div class="shop-actions"><button type="button" data-shop-action="buy"><span aria-hidden="true">🛒</span> Buy now</button><button type="button" data-shop-action="details"><span aria-hidden="true">ⓘ</span> View details</button></div></div></div></div>
@@ -92,7 +105,7 @@
         </div>
         </div>
         <div class="performance-story">
-        <div class="perf-intent card" aria-label="Illustrative path from a price question to a qualified conversation">
+        <div class="perf-intent card" aria-label="Path from a price question to a qualified conversation">
           <span class="intent-arrow" aria-hidden="true">↗</span>
           <div class="intent-intro"><strong>From “how<br>much?” to<br><em>“send the link.”</em></strong><div class="intent-line" aria-hidden="true"><span></span><span></span><span></span><span></span></div><p>A second question can reveal real intent. Silence can be a cue to follow up.</p></div>
           <div class="intent-scene" aria-hidden="true">
@@ -115,7 +128,6 @@
         </div>
         </div>
       </div>
-      <p class="performance-note">Illustrative storefront conversation · Product details and policies are examples.</p>
     </section>
 
     <section class="planning section-pad" id="flow" aria-labelledby="flow-title">
@@ -126,7 +138,7 @@
           <p>Turn interested comments into private DMs automatically. Ray answers, captures the details and keeps the conversation going.</p>
           <a class="button button-dark" href="#product">Explore the inbox <span aria-hidden="true">→</span></a>
         </div>
-        <div class="flow-art" aria-label="Illustrative Instagram comment becoming a private conversation">
+        <div class="flow-art" aria-label="Instagram comment becoming a private conversation">
           <div class="flow-orbit orbit-one" aria-hidden="true"></div>
           <div class="flow-orbit orbit-two" aria-hidden="true"></div>
           <svg class="flow-connector" viewBox="0 0 900 720" preserveAspectRatio="none" aria-hidden="true"><path d="M270 258 C270 343 435 331 490 395"/></svg>
@@ -148,7 +160,7 @@
       </div>
     </section>
 
-    <section class="product section-pad shell" id="product" aria-labelledby="product-title"><div class="section-head product-head two-col"><span class="eyebrow">Focus / Product</span><div><h2 id="product-title">Know who to <em>follow up with.</em></h2><p>See the question, buying signal, and next step in one place. No digging through messages.</p></div></div><div class="product-stage"><div class="product-glow" aria-hidden="true"></div><div class="inbox-ui"><aside class="inbox-side"><strong class="mini-logo">reply<span>2</span>lead ✳</strong><div class="side-nav"><span class="side-active">◫ &nbsp; Inbox <b>5</b></span><span>◇ &nbsp; Leads</span><span>▤ &nbsp; Knowledge</span><span>◷ &nbsp; Follow-ups</span></div><span class="side-bottom">Ray is online <i></i></span></aside><div class="inbox-list"><div class="inbox-title"><strong>Conversations</strong><span>Today <b>⌄</b></span></div><div class="inbox-tabs"><button class="is-active" type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="needs" aria-pressed="false">Needs you</button><button type="button" data-filter="qualified" aria-pressed="false">Qualified</button></div><div class="inbox-items"><button class="inbox-item is-selected" type="button" data-kind="qualified" data-person="Maya L." data-source="Instagram" data-question="Can it arrive before Friday?" data-insight="Buying intent · Asked about delivery"><span class="person-avatar purple">M</span><span><strong>Maya L.</strong><small>Nova Mini · delivery timing</small></span><em>Qualified</em></button><button class="inbox-item" type="button" data-kind="needs" data-person="Elliot K." data-source="WhatsApp" data-question="Could someone explain the warranty?" data-insight="Needs your team · Warranty question"><span class="person-avatar peach">E</span><span><strong>Elliot K.</strong><small>Warranty clarification</small></span><em>Needs you</em></button><button class="inbox-item" type="button" data-kind="qualified" data-person="Amara P." data-source="Messenger" data-question="Can I book for Thursday?" data-insight="Ready to book · Date shared"><span class="person-avatar blue">A</span><span><strong>Amara P.</strong><small>Thursday appointment</small></span><em>Qualified</em></button><button class="inbox-item" type="button" data-kind="other" data-person="Noah R." data-source="Facebook" data-question="What are your opening hours?" data-insight="Answered by Ray · Opening hours"><span class="person-avatar mint">N</span><span><strong>Noah R.</strong><small>Opening hours</small></span><em>Answered</em></button><button class="inbox-item" type="button" data-kind="other" data-person="Iris C." data-source="TikTok" data-question="Is this available online?" data-insight="Ray replying · Availability"><span class="person-avatar yellow">I</span><span><strong>Iris C.</strong><small>Online availability</small></span><em>Ray replying</em></button></div></div><div class="inbox-detail"><div class="detail-top"><span>Conversation</span><span>•••</span></div><div class="detail-person"><span class="person-avatar purple" id="detail-avatar">M</span><div><strong id="detail-name">Maya L.</strong><small id="detail-source">Instagram DM</small></div></div><div class="detail-label" id="detail-insight">Buying intent · Asked about delivery</div><div class="detail-chat"><span class="detail-date">Today</span><p class="detail-customer" id="detail-question">Can it arrive before Friday?</p><p class="detail-ray">✳ Ray shared the product and delivery details.</p></div><div class="detail-action">Suggested next step <strong>Follow up with Maya ↗</strong></div></div></div></div><p class="demo-note">Interactive example · Select a conversation or filter the inbox</p></section>
+    <section class="product section-pad shell" id="product" aria-labelledby="product-title"><div class="section-head product-head two-col"><span class="eyebrow">Focus / Product</span><div><h2 id="product-title">Know who to <em>follow up with.</em></h2><p>See the question, buying signal, and next step in one place. No digging through messages.</p></div></div><div class="product-stage"><div class="product-glow" aria-hidden="true"></div><div class="inbox-ui"><aside class="inbox-side"><strong class="mini-logo">reply<span>2</span>lead ✳</strong><div class="side-nav"><span class="side-active">◫ &nbsp; Inbox <b>5</b></span><span>◇ &nbsp; Leads</span><span>▤ &nbsp; Knowledge</span><span>◷ &nbsp; Follow-ups</span></div><span class="side-bottom">Ray is online <i></i></span></aside><div class="inbox-list"><div class="inbox-title"><strong>Conversations</strong><span>Today <b>⌄</b></span></div><div class="inbox-tabs"><button class="is-active" type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="needs" aria-pressed="false">Needs you</button><button type="button" data-filter="qualified" aria-pressed="false">Qualified</button></div><div class="inbox-items"><button class="inbox-item is-selected" type="button" data-kind="qualified" data-person="Maya L." data-source="Instagram" data-question="Can it arrive before Friday?" data-insight="Buying intent · Asked about delivery"><span class="person-avatar purple">M</span><span><strong>Maya L.</strong><small>Nova Mini · delivery timing</small></span><em>Qualified</em></button><button class="inbox-item" type="button" data-kind="needs" data-person="Elliot K." data-source="WhatsApp" data-question="Could someone explain the warranty?" data-insight="Needs your team · Warranty question"><span class="person-avatar peach">E</span><span><strong>Elliot K.</strong><small>Warranty clarification</small></span><em>Needs you</em></button><button class="inbox-item" type="button" data-kind="qualified" data-person="Amara P." data-source="Messenger" data-question="Can I book for Thursday?" data-insight="Ready to book · Date shared"><span class="person-avatar blue">A</span><span><strong>Amara P.</strong><small>Thursday appointment</small></span><em>Qualified</em></button><button class="inbox-item" type="button" data-kind="other" data-person="Noah R." data-source="Facebook" data-question="What are your opening hours?" data-insight="Answered by Ray · Opening hours"><span class="person-avatar mint">N</span><span><strong>Noah R.</strong><small>Opening hours</small></span><em>Answered</em></button><button class="inbox-item" type="button" data-kind="other" data-person="Iris C." data-source="TikTok" data-question="Is this available online?" data-insight="Ray replying · Availability"><span class="person-avatar yellow">I</span><span><strong>Iris C.</strong><small>Online availability</small></span><em>Ray replying</em></button></div></div><div class="inbox-detail"><div class="detail-top"><span>Conversation</span><span>•••</span></div><div class="detail-person"><span class="person-avatar purple" id="detail-avatar">M</span><div><strong id="detail-name">Maya L.</strong><small id="detail-source">Instagram DM</small></div></div><div class="detail-label" id="detail-insight">Buying intent · Asked about delivery</div><div class="detail-chat"><span class="detail-date">Today</span><p class="detail-customer" id="detail-question">Can it arrive before Friday?</p><p class="detail-ray">✳ Ray shared the product and delivery details.</p></div><div class="detail-action">Suggested next step <strong>Follow up with Maya ↗</strong></div></div></div></div></section>
 
     <section class="knowledge section-pad" id="knowledge" aria-labelledby="knowledge-title">
       <div class="sales-knowledge-shell">
@@ -159,7 +171,7 @@
             <p>Give your AI the right knowledge, case studies, and pricing. It answers questions, handles objections, and follows up — just like your best sales rep.</p>
           </div>
         </div>
-        <div class="sales-knowledge-stage" aria-label="Illustrative coaching inquiry and AI sales reply">
+        <div class="sales-knowledge-stage" aria-label="Coaching inquiry and AI sales reply">
           <div class="sales-customer-card">
             <div class="sales-customer-head"><span class="sales-customer-avatar" aria-hidden="true">JD</span><div><strong>Jordan Davis</strong><small>Potential customer</small></div><time>10:24 AM</time></div>
             <p>Hi! I’m interested in your coaching program. Can you tell me what’s included and how much it costs?</p>
@@ -175,7 +187,6 @@
           <article><span class="sales-benefit-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 8v9l6 4"/></svg></span><div><h3>Follow up automatically</h3><p>Re-engage leads at the right time — 30 days, 3 months, or whenever it makes sense.</p></div></article>
           <article><span class="sales-benefit-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V10h5v17M23 27V5h5v22"/></svg></span><div><h3>Convert like a top rep</h3><p>Handle questions, objections, and bookings with natural conversations.</p></div></article>
         </div>
-        <p class="sales-knowledge-note">Illustrative coaching conversation · Program details, price, and outcomes are examples.</p>
       </div>
     </section>
 
@@ -186,46 +197,48 @@
           <div class="credit-panel">
             <div class="credit-panel-top"><span class="ui-kicker">CREDIT CONTINUITY</span><span class="credit-badge"><i aria-hidden="true"></i><span id="credit-badge-text">Knowledge mode</span></span></div>
             <div class="credit-panel-main"><span class="credit-count" id="credit-count" aria-live="polite">0 AI credits left</span><div class="credit-track" aria-hidden="true"><span class="credit-level"></span></div><p>Your approved answers stay ready for the questions customers ask again and again.</p></div>
-            <div class="credit-mode-controls" role="group" aria-label="Preview credit balance"><button type="button" data-credit-mode="available" aria-pressed="false">Credits available</button><button type="button" data-credit-mode="exhausted" aria-pressed="true">Credits exhausted</button></div>
+          <div class="credit-mode-controls" role="group" aria-label="Credit balance"><button type="button" data-credit-mode="available" aria-pressed="false">Credits available</button><button type="button" data-credit-mode="exhausted" aria-pressed="true">Credits exhausted</button></div>
           </div>
-          <div class="credit-conversation" aria-label="Illustrative conversation with Ray"><div class="credit-conversation-head"><span class="ray-mark" aria-hidden="true">✳</span><div><strong>Ray</strong><small>Instagram DM · Example conversation</small></div><svg class="social-icon instagram" aria-hidden="true"><use href="#social-instagram"></use></svg></div><div class="credit-thread"><div class="credit-message credit-customer"><small>Customer</small><p>Can I reschedule my appointment?</p></div><div class="credit-typing" aria-hidden="true"><span></span><span></span><span></span><small>Ray is checking your booking policy</small></div><div class="credit-message credit-ray"><small>Ray</small><p>Yes. You can reschedule up to 24 hours before your appointment using the link in your confirmation.</p></div><div class="credit-source"><span aria-hidden="true">✓</span> Answered from your approved booking policy</div></div><div class="credit-conversation-bottom"><span class="credit-state-dot" aria-hidden="true"></span><strong id="credit-state" aria-live="polite">Reply sent · no AI credits used</strong></div></div>
+          <div class="credit-conversation" aria-label="Conversation with Ray"><div class="credit-conversation-head"><span class="ray-mark" aria-hidden="true">✳</span><div><strong>Ray</strong><small>Instagram DM</small></div><svg class="social-icon instagram" aria-hidden="true"><use href="#social-instagram"></use></svg></div><div class="credit-thread"><div class="credit-message credit-customer"><small>Customer</small><p>Can I reschedule my appointment?</p></div><div class="credit-typing" aria-hidden="true"><span></span><span></span><span></span><small>Ray is checking your booking policy</small></div><div class="credit-message credit-ray"><small>Ray</small><p>Yes. You can reschedule up to 24 hours before your appointment using the link in your confirmation.</p></div><div class="credit-source"><span aria-hidden="true">✓</span> Answered from your approved booking policy</div></div><div class="credit-conversation-bottom"><span class="credit-state-dot" aria-hidden="true"></span><strong id="credit-state" aria-live="polite">Reply sent · no AI credits used</strong></div></div>
         </div>
-        <p class="credit-demo-note">Illustrative example · Ray only answers from approved knowledge when credits are exhausted.</p>
       </div>
     </section>
 
     <section class="stories section-pad" id="outcomes" aria-label="Three ways Ray helps">
       <div class="shell story-tiles">
         <article class="story-card story-support">
-          <div class="story-image" aria-label="Illustrative AI support conversation across social channels">
+          <div class="story-image" aria-label="AI support conversation across social channels">
             <img class="story-backdrop" src="./assets/story-support-bg.webp" alt="" loading="lazy">
             <div class="story-channel-stack" aria-hidden="true">
               <span class="story-channel story-channel-whatsapp"><svg class="social-icon whatsapp"><use href="#social-whatsapp"></use></svg></span>
               <span class="story-channel story-channel-instagram"><svg class="social-icon instagram"><use href="#social-instagram"></use></svg></span>
               <span class="story-channel story-channel-messenger"><svg class="social-icon messenger"><use href="#social-messenger"></use></svg></span>
             </div>
-            <div class="story-phone" aria-hidden="true">
-              <div class="story-phone-notch"></div><div class="story-phone-status">9:41 <span>●●● ▰</span></div>
-              <div class="story-phone-head"><span class="story-phone-back">‹</span><span class="story-phone-ray">✳</span><span><strong>Ray assistant</strong><small>Online <i></i></small></span></div>
-              <div class="story-phone-thread"><span class="story-phone-bubble">Hi! I can help with pricing, availability, or any questions. What would you like to know?</span><span class="story-phone-bubble user">Do you have this in size M?</span><span class="story-phone-bubble">Yes, it's available in size M and ready to ship. ✨</span><span class="story-mini-product"><span class="story-mini-product-icon">◧</span><span><strong>Essential Hoodie</strong><small>Size M · $89</small></span><span class="story-mini-cart">Add to cart</span></span></div>
-              <div class="story-phone-compose">Type a message... <span>➤</span></div>
+            <div class="story-phone iphone-16-pro-max" aria-hidden="true">
+              <div class="iphone-screen">
+                <div class="iphone-statusbar"><strong>9:41</strong><span class="iphone-dynamic-island"></span><span class="iphone-system-icons"><svg viewBox="0 0 40 16"><path d="M1 14h3V9H1zm5 0h3V6H6zm5 0h3V3h-3zm7-8a13 13 0 0 1 17 0l-2 2a10 10 0 0 0-13 0zm4 4a7 7 0 0 1 9 0l-4.5 5z" fill="currentColor"/></svg><i></i></span></div>
+                <div class="story-phone-head"><span class="story-phone-back">‹</span><span class="story-phone-ray">✳</span><span><strong>Ray assistant</strong><small>Online <i></i></small></span></div>
+                <div class="story-phone-thread"><span class="story-phone-bubble">Hi! I can help with pricing, availability, or any questions. What would you like to know?</span><span class="story-phone-bubble user">Do you have this in size M?</span><span class="story-phone-bubble">Yes, it's available in size M and ready to ship. ✨</span><span class="story-mini-product"><span class="story-mini-product-icon">◧</span><span><strong>Essential Hoodie</strong><small>Size M · $89</small></span><span class="story-mini-cart">Add to cart</span></span></div>
+                <div class="story-phone-compose">Type a message... <span>➤</span></div>
+                <span class="iphone-home-indicator"></span>
+              </div>
             </div>
           </div>
           <h3>Support</h3><p>Answer questions instantly,<br>24/7 across all channels.</p>
         </article>
         <article class="story-card story-lead">
-          <div class="story-image" aria-label="Illustrative qualified lead ready to add to a CRM">
+          <div class="story-image" aria-label="Qualified lead ready to add to a CRM">
             <div class="story-lead-ghost" aria-hidden="true"></div>
             <div class="story-lead-panel">
               <div class="story-lead-head"><span class="story-lead-avatar">SK</span><span><strong>New lead</strong><small>From Instagram</small></span><svg class="social-icon instagram" aria-hidden="true"><use href="#social-instagram"></use></svg></div>
               <dl><div><dt>Name</dt><dd>Sarah Kim</dd></div><div><dt>Email</dt><dd>sarah@example.com</dd></div><div><dt>Phone</dt><dd>+1 (555) 010-0199</dd></div></dl>
-              <button class="story-crm-button" type="button" aria-label="Add this example lead to CRM" aria-pressed="false">↗ &nbsp; Add to CRM</button>
+              <button class="story-crm-button" type="button" aria-label="Add lead to CRM" aria-pressed="false">↗ &nbsp; Add to CRM</button>
             </div>
           </div>
           <h3>Lead capture</h3><p>Turn conversations into qualified<br>leads automatically.</p>
         </article>
         <article class="story-card story-handoff">
-          <div class="story-image" aria-label="Illustrative AI conversation handed to a human teammate">
+          <div class="story-image" aria-label="AI conversation handed to a human teammate">
             <img class="story-backdrop" src="./assets/story-handoff-agent.webp" alt="Customer support specialist wearing a headset" loading="lazy">
             <span class="story-handoff-pill">ϟ &nbsp; AI handled the initial questions</span>
             <span class="story-handoff-ray"><span class="story-ray-avatar">✳</span><span>I'll connect you with a specialist to help with that. One moment...</span></span>
@@ -243,23 +256,44 @@
       <div class="shell proof-grid">
         <div class="proof-photo">
           <img src="./assets/proof-ready.webp" alt="A customer considering her options while working at a laptop" loading="lazy">
-          <span class="proof-photo-label">Conversation examples</span>
-          <div class="proof-chat-panel" aria-label="Illustrative conversation with Ray">
-            <div class="proof-chat-row proof-chat-customer"><span class="proof-chat-avatar" aria-hidden="true">R</span><p id="proof-customer-question">Can someone explain which service is right for me?</p></div>
-            <div class="proof-chat-row proof-chat-ray"><span class="proof-chat-avatar" aria-hidden="true">✳</span><div class="proof-chat-answer"><p id="proof-ray-answer">I can help with that. Here's a quick summary based on your needs...</p><ul id="proof-ray-points"><li>Your goals and use case</li><li>Recommended option</li><li>Next steps</li></ul></div></div>
-            <div class="proof-chat-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="proof-chat-panel" aria-label="Customer conversation with Ray">
+            <div class="proof-chat-head"><span class="proof-chat-avatar" aria-hidden="true">✳</span><div><strong>Ray</strong><small>Instagram DM</small></div><span class="proof-online" aria-hidden="true"></span></div>
+            <div class="proof-chat-thread" aria-live="off">
+              <div class="proof-message proof-message-customer" data-proof-step="1"><small>Customer</small><p id="proof-customer-question">Can someone explain which service is right for me?</p></div>
+              <div class="proof-typing" data-proof-step="2" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="proof-message proof-message-ray" data-proof-step="3"><small>Ray</small><p id="proof-ray-answer">Sure. What do you offer, and where are bookings getting stuck?</p></div>
+              <div class="proof-message proof-message-customer" data-proof-step="4"><small>Customer</small><p id="proof-customer-detail">I run a yoga studio. Private sessions keep getting missed.</p></div>
+              <div class="proof-typing" data-proof-step="5" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="proof-message proof-message-ray" data-proof-step="6"><small>Ray</small><p id="proof-ray-followup">Got it. I’ll pass along the studio and private session details so our team can recommend the right setup.</p></div>
+            </div>
+            <div class="proof-chat-result" data-proof-step="7"><span aria-hidden="true">✓</span><span id="proof-chat-result">Team has the full conversation</span></div>
           </div>
         </div>
-        <div class="proof-content"><span class="eyebrow">Real moments</span><h2 id="proof-title">When they’re<br>ready, <em>you’ll know.</em></h2><a class="button button-dark" href="#assistant">Meet Ray <span aria-hidden="true">↗</span></a><div class="example-slider" aria-live="polite"><div class="example-quote" id="example-quote">“Can someone explain which service is right for me?”</div><p id="example-description">Ray can collect what the customer needs, then bring in your team for a personal recommendation.</p><div class="slider-bottom"><span id="example-count">01 / 03</span><div><button type="button" id="example-prev" aria-label="Previous example">←</button><button type="button" id="example-next" aria-label="Next example">→</button></div></div></div></div>
+        <div class="proof-content"><h2 id="proof-title">When they’re<br>ready, <em>you’ll know.</em></h2><a class="button button-dark" href="#assistant">Meet Ray <span aria-hidden="true">↗</span></a><div class="example-slider" aria-live="polite"><div class="example-quote" id="example-quote">“Can someone explain which service is right for me?”</div><p id="example-description">Ray can collect what the customer needs, then bring in your team for a personal recommendation.</p><div class="slider-bottom"><span id="example-count">01 / 03</span><div><button type="button" id="example-prev" aria-label="Previous conversation">←</button><button type="button" id="example-next" aria-label="Next conversation">→</button></div></div></div></div>
       </div>
-      <p class="proof-note shell">Illustrative conversations · Your team controls answers and handoff rules.</p>
     </section>
 
-    <section class="assistant section-pad" id="assistant" aria-labelledby="assistant-title"><div class="shell"><div class="section-head two-col"><span class="eyebrow">Assistant</span><div><h2 id="assistant-title">Ray follows the thread. <em>You take the handoff.</em></h2><p>Ray answers and keeps track of the next step. When a customer needs a person, your team gets the full conversation.</p></div></div><div class="assistant-stage"><div class="assistant-haze" aria-hidden="true"></div><div class="phone-ui"><div class="phone-notch"></div><div class="phone-header"><span class="ray-mark">✳</span><div><strong>Ray</strong><small>Ready to help</small></div></div><div class="phone-day">Today</div><div class="phone-bubble right">Can I speak with someone about a custom order?</div><div class="phone-bubble left">Absolutely. I’ll pass this to the team, along with what we’ve discussed so far.</div><div class="phone-status"><span></span> Handed to your team</div><div class="phone-input">Message a customer <span>↑</span></div></div><div class="assistant-side"><span>Ray helps your team spend less time on repeat questions — and more time on the people who need them.</span><a class="button button-white" href="#contact">Talk to us ↗</a></div></div></div></section>
+    <section class="assistant section-pad" id="assistant" aria-labelledby="assistant-title"><div class="shell"><div class="section-head two-col"><span class="eyebrow">Assistant</span><div><h2 id="assistant-title">Ray follows the thread. <em>You take the handoff.</em></h2><p>Ray answers and keeps track of the next step. When a customer needs a person, your team gets the full conversation.</p></div></div><div class="assistant-stage"><div class="assistant-haze" aria-hidden="true"></div><div class="phone-ui iphone-16-pro-max"><div class="iphone-screen"><div class="iphone-statusbar"><strong>9:41</strong><span class="iphone-dynamic-island"></span><span class="iphone-system-icons"><svg viewBox="0 0 40 16" aria-hidden="true"><path d="M1 14h3V9H1zm5 0h3V6H6zm5 0h3V3h-3zm7-8a13 13 0 0 1 17 0l-2 2a10 10 0 0 0-13 0zm4 4a7 7 0 0 1 9 0l-4.5 5z" fill="currentColor"/></svg><i></i></span></div><div class="phone-header"><span class="ray-mark">✳</span><div><strong>Ray</strong><small>Ready to help</small></div></div><div class="phone-day">Today</div><div class="phone-bubble right">Can I speak with someone about a custom order?</div><div class="phone-bubble left">Absolutely. I’ll pass this to the team, along with what we’ve discussed so far.</div><div class="phone-status"><span></span> Handed to your team</div><div class="phone-input">Message a customer <span>↑</span></div><span class="iphone-home-indicator"></span></div></div><div class="assistant-side"><span>Ray helps your team spend less time on repeat questions — and more time on the people who need them.</span><a class="button button-white" href="#contact">Talk to us ↗</a></div></div></div></section>
 
     <section class="faq section-pad shell" id="faq" aria-labelledby="faq-title"><div class="faq-heading"><span class="eyebrow">FAQ</span><h2 id="faq-title">Know exactly <em>how Ray works.</em></h2><a class="button button-outline" href="mailto:hello@reply2lead.com?subject=Question%20about%20Reply2Lead">Ask us something ↗</a></div><div class="faq-list"><details><summary>What can Ray answer?<span>+</span></summary><p>Ray can answer routine questions using the product, service, FAQ, and policy information you provide.</p></details><details><summary>What happens when Ray does not know?<span>+</span></summary><p>Ray flags the missing answer and brings your team into the conversation. You can save the right response or keep that question with a person.</p></details><details><summary>Do I need to write a sales playbook?<span>+</span></summary><p>No. Add your website, FAQs, policies, files and past chats. Ray shows what it knows and asks about gaps. Test it with real buyer questions, then approve answers and handoff rules before launch.</p></details><details><summary>What happens when a lead goes quiet?<span>+</span></summary><p>Ray can keep the context and follow up at the agreed time, so a promising conversation does not disappear when your team logs off.</p></details><details><summary>How do I judge whether Ray is worth the cost?<span>+</span></summary><p>Ask for the monthly price and any usage or channel fees. Compare the full cost with the profit from one extra sale or booking and the time your team spends on repeat questions.</p></details></div></section>
 
-    <section class="final-cta frame" id="contact" aria-labelledby="final-title"><img src="./assets/nura/final.webp" alt="Person standing among flowers" loading="lazy"><div class="final-shade" aria-hidden="true"></div><div class="final-inner"><a class="wordmark wordmark-light" href="#top">reply<span>2</span>lead<span class="wordmark-spark">✳</span></a><h2 id="final-title">Keep selling <em>after hours.</em></h2><div class="final-bottom"><p>Bring the questions customers ask before they buy or book. See how Ray answers, follows up, and hands the right thread to your team.</p><a class="button button-white" href="mailto:hello@reply2lead.com?subject=Reply2Lead%20demo%20and%20pricing">Request demo &amp; pricing <span aria-hidden="true">↗</span></a></div></div></section>
+    <section class="final-cta frame" id="contact" aria-labelledby="final-title">
+      <img src="./assets/cta-after-hours.webp" alt="Business owner at her laptop beside a city window at sunset" loading="lazy">
+      <div class="final-shade" aria-hidden="true"></div>
+      <div class="cta-signals" aria-hidden="true">
+        <div class="cta-signal cta-signal-one"><span class="cta-signal-avatar">M</span><span>Is this still available?</span><small>Now</small></div>
+        <div class="cta-signal cta-signal-one-status"><span class="cta-ray-mark">✳</span><span>Ray replied</span><b>•••</b></div>
+        <div class="cta-signal cta-signal-two"><span class="cta-signal-avatar">J</span><span>Can I get a quote?</span><small>5m ago</small></div>
+        <div class="cta-signal cta-signal-two-status"><span class="cta-ray-mark">✳</span><span>Followed up</span><b>✓</b></div>
+        <div class="cta-signal cta-signal-three"><span class="cta-signal-avatar">A</span><span>Do you offer this in LA?</span><small>12m ago</small></div>
+        <div class="cta-signal cta-signal-three-status"><span class="cta-ray-mark">✳</span><span>Booked a demo</span><b>▣</b></div>
+      </div>
+      <div class="final-inner">
+        <a class="wordmark wordmark-light" href="#top">reply<span>2</span>lead<span class="wordmark-spark">✳</span></a>
+        <h2 id="final-title"><span>Keep selling</span><em>after hours.</em></h2>
+        <div class="final-bottom"><p>Bring the questions customers ask before they buy or book. See how Ray answers, follows up, and hands the right thread to your team.</p><a class="button button-white" href="mailto:hello@reply2lead.com?subject=Reply2Lead%20demo%20and%20pricing">Request demo &amp; pricing <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
   </main>
   <footer class="footer shell"><div><strong class="wordmark">reply<span>2</span>lead<span class="wordmark-spark">✳</span></strong><p>See where the conversation can go.</p></div><nav aria-label="Footer navigation"><a href="#performance">Why Reply2Lead</a><a href="#product">Product</a><a href="#steps">How it works</a><a href="#faq">FAQ</a></nav><div class="footer-contact"><a href="mailto:hello@reply2lead.com">hello@reply2lead.com ↗</a><span>© 2026 Reply2Lead</span></div></footer>
 </body>

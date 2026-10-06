@@ -1,0 +1,76 @@
+/* One front-facing device treatment for every phone UI on the page. */
+.iphone-16-pro-max{
+  box-sizing:border-box;
+  aspect-ratio:77.6 / 163;
+  height:auto;
+  padding:5px;
+  border:1px solid #727a76;
+  border-radius:10.5% / 5%;
+  background:linear-gradient(125deg,#87908b 0%,#303936 10%,#141a19 36%,#4d5752 72%,#929c95 100%);
+  box-shadow:inset 0 0 0 2px #18201e,0 25px 42px #101b174d,8px 12px 18px #101b1726;
+  overflow:visible;
+}
+.iphone-16-pro-max::before{
+  content:"";position:absolute;z-index:2;inset:3px;border:1px solid #a1aaa4;
+  border-radius:inherit;pointer-events:none;opacity:.55;
+}
+.iphone-16-pro-max::after{
+  content:"";position:absolute;right:-3px;top:24%;width:3px;height:11%;
+  border-radius:0 2px 2px 0;background:linear-gradient(#777f7a,#25302b,#737d76);
+  box-shadow:0 2px 3px #14221a3d;
+}
+.iphone-screen{
+  box-sizing:border-box;position:relative;width:100%;height:100%;
+  overflow:hidden;border:2px solid #080d0c;border-radius:inherit;
+  background:#fff;container-type:inline-size;
+}
+.iphone-statusbar{
+  box-sizing:border-box;position:relative;display:flex;align-items:flex-start;justify-content:space-between;
+  height:15cqw;padding:4.4cqw 6.2cqw 0;color:#111817;
+}
+.iphone-statusbar>strong{font-size:4.2cqw;line-height:1;font-weight:700;letter-spacing:-.04em}
+.iphone-dynamic-island{
+  position:absolute;top:2.8cqw;left:50%;width:29cqw;height:6.2cqw;
+  transform:translateX(-50%);border-radius:99px;background:#030606;
+  box-shadow:inset 0 1px 2px #141d1c;
+}
+.iphone-system-icons{display:flex;align-items:center;gap:1.4cqw;height:5cqw}
+.iphone-system-icons svg{display:block;width:12cqw;height:5cqw}
+.iphone-system-icons i{box-sizing:border-box;position:relative;display:block;width:6cqw;height:3.6cqw;border:1px solid currentColor;border-radius:1.2cqw}
+.iphone-system-icons i::before{content:"";position:absolute;inset:.6cqw 1cqw .6cqw .6cqw;border-radius:.4cqw;background:currentColor}
+.iphone-system-icons i::after{content:"";position:absolute;right:-1.5cqw;top:1cqw;width:1cqw;height:1.4cqw;border-radius:0 1px 1px 0;background:currentColor}
+.iphone-home-indicator{position:absolute;bottom:2.4cqw;left:50%;width:31cqw;height:1.4cqw;max-height:5px;transform:translateX(-50%);border-radius:99px;background:#18201d}
+
+.story-phone.iphone-16-pro-max{
+  top:5%;right:8%;width:55%;height:auto;padding:5px;border-width:1px;
+  border-radius:10.5% / 5%;background:linear-gradient(125deg,#88928c,#272f2c 11%,#141a19 40%,#6d7770 100%);
+  overflow:visible;
+}
+.story-phone .iphone-screen{border-radius:inherit}
+.story-phone .story-phone-head{gap:3cqw;margin:0 4cqw;padding:2.5cqw 0 4cqw}
+.story-phone .story-phone-head strong{font-size:clamp(8px,3.6cqw,13px)}
+.story-phone .story-phone-head small{font-size:clamp(7px,2.9cqw,10px)}
+.story-phone .story-phone-back{font-size:clamp(15px,8cqw,27px)}
+.story-phone .story-phone-ray{width:12cqw;height:12cqw;font-size:6cqw}
+.story-phone .story-phone-thread{gap:3cqw;padding:5cqw 4cqw 0}
+.story-phone .story-phone-bubble{padding:3.5cqw 4cqw;font-size:clamp(8px,3.2cqw,13px);line-height:1.35}
+.story-phone .story-mini-product{grid-template-columns:23% 1fr;gap:2cqw;padding:2cqw}
+.story-phone .story-mini-product-icon{height:100%;min-height:14cqw;font-size:10cqw}
+.story-phone .story-mini-product strong,.story-phone .story-mini-product small{font-size:clamp(7px,3cqw,11px)}
+.story-phone .story-mini-cart{font-size:clamp(6px,2.4cqw,9px)}
+.story-phone .story-phone-compose{left:5cqw;right:5cqw;bottom:7cqw;padding:3cqw;font-size:clamp(7px,2.9cqw,10px)}
+
+.phone-ui.iphone-16-pro-max{
+  width:265px;height:auto;padding:5px;border:1px solid #727a76;
+  border-radius:10.5% / 5%;background:linear-gradient(125deg,#929b94,#353e39 15%,#18211d 75%,#88938a);
+}
+.phone-ui .iphone-screen{border-radius:inherit}
+.phone-ui .phone-header{margin:0 5cqw;padding:4cqw 1cqw 5cqw}
+.phone-ui .phone-day{margin:7cqw 0}
+.phone-ui .phone-bubble{margin-left:5cqw;margin-right:5cqw}
+.phone-ui .phone-bubble.right{margin-left:auto}
+.phone-ui .phone-status{margin-left:5cqw}
+.phone-ui .phone-input{left:5cqw;right:5cqw;bottom:7cqw}
+
+@media(max-width:760px){.phone-ui.iphone-16-pro-max{width:245px}}
+@media(max-width:440px){.story-phone.iphone-16-pro-max{top:5%;right:6%;width:56%;height:auto;padding:4px}.story-phone .story-phone-thread{gap:2cqw;padding-top:3cqw}.story-phone .story-phone-bubble{font-size:8px;padding:2.5cqw 3cqw}}

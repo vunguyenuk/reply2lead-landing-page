@@ -1,0 +1,177 @@
+.final-cta {
+  height: clamp(600px, 47vw, 740px);
+  background: #263434;
+  isolation: isolate;
+}
+
+.final-cta > img {
+  object-position: center 49%;
+}
+
+.final-shade {
+  background:
+    linear-gradient(90deg, rgba(7, 18, 25, .72) 0%, rgba(9, 20, 25, .61) 28%, rgba(15, 24, 26, .25) 53%, rgba(13, 22, 23, .12) 78%, rgba(10, 18, 20, .21) 100%),
+    linear-gradient(0deg, rgba(7, 16, 20, .36), transparent 38%);
+}
+
+.final-inner {
+  padding: clamp(36px, 4.5vw, 72px);
+  z-index: 3;
+}
+
+.final-cta h2 {
+  display: flex;
+  flex-direction: column;
+  width: min(52%, 750px);
+  max-width: none;
+  font-size: clamp(64px, 7vw, 112px);
+  line-height: .86;
+  letter-spacing: -.065em;
+  margin: auto 0;
+  text-wrap: nowrap;
+}
+
+.final-cta h2 em {
+  font-size: 1.02em;
+  letter-spacing: -.045em;
+  margin-top: .1em;
+  white-space: nowrap;
+}
+
+.final-bottom {
+  position: relative;
+  z-index: 3;
+  align-items: flex-end;
+}
+
+.final-bottom p {
+  max-width: 440px;
+  color: rgba(255, 255, 255, .96);
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.5;
+}
+
+.final-bottom .button {
+  min-height: 58px;
+  min-width: 270px;
+  justify-content: space-between;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(8, 19, 21, .12);
+}
+
+.cta-signals {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  font-size: clamp(10px, .85vw, 13px);
+  font-weight: 700;
+  color: #1c2724;
+}
+
+.cta-signal {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: .7em;
+  min-height: 42px;
+  padding: .48em .8em;
+  border: 1px solid rgba(255, 255, 255, .72);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .88);
+  box-shadow: 0 10px 28px rgba(20, 36, 28, .15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  white-space: nowrap;
+}
+
+.cta-signal small {
+  margin-left: 1em;
+  color: #859089;
+  font-size: .82em;
+  font-weight: 500;
+}
+
+.cta-signal b {
+  margin-left: .7em;
+  color: #36b881;
+  font-size: 1.1em;
+}
+
+.cta-signal-avatar,
+.cta-ray-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: 50%;
+  background: #d4e5dc;
+  color: #20513b;
+  font-size: 12px;
+}
+
+.cta-ray-mark {
+  background: #2fc987;
+  color: white;
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.cta-signal-one {left: 44%; top: 20%;}
+.cta-signal-one-status {left: 47%; top: 28%;}
+.cta-signal-two {right: 4%; top: 23%;}
+.cta-signal-two-status {right: 8%; top: 31%;}
+.cta-signal-three {right: 3%; top: 48%;}
+.cta-signal-three-status {right: 7%; top: 56%;}
+
+.motion-ready .final-cta .cta-signal {
+  opacity: 0;
+  transform: translateY(16px) scale(.97);
+}
+
+.motion-ready .final-cta.demo-active .cta-signal {
+  animation: cta-signal-in .65s cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+.motion-ready .final-cta.demo-active .cta-signal-one {animation-delay: .08s;}
+.motion-ready .final-cta.demo-active .cta-signal-one-status {animation-delay: .42s;}
+.motion-ready .final-cta.demo-active .cta-signal-two {animation-delay: .72s;}
+.motion-ready .final-cta.demo-active .cta-signal-two-status {animation-delay: 1.08s;}
+.motion-ready .final-cta.demo-active .cta-signal-three {animation-delay: 1.42s;}
+.motion-ready .final-cta.demo-active .cta-signal-three-status {animation-delay: 1.78s;}
+
+@keyframes cta-signal-in {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 1050px) {
+  .final-cta h2 {width: 57%; font-size: clamp(58px, 7vw, 82px);}
+  .cta-signal-one,
+  .cta-signal-one-status {display: none;}
+}
+
+@media (max-width: 760px) {
+  .final-cta {height: 710px;}
+  .final-cta > img {object-position: 68% center;}
+  .final-shade {
+    background: linear-gradient(0deg, rgba(9, 20, 25, .85) 0%, rgba(10, 19, 22, .55) 38%, rgba(10, 20, 24, .05) 75%, rgba(10, 20, 24, .18) 100%);
+  }
+  .final-inner {padding: 30px;}
+  .final-cta h2 {width: 100%; font-size: clamp(55px, 10vw, 76px); margin: auto 0 40px;}
+  .cta-signals {display: none;}
+  .final-bottom {align-items: flex-start; flex-direction: column; gap: 22px;}
+  .final-bottom p {max-width: 400px; font-size: 15px;}
+}
+
+@media (max-width: 500px) {
+  .final-cta {height: 710px;}
+  .final-cta > img {object-position: 65% center;}
+  .final-inner {padding: 26px 22px;}
+  .final-cta h2 {font-size: clamp(48px, 12vw, 61px); margin-bottom: 32px;}
+  .final-bottom .button {min-width: 0; width: 100%;}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .final-cta .cta-signal {opacity: 1; transform: none; animation: none;}
+}

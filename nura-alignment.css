@@ -1,0 +1,42 @@
+/* Nura-inspired neutral framework: charcoal, white, soft gray and restrained pastel surfaces. */
+:root{--ink:#1a1a1a;--muted:#707070;--paper:#fff;--deep:#1a1a1a;--line:#e6e6e6}
+body{background:#fff}
+.button-dark{background:#1a1a1a;color:#fff}
+.button-dark:hover{background:#323232}
+.button-outline{border-color:#d5d5d5;color:#1a1a1a}
+.button-outline:hover{background:#f5f5f5}
+.eyebrow{color:#777}
+.section-head h2 em,.planning-copy h2 em,.sales-knowledge-heading h2 em,.partners-copy h2 em,.knowledge-heading h2 em{color:inherit}
+.hero h1 em{color:#1a1a1a}
+.hero .hero-button{background:#1a1a1a;color:#fff}
+.hero .hero-button:hover{background:#353535}
+.planning{background:#f8f8f8}
+.flow-art{background:radial-gradient(ellipse at 25% 80%,#edcbd2 0,transparent 54%),radial-gradient(ellipse at 75% 22%,#c9d9ef 0,transparent 58%),#ece8ee}
+.product-stage{background:radial-gradient(ellipse at 25% 80%,#eac3d4 0,transparent 55%),radial-gradient(ellipse at 80% 15%,#aebfda 0,transparent 60%),#e7e6ed}
+.sales-knowledge-stage{background:radial-gradient(ellipse at 20% 85%,#ecd5dc 0,transparent 56%),radial-gradient(ellipse at 85% 20%,#c6d5eb 0,transparent 60%),#f0eef2}
+.partners,.credit-continuity{background:#f8f8f8}
+.partners-copy p{color:#707070}
+.partners-playbook,.partners-chat,.partners-outcome{border-color:#e8e8e8;box-shadow:0 18px 40px #1a1a1a12}
+.credit-panel{background:#1a1a1a}
+.credit-panel-top .ui-kicker,.credit-panel-main p{color:#b9b9b9}
+.credit-mode-controls button{color:#c5c5c5}
+.credit-mode-controls button[aria-pressed="true"]{background:#fff;color:#1a1a1a}
+.assistant-stage{background:linear-gradient(125deg,#e6dce8,#dbe3f0 55%,#f5e5e1)}
+.market-evidence,.economics{background:#1a1a1a;color:#f8f8f8}
+.market-evidence .eyebrow,.economics .eyebrow{color:#a7a7a7}
+.market-evidence-head h2 em,.economics-copy h2 em{color:#f8f8f8}
+.market-evidence-head p,.market-evidence-bottom>div:first-child p,.market-facts p,.economics-copy p{color:#b9b9b9}
+.reddit-capture{color:#f1f1f1}
+.reddit-capture img{border-color:#444;box-shadow:none}
+.reddit-capture>span{border-color:#515151}
+.market-facts>div,.market-evidence-footnote{border-color:#505050}
+.market-facts strong,.market-facts a{color:#f8f8f8}
+.market-evidence-footnote{color:#969696}
+.economics-panel{border-color:#e6e6e6;background:#f8f8f8;color:#1a1a1a;box-shadow:0 24px 55px #0003}
+.economics-panel-head,.economics-inputs label{border-color:#dedede}
+.economics-inputs input{border-color:#d8d8d8;color:#1a1a1a}
+.economics-result strong,.economics-result .economics-equation,.economics-panel>a{color:#1a1a1a}
+.economics-panel>a{background:#1a1a1a;color:#fff}
+.economics-panel>a:hover{background:#333}
+.economics-benchmark a{color:#1a1a1a}
+.final-shade{background:linear-gradient(90deg,#1a1a1ac9,#1a1a1a75 62%,#1a1a1a66)}

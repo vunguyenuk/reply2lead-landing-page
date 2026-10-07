@@ -5,10 +5,10 @@
 .tour-step:hover{background:#ffffff17;border-color:#bceccd70}
 .tour-step:focus-visible{outline:2px solid #a8edbf;outline-offset:3px}
 .tour-step.is-active{background:#f6faf6;color:#17271d;border-color:#f6faf6;box-shadow:0 16px 32px #00170e24}
-.tour-step-number{padding-top:5px;color:#88cba0;font-size:11px;font-weight:700;letter-spacing:.08em}
+.tour-step-number{padding-top:5px;color:#88cba0;font-size:11px;font-weight:700;}
 .tour-step.is-active .tour-step-number{color:#3c8556}
 .tour-step-copy{display:block;min-width:0}
-.tour-step-copy strong{display:block;font-family:var(--display);font-size:21px;font-weight:600;line-height:1.12;letter-spacing:-.045em}
+.tour-step-copy strong{display:block;font-family:var(--display);font-size:21px;font-weight:600;line-height:1.12;}
 .tour-step-copy small{display:block;margin-top:9px;color:#afc6b6;font-size:12px;line-height:1.4}
 .tour-step.is-active .tour-step-copy small{color:#64756a}
 .tour-step-arrow{color:#8acba1;font-size:16px;line-height:1;transform:translate(-3px,3px);opacity:.5;transition:transform .28s ease,opacity .28s ease}

@@ -28,7 +28,7 @@
   box-sizing:border-box;position:relative;display:flex;align-items:flex-start;justify-content:space-between;
   height:15cqw;padding:4.4cqw 6.2cqw 0;color:#111817;
 }
-.iphone-statusbar>strong{font-size:4.2cqw;line-height:1;font-weight:700;letter-spacing:-.04em}
+.iphone-statusbar>strong{font-size:4.2cqw;line-height:1;font-weight:700;}
 .iphone-dynamic-island{
   position:absolute;top:2.8cqw;left:50%;width:29cqw;height:6.2cqw;
   transform:translateX(-50%);border-radius:99px;background:#030606;

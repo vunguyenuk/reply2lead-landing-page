@@ -3,8 +3,9 @@
 @font-face{font-family:"Inter Display";src:url("./assets/fonts/InterDisplay-Medium.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap}
 @font-face{font-family:"Inter Display";src:url("./assets/fonts/InterDisplay-SemiBold.woff2") format("woff2");font-style:normal;font-weight:600;font-display:swap}
 @font-face{font-family:"Inter Display";src:url("./assets/fonts/InterDisplay-Bold.woff2") format("woff2");font-style:normal;font-weight:700;font-display:swap}
-:root{--ink:#202522;--paper:#f7f8f6;--green:#25d366;--deep:#111b21;--sans:"DM Sans",Arial,sans-serif;--display:"Inter Display","DM Sans",sans-serif;--type-section:3.5rem;--type-body:1rem;--leading-section:1.17857}
+:root{--ink:#202522;--paper:#f7f8f6;--green:#25d366;--deep:#111b21;--sans:"Inter Display",Arial,sans-serif;--display:var(--sans);--type-section:3.5rem;--type-body:1rem;--leading-section:1.17857}
 body{background:var(--paper);font-family:var(--display);font-kerning:normal}
+button,input,select,textarea{font-family:var(--display)}
 h1,h2,h3{font-family:var(--display)}
 h1 em,h2 em,h3 em{font-family:var(--display)!important}
 @media(min-width:1300px){:root{--shell:min(calc(100vw - 160px),1440px)}}
@@ -23,8 +24,8 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
 .hero .nav-button{background:#25d366;color:#fff}
 .hero .nav-login:hover,.hero .nav-button:hover{transform:translateY(-2px)}
 .hero-content{left:max(9.7vw,calc((100vw - 1548px)/2));top:229px;width:575px;max-width:43vw;transform:none;text-align:left}
-.hero h1{font-size:64px;line-height:1.156;letter-spacing:-.05em;font-weight:600;margin:0 0 20px}
-.hero h1 span,.hero h1 em{display:block;white-space:normal;font-size:inherit;line-height:inherit;letter-spacing:inherit;color:#fff;font-style:normal}
+.hero h1{font-size:64px;line-height:1.156;font-weight:600;margin:0 0 20px}
+.hero h1 span,.hero h1 em{display:block;white-space:normal;font-size:inherit;line-height:inherit;color:#fff;font-style:normal}
 .hero p{width:464px;max-width:100%;font-family:var(--display);font-size:16px;line-height:1.647;font-weight:400;color:#fff;margin:0 0 57px}
 .hero .hero-button{min-height:52px;padding:14px 27px;border-radius:64px;background:#25d366;color:#fff;font-size:16px;gap:24px;box-shadow:none}
 .hero-bottom{display:none}
@@ -36,18 +37,15 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
 .hero-message-booking{left:70.9%;top:69.2%;width:462px;min-width:0;border-radius:11px}
 .hero-send{right:3.6%;top:42.6%}
 
-/* The imported frame has a quote and a clean video placeholder here. */
-.figma-overview{height:1108px;position:relative;background:#f7f8f6;padding:0}
-.overview-intro{position:absolute;top:60px;left:calc(50% - 140px);width:576px;max-width:calc(50% - 40px)}
-.overview-intro h2{margin:0 0 15px;font-size:28px;font-weight:400;line-height:1.27;letter-spacing:-.035em;color:#111b21}
-.overview-intro p{margin:0;font-family:var(--display);font-size:26px;line-height:1.35;letter-spacing:-.03em;color:rgba(0,0,0,.3)}
-.overview-video{position:absolute;top:303px;left:50%;transform:translateX(-50%);width:min(1389px,calc(100% - 96px));aspect-ratio:16/9;overflow:hidden;border-radius:22px;background:#111b21}
+/* Let the product film follow the hero without a second text introduction. */
+.figma-overview{display:flex;flex-direction:column;align-items:center;height:auto;position:relative;background:#f7f8f6;padding:clamp(48px,4vw,76px) 0 clamp(72px,6vw,104px)}
+.overview-video{position:relative;width:min(1389px,calc(100% - 96px));aspect-ratio:16/9;overflow:hidden;border-radius:22px;background:#111b21}
 .overview-video video{display:block;width:100%;height:100%;object-fit:contain}
 
 .market-evidence{min-height:1075px;padding:168px 0 90px;background:#111b21;color:#f3faf5}
 .market-evidence-head{display:flex;justify-content:space-between;align-items:center;gap:40px;margin:0 0 72px}
-.market-evidence-head h2{font-size:56px;line-height:1.18;letter-spacing:-.05em;font-weight:500;max-width:none;margin:0}
-.market-evidence-head h2 em{color:#25d366;letter-spacing:inherit}
+.market-evidence-head h2{font-size:56px;line-height:1.18;font-weight:500;max-width:none;margin:0}
+.market-evidence-head h2 em{color:#25d366;}
 .market-evidence-head p{width:362px;max-width:36%;margin:0;font-family:var(--display);font-size:16px;line-height:1.52;color:#c4d5ca}
 .owner-stories{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .reddit-capture:last-child{grid-column:auto;width:auto;justify-self:stretch}
@@ -76,14 +74,13 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
   .hero-content{left:8%;top:190px;max-width:48%;width:520px}
   .hero h1{font-size:clamp(44px,5vw,60px)}
   .hero-flow{transform:scale(.78);transform-origin:top right;width:128%;left:auto;right:0}
-  .figma-overview{height:960px}
-  .overview-intro{left:44%;width:50%}
-  .overview-video{top:270px}
   .market-evidence{padding-top:110px;min-height:0}
   .market-evidence-bottom{gap:35px}
   .figma-stories{height:auto;min-height:600px;padding:65px 0}
 }
 @media(max-width:900px){
+  .figma-overview{padding:56px 0 72px}
+  .overview-video{width:calc(100% - 64px)}
   .hero .nav-actions{margin-left:auto}
   .hero .nav-links{display:none}
   .hero-content{max-width:53%;left:7%}
@@ -116,11 +113,8 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
   .hero-message-ray{left:9%;top:66%;width:79%}
   .hero-message-followup{left:4%;top:82%;width:78%}
   .hero-message-booking{left:auto;right:4%;top:85%;width:70%}
-  .figma-overview{height:auto;padding:70px 20px 80px}
-  .overview-intro{position:static;width:auto;max-width:580px;margin:0 auto 45px}
-  .overview-intro h2{font-size:25px}
-  .overview-intro p{font-size:20px}
-  .overview-video{position:static;transform:none;width:100%;height:auto;border:1px solid #edf1ee}
+  .figma-overview{padding:40px 20px 56px}
+  .overview-video{width:100%;border:1px solid #edf1ee;border-radius:16px}
   .market-evidence{padding:80px 0}
   .market-evidence-head h2{font-size:clamp(40px,9vw,54px)}
   .owner-stories{grid-template-columns:1fr;gap:18px}
@@ -146,29 +140,29 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
   font-size:var(--type-section);
   line-height:var(--leading-section);
   font-weight:500;
-  letter-spacing:-.04em;
+
 }
 :where(.section-head p,.perf-photo-copy p,.planning-copy>p,.partners-copy>p,.sales-knowledge-heading p,.economics-copy>p){
   font-family:var(--display);
   font-size:var(--type-body);
   line-height:1.5;
   font-weight:400;
-  letter-spacing:0;
+
 }
-.eyebrow{font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.12em}
-.section-head h2 em,.planning-copy h2 em,.partners-copy h2 em,.economics-copy h2 em,.sales-knowledge-heading h2 em,.final-cta h2 em{font-family:var(--display);font-size:inherit;font-weight:inherit;letter-spacing:inherit}
+.eyebrow{font-family:var(--sans);font-size:.75rem;font-weight:700;}
+.section-head h2 em,.planning-copy h2 em,.partners-copy h2 em,.economics-copy h2 em,.sales-knowledge-heading h2 em,.final-cta h2 em{font-family:var(--display);font-size:inherit;font-weight:inherit;}
 
 /* Performance sits inside a 1440px image, with a compact answer card. */
 .performance.section-pad{padding-top:134px;padding-bottom:116px}
 .performance-story{min-height:760px}
-.perf-photo-copy h2{font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.perf-photo-copy h2{font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;}
 .perf-photo-copy p{max-width:350px;font-size:var(--type-body);line-height:1.5}
 
 /* The next chapter fills exactly one 820px band. */
 .planning{min-height:820px;background:radial-gradient(ellipse at 69% 44%,#e1ebe5 0,#f5f8f5 54%,#f8faf7 100%)}
 .planning-inner{min-height:820px}
 .planning-copy{padding:0 45px 0 0}
-.planning-copy h2{max-width:540px;margin:0 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em;white-space:normal}
+.planning-copy h2{max-width:540px;margin:0 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;white-space:normal}
 .planning-copy h2 em{display:inline;color:#0f583c;white-space:normal}
 .planning-copy p{max-width:390px;margin:0 0 40px;font-size:var(--type-body);line-height:1.5}
 .planning-copy .button,.partners-copy .button,.assistant-side .button{min-width:0;min-height:52px;padding:14px 27px;border:0;border-radius:64px;background:#25d366;color:#071b15;font-family:var(--display);font-size:1rem;font-weight:500;gap:0;box-shadow:none}
@@ -177,29 +171,29 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
 /* Product and knowledge share the same 56/66 editorial heading treatment. */
 .product.section-pad{min-height:1102px;padding-top:77px;padding-bottom:132px}
 .product-head{margin-bottom:76px}
-.product-head h2{max-width:464px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.product-head h2{max-width:464px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;}
 .product-head p{max-width:392px;margin-top:27px;font-size:var(--type-body);line-height:1.5}
 .product-stage{height:610px;background:radial-gradient(ellipse at 50% 40%,#d9e6df 0,#becfd0 78%,#d2dfd6 100%)}
 .knowledge.section-pad{min-height:1363px;padding-block:90px 160px;background:#f7f8f6}
 .sales-knowledge-heading{grid-template-columns:41% minmax(0,59%)}
-.sales-knowledge-heading h2{font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.sales-knowledge-heading h2{font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;}
 .sales-knowledge-heading p{max-width:540px;margin-top:40px;font-size:var(--type-body);line-height:1.5}
 .sales-knowledge-stage{min-height:630px;margin-top:86px;background:radial-gradient(ellipse at 25% 85%,#d9ecde 0,#edf4ef 50%,#f3f6f0 100%)}
 .sales-ai-card{right:3.6%}
 
 /* Partner and credit chapters use the same quiet body scale. */
 .partners.section-pad{min-height:787px;padding-block:116px;background:#f5f8f5}
-.partners-copy h2{margin:0 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.partners-copy h2{margin:0 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;}
 .partners-copy p{max-width:380px;margin:0 0 40px;font-size:var(--type-body);line-height:1.5}
 .credit-continuity.section-pad{min-height:1012px;padding-block:116px;background:#f7f8f6}
 .credit-continuity .section-head{margin-bottom:69px}
-.credit-continuity .section-head h2{max-width:614px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.credit-continuity .section-head h2{max-width:614px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;}
 .credit-continuity .section-head p{max-width:614px;margin-top:40px;font-size:var(--type-body);line-height:1.5}
 
 /* Figma's setup chapter uses a plain charcoal canvas and a single-line title. */
 .steps.section-pad{min-height:736px;padding-block:76px;background:#111b21}
 .steps .section-head{margin-bottom:64px}
-.steps .section-head h2{max-width:850px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em;white-space:normal;color:#fff}
+.steps .section-head h2{max-width:850px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;white-space:normal;color:#fff}
 .steps .section-head h2 em{color:inherit}
 .steps .section-head p{max-width:664px;margin-top:40px;font-size:var(--type-body);line-height:1.5;color:#d3dfd7}
 .steps .eyebrow{color:#25d366}
@@ -207,14 +201,14 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
 /* The assistant starts after one quiet break, then the cost section follows. */
 .assistant.section-pad{padding-top:106px;padding-bottom:0}
 .assistant .section-head{margin-bottom:43px}
-.assistant .section-head h2{max-width:614px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.assistant .section-head h2{max-width:614px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;}
 .assistant .section-head p{max-width:614px;margin-top:40px;font-size:var(--type-body);line-height:1.5}
 .assistant-haze{display:none}
-.assistant-side>span{font-family:var(--display);font-size:1.5rem;font-weight:400;line-height:1.2;letter-spacing:-.03em}
+.assistant-side>span{font-family:var(--display);font-size:1.5rem;font-weight:400;line-height:1.2;}
 .assistant-side .button{min-height:52px}
 .economics.section-pad{min-height:1029px;padding-block:116px;background:#111b21}
 .economics-copy .eyebrow{display:none}
-.economics-copy h2{max-width:510px;margin:0 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.economics-copy h2{max-width:510px;margin:0 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;}
 .economics-copy h2 em{color:#25d366}
 .economics-copy p{max-width:475px;margin:0;font-size:var(--type-body);line-height:1.6;color:#c4d5ca}
 .economics-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px}
@@ -224,12 +218,12 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
 
 /* FAQ is deliberately restrained, and the closing photo retains the frame's type scale. */
 .faq.section-pad{min-height:647px;margin-top:36px;padding-block:116px;background:#f7f8f6}
-.faq-heading h2{max-width:529px;margin:30px 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
-.faq summary{font-family:var(--display);font-size:1rem;font-weight:500;letter-spacing:0}
+.faq-heading h2{max-width:529px;margin:30px 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;}
+.faq summary{font-family:var(--display);font-size:1rem;font-weight:500;}
 .faq .button-outline{min-height:52px;padding:14px 27px;border:1px solid #25d366;border-radius:64px;background:transparent;color:#111b21;font-size:1rem;font-weight:500}
 .final-cta.frame{margin-top:24px}
-.final-cta h2{font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
-.final-cta h2 em{font-size:inherit;letter-spacing:inherit}
+.final-cta h2{font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;}
+.final-cta h2 em{font-size:inherit;}
 .final-bottom p{font-family:var(--display);font-size:var(--type-body);line-height:1.5}
 @media(min-width:1300px){
   .final-inner{padding:82px}
@@ -340,7 +334,7 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
 
 /* Figma's conversation avatars and action icons across the mockups. */
 .credit-conversation-head .credit-instagram-icon{width:19px;height:19px;margin-left:auto;object-fit:contain}
-.shop-ray-avatar,.flow-ai-chip>span,.flow-ray-mark,.sales-ai-mark,.credit-conversation-head .ray-mark,.phone-header .ray-mark,.cta-ray-mark{overflow:hidden;font-family:"DM Sans",sans-serif;line-height:1}
+.shop-ray-avatar,.flow-ai-chip>span,.flow-ray-mark,.sales-ai-mark,.credit-conversation-head .ray-mark,.phone-header .ray-mark,.cta-ray-mark{overflow:hidden;font-family:var(--display);line-height:1}
 .shop-ray-avatar{font-size:42px}
 .flow-ai-chip>span{font-size:42px}
 .flow-ray-mark{font-size:37px}

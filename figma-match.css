@@ -12,8 +12,8 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
 /* Hero: the photograph is inset beneath a white navigation bar. */
 .hero.frame{height:960px;margin:0;border-radius:0;background:#fff;color:#fff}
 .hero-photo{position:absolute;left:50%;top:98px;transform:translateX(-50%);width:min(1748px,calc(100% - 172px));height:862px;overflow:hidden;border-radius:25px}
-.hero-photo .hero-image{position:absolute;inset:auto;left:-22.44%;top:0;width:124.5%;height:100%;max-width:none;object-fit:cover;object-position:center 1.5%;border-radius:0;animation:none}
-.hero-photo .hero-overlay{position:absolute;inset:0;width:100%;height:100%;border-radius:0;background:rgba(0,0,0,.2)}
+.hero-photo .hero-image{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;border-radius:0;animation:none}
+.hero-photo .hero-overlay{position:absolute;inset:0;width:100%;height:100%;border-radius:0;background:linear-gradient(90deg,rgba(6,22,19,.4) 0%,rgba(6,22,19,.27) 40%,rgba(6,22,19,.06) 72%,transparent 100%)}
 .hero .nav-bar{height:98px;max-width:1920px;margin-inline:auto;padding:30px 83px;gap:30px;color:#29312e}
 .hero .wordmark{font-size:31px}
 .hero .nav-links{font-size:14px;color:#29312e;gap:32px}
@@ -66,6 +66,7 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
 /* Target frame keeps the closing image inset and rounded. */
 @media(min-width:1300px){.final-cta.frame{width:min(1765px,calc(100% - 156px));height:740px;margin:0 auto;border-radius:42px}.final-inner{padding-inline:72px}}
 .final-cta>img{object-position:50% 48%}
+.final-cta .final-shade{background:linear-gradient(90deg,rgba(7,18,25,.22) 0%,rgba(7,18,25,.1) 45%,transparent 100%)}
 .final-cta h2 em{font-family:var(--display)}
 
 @media(max-width:1299px){
@@ -98,7 +99,7 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
 @media(max-width:700px){
   .hero.frame{height:865px}
   .hero-photo{left:8px;top:78px;transform:none;width:calc(100% - 16px);height:787px;border-radius:20px}
-  .hero-photo .hero-image{left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:52% center}
+  .hero-photo .hero-image{left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:59% center}
   .hero-photo .hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.38) 42%,rgba(0,0,0,.12) 70%,rgba(0,0,0,.3) 100%)}
   .hero .nav-bar{height:78px;padding:17px 20px}
   .hero .wordmark{font-size:25px}
@@ -137,7 +138,7 @@ h1 em,h2 em,h3 em{font-family:var(--display)!important}
   .assistant-stage .phone-ui.iphone-16-pro-max{position:absolute;left:68px;top:80px;width:608px;margin:0;align-self:auto}
   .assistant-stage .assistant-side{position:absolute;left:797px;top:190px;width:285px;margin:0;align-self:auto}
 }
-@media(min-width:1300px){.final-cta>img{inset:auto;left:-1.36%;top:0;width:127.37%;height:100%;max-width:none;object-fit:cover;object-position:center 8.8%}}
+@media(min-width:1300px){.final-cta>img{inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center}}
 
 /* Typography and section rhythm audited against each visible Figma frame. */
 :where(#performance-title,#flow-title,#product-title,#knowledge-title,#partners-title,#credit-title,#steps-title,#assistant-title,#economics-title,#faq-title,#final-title){

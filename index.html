@@ -4,103 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f7f8f6" />
-  <meta name="description" content="Reply2Lead gives your DMs an AI sales assistant trained on your business knowledge. Handle difficult buyer questions, follow up with context, and compare the cost with human sales hours." />
-  <title>Reply2Lead — A sales assistant for every conversation</title>
+  <meta name="description" content="Turn buyer DMs into qualified conversations. Ray uses your approved answers to respond, uncover intent, follow up with context, and hand sensitive decisions to your team." />
+  <title>Reply2Lead — Turn buyer DMs into qualified conversations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./site.css?v=25" />
+  <link rel="preload" href="./assets/fonts/InterDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./assets/fonts/InterDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./assets/fonts/InterDisplay-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./site.css?v=29" />
   <link rel="stylesheet" href="./story-cards.css?v=2" />
-  <link rel="stylesheet" href="./proof-ready.css?v=3" />
-  <link rel="stylesheet" href="./hero-conversation.css?v=1" />
-  <link rel="stylesheet" href="./final-cta.css?v=1" />
+  <link rel="stylesheet" href="./hero-conversation.css?v=2" />
+  <link rel="stylesheet" href="./final-cta.css?v=2" />
   <link rel="stylesheet" href="./phone-device.css?v=1" />
-  <link rel="stylesheet" href="./conversion-refinement.css?v=4" />
-  <link rel="stylesheet" href="./product-tour.css?v=4" />
-  <link rel="stylesheet" href="./nura-alignment.css?v=1" />
-  <script src="./site.js?v=21" defer></script>
+  <link rel="stylesheet" href="./conversion-refinement.css?v=8" />
+  <link rel="stylesheet" href="./product-tour.css?v=5" />
+  <link rel="stylesheet" href="./figma-match.css?v=8" />
+  <script src="./site.js?v=26" defer></script>
   <noscript><style>.demo-bubble,.reveal-target{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
-  <svg class="social-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <symbol id="social-instagram" viewBox="0 0 32 32"><g class="nc-icon-wrapper" fill="currentColor"><path d="M10.202,2.098c-1.49,.07-2.507,.308-3.396,.657-.92,.359-1.7,.84-2.477,1.619-.776,.779-1.254,1.56-1.61,2.481-.345,.891-.578,1.909-.644,3.4-.066,1.49-.08,1.97-.073,5.771s.024,4.278,.096,5.772c.071,1.489,.308,2.506,.657,3.396,.359,.92,.84,1.7,1.619,2.477,.779,.776,1.559,1.253,2.483,1.61,.89,.344,1.909,.579,3.399,.644,1.49,.065,1.97,.08,5.771,.073,3.801-.007,4.279-.024,5.773-.095s2.505-.309,3.395-.657c.92-.36,1.701-.84,2.477-1.62s1.254-1.561,1.609-2.483c.345-.89,.579-1.909,.644-3.398,.065-1.494,.081-1.971,.073-5.773s-.024-4.278-.095-5.771-.308-2.507-.657-3.397c-.36-.92-.84-1.7-1.619-2.477s-1.561-1.254-2.483-1.609c-.891-.345-1.909-.58-3.399-.644s-1.97-.081-5.772-.074-4.278,.024-5.771,.096m.164,25.309c-1.365-.059-2.106-.286-2.6-.476-.654-.252-1.12-.557-1.612-1.044s-.795-.955-1.05-1.608c-.192-.494-.423-1.234-.487-2.599-.069-1.475-.084-1.918-.092-5.656s.006-4.18,.071-5.656c.058-1.364,.286-2.106,.476-2.6,.252-.655,.556-1.12,1.044-1.612s.955-.795,1.608-1.05c.493-.193,1.234-.422,2.598-.487,1.476-.07,1.919-.084,5.656-.092,3.737-.008,4.181,.006,5.658,.071,1.364,.059,2.106,.285,2.599,.476,.654,.252,1.12,.555,1.612,1.044s.795,.954,1.051,1.609c.193,.492,.422,1.232,.486,2.597,.07,1.476,.086,1.919,.093,5.656,.007,3.737-.006,4.181-.071,5.656-.06,1.365-.286,2.106-.476,2.601-.252,.654-.556,1.12-1.045,1.612s-.955,.795-1.608,1.05c-.493,.192-1.234,.422-2.597,.487-1.476,.069-1.919,.084-5.657,.092s-4.18-.007-5.656-.071M21.779,8.517c.002,.928,.755,1.679,1.683,1.677s1.679-.755,1.677-1.683c-.002-.928-.755-1.679-1.683-1.677,0,0,0,0,0,0-.928,.002-1.678,.755-1.677,1.683m-12.967,7.496c.008,3.97,3.232,7.182,7.202,7.174s7.183-3.232,7.176-7.202c-.008-3.97-3.233-7.183-7.203-7.175s-7.182,3.233-7.174,7.203m2.522-.005c-.005-2.577,2.08-4.671,4.658-4.676,2.577-.005,4.671,2.08,4.676,4.658,.005,2.577-2.08,4.671-4.658,4.676-2.577,.005-4.671-2.079-4.676-4.656h0"></path></g></symbol>
-    <symbol id="social-facebook" viewBox="0 0 32 32"><g class="nc-icon-wrapper" fill="currentColor"><path d="M16,2c-7.732,0-14,6.268-14,14,0,6.566,4.52,12.075,10.618,13.588v-9.31h-2.887v-4.278h2.887v-1.843c0-4.765,2.156-6.974,6.835-6.974,.887,0,2.417,.174,3.043,.348v3.878c-.33-.035-.904-.052-1.617-.052-2.296,0-3.183,.87-3.183,3.13v1.513h4.573l-.786,4.278h-3.787v9.619c6.932-.837,12.304-6.74,12.304-13.897,0-7.732-6.268-14-14-14Z"></path></g></symbol>
-    <symbol id="social-messenger" viewBox="0 0 32 32"><g class="nc-icon-wrapper" fill="currentColor"><path d="M16,2C8.113,2,2,7.777,2,15.58c0,4.082,1.673,7.608,4.397,10.044,.229,.205,.367,.491,.376,.798l.076,2.49c.024,.794,.845,1.311,1.572,.99l2.779-1.227c.236-.104,.5-.123,.748-.055,1.277,.351,2.636,.538,4.053,.538,7.887,0,14-5.777,14-13.58S23.887,2,16,2Zm8.407,10.449l-4.113,6.525c-.654,1.038-2.055,1.296-3.037,.56l-3.271-2.453c-.3-.225-.713-.224-1.012,.003l-4.418,3.353c-.59,.447-1.359-.258-.965-.884l4.113-6.525c.654-1.038,2.055-1.296,3.037-.56l3.271,2.453c.3,.225,.713,.224,1.012-.003l4.417-3.353c.59-.447,1.359,.258,.965,.884Z"></path></g></symbol>
-    <symbol id="social-whatsapp" viewBox="0 0 32 32"><g class="nc-icon-wrapper" fill="currentColor"><path d="M25.873,6.069c-2.619-2.623-6.103-4.067-9.814-4.069C8.411,2,2.186,8.224,2.184,15.874c-.001,2.446,.638,4.833,1.852,6.936l-1.969,7.19,7.355-1.929c2.026,1.106,4.308,1.688,6.63,1.689h.006c7.647,0,13.872-6.224,13.874-13.874,.001-3.708-1.44-7.193-4.06-9.815h0Zm-9.814,21.347h-.005c-2.069,0-4.099-.557-5.87-1.607l-.421-.25-4.365,1.145,1.165-4.256-.274-.436c-1.154-1.836-1.764-3.958-1.763-6.137,.003-6.358,5.176-11.531,11.537-11.531,3.08,.001,5.975,1.202,8.153,3.382,2.177,2.179,3.376,5.077,3.374,8.158-.003,6.359-5.176,11.532-11.532,11.532h0Zm6.325-8.636c-.347-.174-2.051-1.012-2.369-1.128-.318-.116-.549-.174-.78,.174-.231,.347-.895,1.128-1.098,1.359-.202,.232-.405,.26-.751,.086-.347-.174-1.464-.54-2.788-1.72-1.03-.919-1.726-2.054-1.929-2.402-.202-.347-.021-.535,.152-.707,.156-.156,.347-.405,.52-.607,.174-.202,.231-.347,.347-.578,.116-.232,.058-.434-.029-.607-.087-.174-.78-1.88-1.069-2.574-.281-.676-.567-.584-.78-.595-.202-.01-.433-.012-.665-.012s-.607,.086-.925,.434c-.318,.347-1.213,1.186-1.213,2.892s1.242,3.355,1.416,3.587c.174,.232,2.445,3.733,5.922,5.235,.827,.357,1.473,.571,1.977,.73,.83,.264,1.586,.227,2.183,.138,.666-.1,2.051-.839,2.34-1.649,.289-.81,.289-1.504,.202-1.649s-.318-.232-.665-.405h0Z" fill-rule="evenodd"></path></g></symbol>
-    <symbol id="social-tiktok" viewBox="0 0 32 32"><g class="nc-icon-wrapper" fill="currentColor"><path d="M24.562,7.613c-1.508-.983-2.597-2.557-2.936-4.391-.073-.396-.114-.804-.114-1.221h-4.814l-.008,19.292c-.081,2.16-1.859,3.894-4.039,3.894-.677,0-1.315-.169-1.877-.465-1.288-.678-2.169-2.028-2.169-3.582,0-2.231,1.815-4.047,4.046-4.047,.417,0,.816,.069,1.194,.187v-4.914c-.391-.053-.788-.087-1.194-.087-4.886,0-8.86,3.975-8.86,8.86,0,2.998,1.498,5.65,3.783,7.254,1.439,1.01,3.19,1.606,5.078,1.606,4.886,0,8.86-3.975,8.86-8.86V11.357c1.888,1.355,4.201,2.154,6.697,2.154v-4.814c-1.345,0-2.597-.4-3.647-1.085Z"></path></g></symbol>
-    <symbol id="industry-commerce" viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 35h56l-4 44H24L20 35Z"/><path d="M34 36v-9a14 14 0 0 1 28 0v9"/><path d="m40 57 7 7 12-14"/></g></symbol>
-    <symbol id="industry-salon" viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="29" cy="65" r="10"/><circle cx="48" cy="73" r="10"/><path d="m36 57 38-39M53 66 25 23M55 47l19 26"/><path d="M70 16v11m-5-5h11"/></g></symbol>
-    <symbol id="industry-realestate" viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 45 48 18l33 27v34H15V45Z"/><path d="M37 79V54h22v25M65 29V18h10v19"/><path d="M48 68h.01"/></g></symbol>
-    <symbol id="industry-education" viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="m12 39 36-19 36 19-36 19-36-19Z"/><path d="M28 49v17c10 9 30 9 40 0V49M84 40v25"/><circle cx="84" cy="69" r="3" fill="currentColor" stroke="none"/></g></symbol>
-    <symbol id="industry-services" viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M76 19a23 23 0 0 0-27 29L20 77a8 8 0 0 0 11 11l29-29a23 23 0 0 0 28-27L75 45 61 31 76 19Z"/><circle cx="27" cy="81" r="2" fill="currentColor" stroke="none"/></g></symbol>
-    <symbol id="industry-professional" viewBox="0 0 96 96"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="17" y="32" width="62" height="47" rx="7"/><path d="M36 32v-7c0-5 4-8 9-8h6c5 0 9 3 9 8v7M17 53c18 10 44 10 62 0M43 53v10h10V53"/></g></symbol>
-  </svg>
   <a class="skip-link" href="#main">Skip to content</a>
   <main id="main">
     <section class="hero frame" id="top" aria-labelledby="hero-title">
-      <img class="hero-image" src="./assets/hero-conversation.webp" alt="A customer smiles while reading messages on her phone at home" fetchpriority="high" />
-      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-photo"><img class="hero-image" src="./assets/figma-250-2/250-5-imgGradient.png" alt="Woman using her phone on a city street" fetchpriority="high" /><div class="hero-overlay" aria-hidden="true"></div></div>
       <header class="nav-bar">
         <a class="wordmark" href="#top" aria-label="Reply2Lead home">reply<span>2</span>lead<span class="wordmark-spark">✳</span></a>
         <nav class="nav-links" aria-label="Main navigation"><a href="#evidence">Why Reply2Lead</a><a href="#product">Product</a><a href="#partners">For partners</a><a href="#economics">Cost</a></nav>
-        <a class="nav-button" href="#contact">Talk to us <span aria-hidden="true">↗</span></a>
+        <div class="nav-actions"><a class="nav-login" href="https://app.dev.reply2lead.com/overview">Log In <span aria-hidden="true">↗</span></a><a class="nav-button" href="#contact">Request a demo <span aria-hidden="true">↗</span></a></div>
         <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
       </header>
-      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden><a href="#evidence">Why Reply2Lead</a><a href="#product">Product</a><a href="#partners">For partners</a><a href="#economics">Cost</a><a href="#faq">FAQ</a><a href="#contact">Talk to us ↗</a></nav>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden><a href="#evidence">Why Reply2Lead</a><a href="#product">Product</a><a href="#partners">For partners</a><a href="#economics">Cost</a><a href="#faq">FAQ</a><a href="#contact">Request a demo ↗</a></nav>
       <div class="hero-content">
-        <h1 id="hero-title"><span>Your sales assistant</span><em>in every DM.</em></h1>
-        <p>Train Ray on your offers, policies, and best sales answers. It handles tough questions, follows up with context, and brings your team in when judgment matters.</p>
-        <a class="button hero-button" href="#overview">Watch Ray handle a buyer <span aria-hidden="true">↗</span></a>
+        <h1 id="hero-title"><span>Your best answers</span> <em>in every DM.</em></h1>
+        <p>Ray is an AI sales assistant trained on your offers, proof, and policies. It answers buyers, asks what matters, follows up, and brings your team in with full context.</p>
+        <a class="button hero-button" href="#contact">Request a demo <span aria-hidden="true">↗</span></a>
       </div>
       <div class="hero-flow" aria-label="A buyer asks about a project on Instagram, Ray qualifies the request, then alerts the team">
-        <span class="hero-social hero-social-instagram" aria-label="Instagram"><svg class="social-icon" aria-hidden="true"><use href="#social-instagram"></use></svg></span>
-        <span class="hero-social hero-social-whatsapp" aria-label="WhatsApp"><svg class="social-icon" aria-hidden="true"><use href="#social-whatsapp"></use></svg></span>
-        <span class="hero-social hero-social-messenger" aria-label="Messenger"><svg class="social-icon" aria-hidden="true"><use href="#social-messenger"></use></svg></span>
-        <div class="hero-message hero-message-question"><svg class="social-icon instagram" aria-hidden="true"><use href="#social-instagram"></use></svg><span>Can your team start before December?</span><time>10:24 AM</time></div>
+        <span class="hero-social hero-social-instagram" aria-label="Instagram"><img class="hero-brand-icon" src="./assets/figma-250-2/250-5-imgGroup.svg" alt=""></span>
+        <span class="hero-social hero-social-whatsapp" aria-label="WhatsApp"><img class="hero-brand-icon" src="./assets/figma-250-2/250-5-imgGroup1.svg" alt=""></span>
+        <span class="hero-social hero-social-messenger" aria-label="Messenger"><img class="hero-brand-icon" src="./assets/figma-250-2/250-5-imgGroup2.svg" alt=""></span>
+        <div class="hero-message hero-message-question"><img class="hero-inline-icon" src="./assets/figma-250-2/250-5-imgGroup3.svg" alt=""><span>Can your team start before December?</span><time>10:24 AM</time></div>
         <div class="hero-typing" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div class="hero-message hero-message-ray"><span class="hero-ray-mark" aria-hidden="true">✳</span><div class="hero-ray-body"><div class="hero-ray-head"><strong>Ray (AI)</strong><time>10:25 AM</time></div><p>Let me check the timeline.<br>How many locations are involved?</p><div class="hero-product-preview" aria-hidden="true"><img src="./assets/story-support-bg.webp" alt=""><span class="hero-product-lines"><i></i><i></i><i></i><b></b></span></div></div></div>
-        <span class="hero-send" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 21 42 6 29 43l-7-16-17-6Zm17 6L42 6"/></svg></span>
-        <div class="hero-message hero-message-followup"><svg class="social-icon messenger" aria-hidden="true"><use href="#social-messenger"></use></svg><span>Two locations. We need a quote.</span><time>10:27 AM</time></div>
+        <div class="hero-message hero-message-ray"><span class="hero-ray-mark" aria-hidden="true">✳</span><div class="hero-ray-body"><div class="hero-ray-head"><strong>Ray (AI)</strong><time>10:25 AM</time></div><p>Let me check the timeline.<br>How many locations are involved?</p><div class="hero-product-preview" aria-hidden="true"><img src="./assets/figma-250-2/250-5-imgStorySupportBgWebp.png" alt=""><span class="hero-product-lines"><i></i><i></i><i></i><b></b></span></div></div></div>
+        <span class="hero-send" aria-hidden="true"><img src="./assets/figma-250-2/250-5-imgShadow.svg" alt=""></span>
+        <div class="hero-message hero-message-followup"><img class="hero-inline-icon" src="./assets/figma-250-2/250-5-imgGroup4.svg" alt=""><span>Two locations. We need a quote.</span><time>10:27 AM</time></div>
         <div class="hero-message hero-message-booking"><span class="hero-calendar" aria-hidden="true">▦</span><div><strong>Qualified request</strong><i></i><i></i></div><time>10:28 AM</time></div>
       </div>
-      <div class="hero-bottom"><span>A question. A useful reply. A clear next step.</span><a href="#overview">Scroll to explore ↓</a></div>
     </section>
 
-    <section class="overview section-pad" id="overview" aria-labelledby="overview-title">
-      <div class="section-head two-col shell"><span class="eyebrow">The sales conversation</span><div><h2 id="overview-title">A hard question <em>is where sales begin.</em></h2><p>Ray asks for the missing context, uses approved answers, and knows when a person must confirm the deal.</p></div></div>
-      <div class="overview-media shell">
-        <img src="./assets/hero-multi-industry.jpg" alt="Customer discussing a service inquiry from her phone" loading="lazy" />
-        <div class="overview-wash" aria-hidden="true"></div>
-        <div class="demo-window" aria-label="Customer conversation with Ray">
-          <div class="demo-top"><span class="demo-avatar">N</span><div><strong>Northline Studio</strong><small>Instagram DM · After hours</small></div><svg class="social-icon instagram" aria-hidden="true"><use href="#social-instagram"></use></svg></div>
-          <div class="demo-messages" id="demo-messages" aria-live="off">
-            <div class="demo-bubble customer"><small>Buyer</small>We have two locations opening in six weeks. Can your team handle both, and what would it cost?</div>
-            <div class="demo-bubble ray"><small>✳ Ray AI</small>We can plan a two-location rollout. To give you a useful range, are both sites using the same scope, and is opening day a fixed deadline?</div>
-            <div class="demo-bubble customer"><small>Buyer</small>Different layouts. The second site may be delayed. I can’t pay for work we don’t use.</div>
-            <div class="demo-bubble ray"><small>✳ Ray AI</small>That changes the recommendation. Our approved scope offers <strong>phased delivery</strong>, so site two can be scheduled separately. I won’t promise a final price until the team reviews both layouts. Is a phased quote what you need?</div>
-            <div class="demo-bubble customer"><small>Buyer</small>Yes. We also need to cancel if permits slip. Can you guarantee the deposit is refundable?</div>
-            <div class="demo-bubble ray"><small>✳ Ray AI</small>I can’t verify that exception from the approved policy, so I’ll have a specialist confirm it. I’ve captured the <strong>two sites, six-week target, phased scope, and permit risk</strong> so you won’t have to repeat yourself.</div>
-            <div class="demo-bubble customer"><small>Buyer</small>Perfect. Send me the phased quote and have someone call tomorrow.</div>
-            <div class="demo-bubble ray"><small>✳ Ray AI</small>Done. I’ve sent the full brief to the team and flagged your call for tomorrow. They’ll confirm the quote and the deposit terms before you make a decision.</div>
-            <div class="demo-typing" aria-label="Ray is typing"><span></span><span></span><span></span></div>
-          </div>
-          <div class="demo-footer"><span><i></i><strong id="demo-status">Buyer inquiry received</strong></span><div class="demo-controls"><button class="demo-pause" type="button" aria-label="Pause conversation">Pause</button><button class="demo-replay" type="button" aria-label="Replay conversation">Replay ↻</button></div></div>
-        </div>
+    <section class="overview figma-overview" id="overview" aria-labelledby="overview-title">
+      <div class="overview-intro">
+        <h2 id="overview-title">A fast reply starts the chat. A useful answer moves the sale forward.</h2>
+        <p>Ray learns the facts you approve, asks for missing details, and knows when to bring a person in. Every reply has a purpose.</p>
+      </div>
+      <div class="overview-video">
+        <video controls playsinline preload="metadata" poster="./assets/video/reply2lead-poster.jpg" aria-label="Reply2Lead product video">
+          <source src="./assets/video/reply2lead.mp4" type="video/mp4">
+          Your browser does not support HTML video.
+        </video>
       </div>
     </section>
-
-    <div class="platform-strip shell" aria-label="Social channels"><span>Where conversations begin</span><div class="platforms"><span><svg class="social-icon instagram" aria-hidden="true"><use href="#social-instagram"></use></svg> Instagram</span><span><svg class="social-icon facebook" aria-hidden="true"><use href="#social-facebook"></use></svg> Facebook</span><span><svg class="social-icon messenger" aria-hidden="true"><use href="#social-messenger"></use></svg> Messenger</span><span><svg class="social-icon whatsapp" aria-hidden="true"><use href="#social-whatsapp"></use></svg> WhatsApp</span><span><svg class="social-icon tiktok" aria-hidden="true"><use href="#social-tiktok"></use></svg> TikTok</span></div></div>
 
     <section class="market-evidence section-pad" id="evidence" aria-labelledby="evidence-title">
       <div class="shell">
-        <div class="market-evidence-head"><span class="eyebrow">What owners actually face</span><div><h2 id="evidence-title">Hired help.<br><em>Still on the hook?</em></h2><p>Owners describe the gap between covering an inbox and knowing how to sell. Read their own words.</p></div></div>
+        <div class="market-evidence-head"><h2 id="evidence-title">The inbox is covered.<br><em>Is the sale?</em></h2><p>Coverage alone does not answer objections, spot buying intent, or protect your policies. These owners describe the gap in their own words.</p></div>
         <div class="owner-stories" aria-label="Screenshots from Reddit">
           <a class="reddit-capture" href="https://www.reddit.com/r/smallbusiness/comments/1au2w9m/comment/kr1jjfc/" target="_blank" rel="noopener noreferrer"><img src="./assets/reddit/sales-skill-comment.png" alt="Original Reddit comment by the business owner saying their admin is helpful but not excellent at calls or sales" width="610" height="340" loading="lazy"><span>View the original comment on Reddit <span aria-hidden="true">↗</span></span></a>
           <a class="reddit-capture" href="https://www.reddit.com/r/smallbusiness/comments/1ti6diq/how_to_hire_sales_reps/" target="_blank" rel="noopener noreferrer"><img src="./assets/reddit/lead-coverage-post.png" alt="Original Reddit post about too many leads and only one full-time caller" width="610" height="340" loading="lazy"><span>View the original post on Reddit <span aria-hidden="true">↗</span></span></a>
           <a class="reddit-capture" href="https://www.reddit.com/r/smallbusiness/comments/1ub3f2q/how_do_you_handle_customers_that_are_clearly/" target="_blank" rel="noopener noreferrer"><img src="./assets/reddit/policy-exception-post.png" alt="Original Reddit post describing a costly refund exception to an all-sales-final policy" width="610" height="340" loading="lazy"><span>View the original post on Reddit <span aria-hidden="true">↗</span></span></a>
         </div>
-        <div class="market-evidence-bottom"><div><span class="eyebrow">The economic context · U.S.</span><p>Hiring has a price before the first difficult buyer asks for an exception. Use these benchmarks for context, then enter your own numbers below.</p></div><div class="market-facts"><div><strong>$33.65<span>/hr</span></strong><p>Median wage for service sales representatives, May 2025. Benefits excluded.</p><a href="https://www.bls.gov/news.release/ocwage.t01.htm" target="_blank" rel="noopener noreferrer">U.S. BLS ↗</a></div><div><strong>$46.89<span>/hr</span></strong><p>Average employer compensation cost across all private-industry roles, June 2026. Not a sales-specific rate.</p><a href="https://www.bls.gov/ecec/" target="_blank" rel="noopener noreferrer">U.S. BLS ↗</a></div><div><strong>$5,475</strong><p>Average nonexecutive cost per hire in SHRM’s 2025 member survey. Not specific to sales.</p><a href="https://www.shrm.org/about/press-room/shrm-releases-2025-benchmarking-reports--how-does-your-organizat" target="_blank" rel="noopener noreferrer">SHRM ↗</a></div></div></div>
-        <p class="market-evidence-footnote">Reddit accounts are anecdotal and unrelated to Reply2Lead. Labor benchmarks are U.S. aggregates, not measured customer savings. Ray’s sales conversations on this page are illustrative demos.</p>
+        <div class="market-evidence-bottom"><div><p>Every inbox decision has a cost. Use these hiring benchmarks for context, then run the calculator with your real numbers.</p></div><div class="market-facts"><div><strong>$33.65<span>/hr</span></strong><p>Median wage for service sales representatives, May 2025. Benefits excluded.</p></div><div><strong>$46.89<span>/hr</span></strong><p>Average employer compensation cost across all private-industry roles, June 2026. Not a sales-specific rate.</p></div><div><strong>$5,475</strong><p>Average nonexecutive cost per hire in SHRM’s 2025 member survey. Not specific to sales.</p></div></div></div>
       </div>
     </section>
 
@@ -108,15 +82,16 @@
       <div class="performance-grid">
         <div class="performance-story">
         <div class="perf-photo card">
-          <img src="./assets/nura/lead.webp" alt="Woman listening to music under a blue sky" loading="lazy">
-          <div class="perf-photo-copy"><h2 id="performance-title">Give the answer<br>they came for.</h2><p>Even when the buyer has conditions, deadlines, and objections.</p></div>
+          <img src="./assets/figma-250-2/250-107-imgWomanListeningToMusicUnderABlueSky1.png" alt="Woman listening to music under a blue sky" loading="lazy">
+          <div class="perf-photo-copy"><h2 id="performance-title">Answer the hard ask<br>without guessing.</h2><p>Price, deadlines, quantity, or exceptions: share approved facts now and leave unverified promises to your team.</p></div>
           <span class="photo-mark">REPLY2LEAD ✳</span>
         </div>
         <div class="perf-answer card" aria-label="Customer and Ray conversation">
           <div class="shop-thread">
-            <div class="shop-question"><span class="shop-customer-avatar"><img src="./assets/nura/lead.webp" alt="" loading="lazy"></span><div><strong>We need 20 headsets. Can you invoice us and deliver by Friday?</strong><small>10:24 AM <span aria-hidden="true">✓✓</span></small></div></div>
-            <div class="shop-ray-row"><span class="shop-ray-avatar" aria-hidden="true">✳</span><div class="shop-reply-wrap"><div class="shop-ray-name">Ray <span>AI</span></div><div class="shop-reply"><p>The Nova Mini is listed at <strong>$149 per unit</strong>. I can share its specs now. For 20 units, invoicing, and a Friday deadline, I’ll ask our team to confirm stock, delivery, and a volume quote before promising any of them.</p><div class="shop-product"><span class="shop-product-art"><svg viewBox="0 0 128 128" role="img" aria-label="Black headphones"><defs><linearGradient id="headphone-body" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#344c54"/><stop offset="1" stop-color="#07171d"/></linearGradient></defs><path d="M25 68V54c0-25 16-40 39-40s39 15 39 40v14" fill="none" stroke="#152a32" stroke-width="13" stroke-linecap="round"/><path d="M31 62V54c0-20 12-32 33-32s33 12 33 32v8" fill="none" stroke="#65777a" stroke-width="3" stroke-linecap="round" opacity=".55"/><rect x="16" y="60" width="28" height="51" rx="13" fill="url(#headphone-body)"/><rect x="84" y="60" width="28" height="51" rx="13" fill="url(#headphone-body)"/><path d="M43 82c13 12 29 12 42 0" fill="none" stroke="#0a1d23" stroke-width="8"/><path d="M23 68v32M91 68v32" stroke="#859696" stroke-width="2" opacity=".5"/></svg></span><span class="shop-product-copy"><strong>Nova Mini</strong><b>$149 each</b><span>Specs available</span></span><span class="shop-product-arrow" aria-hidden="true">›</span></div><div class="shop-actions"><button type="button" data-shop-action="buy"><span aria-hidden="true">↗</span> Request quote</button><button type="button" data-shop-action="details"><span aria-hidden="true">ⓘ</span> View details</button></div></div></div></div>
-            <div class="shop-extra" aria-live="polite"></div>
+            <div class="shop-question"><span class="shop-customer-avatar"><img src="./assets/figma-250-2/250-107-imgImage6.png" alt="" loading="lazy"></span><div><strong>We need 20 headsets. Can you invoice us and deliver by Friday?</strong><small>10:24 AM <span aria-hidden="true">✓✓</span></small></div></div>
+            <div class="shop-ray-row"><span class="shop-ray-avatar" aria-hidden="true">✳</span><div class="shop-reply-wrap"><div class="shop-ray-name">Ray <span>AI</span></div><div class="shop-reply"><p>The Nova Mini is listed at <strong>$149 per unit</strong>. I can share its specs now. For 20 units, invoicing, and a Friday deadline, I’ll ask our team to confirm stock, delivery, and a volume quote before promising any of them.</p><div class="shop-product"><span class="shop-product-art"><img src="./assets/figma-250-2/250-107-imgImgBlackHeadphones.svg" alt="Black headphones" loading="lazy"></span><span class="shop-product-copy"><strong>Nova Mini</strong><b>$149 each</b><span>Specs available</span></span><span class="shop-product-arrow" aria-hidden="true">›</span></div><div class="shop-actions" aria-hidden="true"><span class="shop-demo-action">Request quote <img src="./assets/figma-250-2/250-107-imgUnion.svg" alt=""></span><span class="shop-demo-action">View details</span></div></div></div></div>
+            <div class="shop-extra-message customer"><small>Buyer · 10:25 AM</small><p>Those specs work. Can your team confirm the Friday delivery and a quote for 20?</p></div>
+            <div class="shop-extra-message ray"><small>Ray · 10:25 AM</small><p>Yes. I’ve passed along your quantity, invoicing request, and deadline. The team can confirm stock, delivery, and the final quote.</p><span class="shop-handoff">✓ Team review requested</span></div>
           </div>
         </div>
         </div>
@@ -126,42 +101,42 @@
     <section class="planning section-pad" id="flow" aria-labelledby="flow-title">
       <div class="planning-inner">
         <div class="planning-copy">
-          <span class="eyebrow">Lead flow</span>
+
           <h2 id="flow-title">From comment to<br><em>conversation.</em></h2>
-          <p>Move an interested comment into a private sales conversation. Ray discovers the real need before anyone on your team steps in.</p>
-          <a class="button button-dark" href="#product">Explore the inbox <span aria-hidden="true">→</span></a>
+          <p>A buyer's first question can start in a comment. Ray continues in DM, learns the need and timing, and keeps the context ready for your team.</p>
+          <a class="button button-dark" href="#contact">Request a demo</a>
         </div>
         <div class="flow-art" aria-label="Instagram comment becoming a private conversation">
           <div class="flow-orbit orbit-one" aria-hidden="true"></div>
           <div class="flow-orbit orbit-two" aria-hidden="true"></div>
-          <svg class="flow-connector" viewBox="0 0 900 720" preserveAspectRatio="none" aria-hidden="true"><path d="M270 258 C270 343 435 331 490 395"/></svg>
+          <div class="flow-connector" aria-hidden="true"></div>
           <div class="flow-comment">
-            <img src="./assets/nura/support.webp" alt="" loading="lazy">
+            <img src="./assets/figma-250-2/250-158-imgSupportWebp.png" alt="" loading="lazy">
             <div class="flow-comment-body"><div><strong>jessica.miller</strong><span>2m</span></div><p>Would this work for two locations?</p><small>Reply&nbsp;&nbsp;&nbsp; Hide</small></div>
-            <span class="flow-instagram" aria-label="Instagram"><svg class="social-icon" aria-hidden="true"><use href="#social-instagram"></use></svg></span>
+            <span class="flow-instagram" aria-label="Instagram"><img src="./assets/figma-250-2/250-158-imgGroup.svg" alt=""></span>
             <span class="flow-likes" aria-hidden="true">♡ 12</span>
           </div>
-          <div class="flow-ai-chip"><span aria-hidden="true">✦</span><strong>AI replies in DM</strong></div>
+          <div class="flow-ai-chip"><span aria-hidden="true">✳</span><strong>AI replies in DM</strong></div>
           <div class="flow-notice"><span class="flow-notice-dot" aria-hidden="true"></span><div><strong>Comment captured</strong><small>Multi-location question · DM started<br>Now</small></div><span aria-hidden="true">›</span></div>
-          <span class="flow-send-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 21 42 7 29 42l-7-15-16-6Zm16 6L42 7"/></svg></span>
+          <span class="flow-send-icon" aria-hidden="true"><img src="./assets/figma-250-2/250-158-imgSvg3.svg" alt=""></span>
           <div class="flow-chat">
-            <div class="flow-chat-head"><span aria-hidden="true">‹</span><img src="./assets/nura/support.webp" alt="" loading="lazy"><div><strong>jessica.miller</strong><small>Active now</small></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3c-2 1-3 4-2 7 2 5 6 9 11 11 3 1 6 0 7-2l-4-4-3 2c-3-1-6-4-7-7l2-3-4-4Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="15" height="14" rx="3"/><path d="m17 9 5-3v12l-5-3"/></svg></div>
-            <div class="flow-chat-thread"><div class="flow-chat-ray"><span class="flow-ray-mark" aria-hidden="true">✦</span><p>It may. Are the two locations using the same workflow, or do they need separate teams and pricing?</p></div><div class="flow-chat-customer"><p>Different teams. We also need approval before launch.</p><img src="./assets/nura/support.webp" alt="" loading="lazy"></div><div class="flow-chat-typing"><span class="flow-ray-mark" aria-hidden="true">✦</span><span class="flow-typing-dots" aria-label="Ray is typing"><i></i><i></i><i></i></span></div></div>
-            <div class="flow-compose"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="14" r="3"/></svg><span>Message...</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M6 12a6 6 0 0 0 12 0M12 18v3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m4 19 6-6 4 3 3-4 4 5"/></svg><b aria-hidden="true">+</b></div>
+            <div class="flow-chat-head"><span aria-hidden="true">‹</span><img class="flow-contact-avatar" src="./assets/figma-250-2/250-158-imgSupportWebp.png" alt="" loading="lazy"><div><strong>jessica.miller</strong><small>Active now</small></div><img class="flow-head-icon" src="./assets/figma-250-2/250-158-imgSvg2.svg" alt=""><img class="flow-head-icon" src="./assets/figma-250-2/250-158-imgSvg4.svg" alt=""></div>
+            <div class="flow-chat-thread"><div class="flow-chat-ray"><span class="flow-ray-mark" aria-hidden="true">✳</span><p>It may. Are the two locations using the same workflow, or do they need separate teams and pricing?</p></div><div class="flow-chat-customer"><p>Different teams. We also need approval before launch.</p><img src="./assets/figma-250-2/250-158-imgSupportWebp.png" alt="" loading="lazy"></div><div class="flow-chat-typing"><span class="flow-ray-mark" aria-hidden="true">✳</span><span class="flow-typing-dots" aria-label="Ray is typing"><i></i><i></i><i></i></span></div><div class="flow-chat-followup"><span class="flow-ray-mark" aria-hidden="true">✳</span><p>Got it. I’ll capture the two-team setup and approval step, then ask our team to confirm the right plan.</p></div></div>
+            <div class="flow-compose"><img src="./assets/figma-250-2/250-158-imgSvg.svg" alt=""><span>Message...</span><img src="./assets/figma-250-2/250-158-imgSvg1.svg" alt=""><img src="./assets/figma-250-2/250-158-imgSvg5.svg" alt=""><b aria-hidden="true">+</b></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="product section-pad shell" id="product" aria-labelledby="product-title"><div class="section-head product-head two-col"><span class="eyebrow">Focus / Product</span><div><h2 id="product-title">Know who to <em>follow up with.</em></h2><p>See the question, buying signal, and next step in one place. No digging through messages.</p></div></div><div class="product-stage"><div class="product-glow" aria-hidden="true"></div><div class="inbox-ui"><aside class="inbox-side"><strong class="mini-logo">reply<span>2</span>lead ✳</strong><div class="side-nav"><span class="side-active">◫ &nbsp; Inbox <b>5</b></span><span>◇ &nbsp; Leads</span><span>▤ &nbsp; Knowledge</span><span>◷ &nbsp; Follow-ups</span></div><span class="side-bottom">Ray is online <i></i></span></aside><div class="inbox-list"><div class="inbox-title"><strong>Conversations</strong><span>Today <b>⌄</b></span></div><div class="inbox-tabs"><button class="is-active" type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="needs" aria-pressed="false">Needs you</button><button type="button" data-filter="qualified" aria-pressed="false">Qualified</button></div><div class="inbox-items"><button class="inbox-item is-selected" type="button" data-kind="qualified" data-person="Maya L." data-source="Instagram" data-question="Can you roll out to two locations in six weeks?" data-insight="Buying intent · Two locations · Deadline"><span class="person-avatar purple">M</span><span><strong>Maya L.</strong><small>Two-site launch · timeline</small></span><em>Qualified</em></button><button class="inbox-item" type="button" data-kind="needs" data-person="Elliot K." data-source="WhatsApp" data-question="Can we add a 30-day exit clause?" data-insight="Needs your team · Contract exception"><span class="person-avatar peach">E</span><span><strong>Elliot K.</strong><small>Contract exception</small></span><em>Needs you</em></button><button class="inbox-item" type="button" data-kind="qualified" data-person="Amara P." data-source="Messenger" data-question="Can we discuss a 12-seat pilot Thursday?" data-insight="Ready to talk · Team size shared"><span class="person-avatar blue">A</span><span><strong>Amara P.</strong><small>12-seat pilot</small></span><em>Qualified</em></button><button class="inbox-item" type="button" data-kind="other" data-person="Noah R." data-source="Facebook" data-question="Can remote staff join the program?" data-insight="Answered by Ray · Service guide"><span class="person-avatar mint">N</span><span><strong>Noah R.</strong><small>Remote participation</small></span><em>Answered</em></button><button class="inbox-item" type="button" data-kind="other" data-person="Iris C." data-source="TikTok" data-question="Do we qualify with our current setup?" data-insight="Ray replying · Eligibility"><span class="person-avatar yellow">I</span><span><strong>Iris C.</strong><small>Eligibility criteria</small></span><em>Ray replying</em></button></div></div><div class="inbox-detail"><div class="detail-top"><span>Conversation</span><span>•••</span></div><div class="detail-person"><span class="person-avatar purple" id="detail-avatar">M</span><div><strong id="detail-name">Maya L.</strong><small id="detail-source">Instagram DM</small></div></div><div class="detail-label" id="detail-insight">Buying intent · Two locations · Deadline</div><div class="detail-chat"><span class="detail-date">Today</span><p class="detail-customer" id="detail-question">Can you roll out to two locations in six weeks?</p><p class="detail-ray">✳ Ray confirmed the scope and asked about the launch date.</p></div><div class="detail-action">Suggested next step <strong>Follow up with Maya ↗</strong></div></div></div></div></section>
+    <section class="product section-pad shell" id="product" aria-labelledby="product-title"><div class="section-head product-head two-col"><span class="eyebrow">Focus / Product</span><div><h2 id="product-title">Know which buyers <em>need you next.</em></h2><p>Spot deadlines, objections, and buying signals in one inbox. Open the thread knowing what happened and what to do next.</p></div></div><div class="product-stage"><div class="product-glow" aria-hidden="true"></div><div class="inbox-ui"><aside class="inbox-side"><strong class="mini-logo">reply<span>2</span>lead ✳</strong><div class="side-nav"><span class="side-active">◫ &nbsp; Inbox <b>5</b></span><span>◇ &nbsp; Leads</span><span>▤ &nbsp; Knowledge</span><span>◷ &nbsp; Follow-ups</span></div><span class="side-bottom">Ray is online <i></i></span></aside><div class="inbox-list"><div class="inbox-title"><strong>Conversations</strong><span>Today <b>⌄</b></span></div><div class="inbox-tabs"><button class="is-active" type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="needs" aria-pressed="false">Needs you</button><button type="button" data-filter="qualified" aria-pressed="false">Qualified</button></div><div class="inbox-items"><button class="inbox-item is-selected" type="button" data-kind="qualified" data-person="Maya L." data-source="Instagram" data-question="Can you roll out to two locations in six weeks?" data-insight="Buying intent · Two locations · Deadline"><span class="person-avatar purple">M</span><span><strong>Maya L.</strong><small>Two-site launch · timeline</small></span><em>Qualified</em></button><button class="inbox-item" type="button" data-kind="needs" data-person="Elliot K." data-source="WhatsApp" data-question="Can we add a 30-day exit clause?" data-insight="Needs your team · Contract exception"><span class="person-avatar peach">E</span><span><strong>Elliot K.</strong><small>Contract exception</small></span><em>Needs you</em></button><button class="inbox-item" type="button" data-kind="qualified" data-person="Amara P." data-source="Messenger" data-question="Can we discuss a 12-seat pilot Thursday?" data-insight="Ready to talk · Team size shared"><span class="person-avatar blue">A</span><span><strong>Amara P.</strong><small>12-seat pilot</small></span><em>Qualified</em></button><button class="inbox-item" type="button" data-kind="other" data-person="Noah R." data-source="Facebook" data-question="Can remote staff join the program?" data-insight="Answered by Ray · Service guide"><span class="person-avatar mint">N</span><span><strong>Noah R.</strong><small>Remote participation</small></span><em>Answered</em></button><button class="inbox-item" type="button" data-kind="other" data-person="Iris C." data-source="TikTok" data-question="Do we qualify with our current setup?" data-insight="Ray replying · Eligibility"><span class="person-avatar yellow">I</span><span><strong>Iris C.</strong><small>Eligibility criteria</small></span><em>Ray replying</em></button></div></div><div class="inbox-detail"><div class="detail-top"><span>Conversation</span><span>•••</span></div><div class="detail-person"><span class="person-avatar purple" id="detail-avatar">M</span><div><strong id="detail-name">Maya L.</strong><small id="detail-source">Instagram DM</small></div></div><div class="detail-label" id="detail-insight">Buying intent · Two locations · Deadline</div><div class="detail-chat"><span class="detail-date">Today</span><p class="detail-customer" id="detail-question">Can you roll out to two locations in six weeks?</p><p class="detail-ray">✳ Ray confirmed the scope and asked about the launch date.</p></div><div class="detail-action">Suggested next step <strong>Follow up with Maya ↗</strong></div></div></div></div></section>
 
     <section class="knowledge section-pad" id="knowledge" aria-labelledby="knowledge-title">
       <div class="sales-knowledge-shell">
         <div class="sales-knowledge-heading">
           <span class="eyebrow">AI sales rep</span>
           <div>
-            <h2 id="knowledge-title">Train Ray on<br>what <em>wins deals.</em></h2>
-            <p>Give Ray your offers, exclusions, case studies, pricing, and escalation rules. It can ask a better follow-up, answer from those facts, and flag what still needs your approval.</p>
+            <h2 id="knowledge-title">Turn your knowledge<br>into <em>better replies.</em></h2>
+            <p>Choose the pages, offers, policies, and proof Ray should use. Test tough questions, refine its boundaries, and send unverified decisions to your team.</p>
           </div>
         </div>
         <div class="sales-knowledge-stage" aria-label="Coaching inquiry and AI sales reply">
@@ -171,21 +146,21 @@
           </div>
           <span class="sales-knowledge-arrow" aria-hidden="true">→</span>
           <div class="sales-ai-card">
-            <div class="sales-ai-head"><span class="sales-ai-mark" aria-hidden="true">✦</span><strong>AI Sales Rep</strong><span class="sales-ai-active">Active</span><time>10:24 AM</time></div>
+            <div class="sales-ai-head"><span class="sales-ai-mark" aria-hidden="true">✳</span><strong>AI Sales Rep</strong><span class="sales-ai-active">Active</span><time>10:24 AM</time></div>
             <div class="sales-ai-response"><p>Hi Jordan. Based on our program guide, your team could start with a pilot:</p><ul><li>Remote and in-person sessions</li><li>A 12-week plan with weekly reviews</li><li>Outcomes measured against your goals</li><li>A relevant case study to review</li></ul><p>I can share the approved scope and case study now. For <strong>12 seats and next-quarter billing</strong>, I’ll ask a specialist to confirm the quote. What outcome would make the pilot worthwhile for you?</p></div>
           </div>
         </div>
         <div class="sales-knowledge-benefits">
-          <article><span class="sales-benefit-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 7c-4-3-8-3-12-2v21c4-1 8-1 12 2 4-3 8-3 12-2V5c-4-1-8-1-12 2ZM16 7v21"/></svg></span><div><h3>Ground every answer</h3><p>Use your FAQs, approved examples, pricing, and deal rules.</p></div></article>
-          <article><span class="sales-benefit-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 8v9l6 4"/></svg></span><div><h3>Keep the context</h3><p>Remember the objection and follow up when the buyer asked.</p></div></article>
-          <article><span class="sales-benefit-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V10h5v17M23 27V5h5v22"/></svg></span><div><h3>Know the limit</h3><p>Send exceptions and unverified promises to a person with the full thread.</p></div></article>
+          <article><span class="sales-benefit-icon"><img src="./assets/figma-250-2/250-314-imgSvg.svg" alt=""></span><div><h3>Ground every answer</h3><p>Use your FAQs, approved examples, pricing, and deal rules.</p></div></article>
+          <article><span class="sales-benefit-icon"><img src="./assets/figma-250-2/250-314-imgSvg1.svg" alt=""></span><div><h3>Keep the context</h3><p>Remember the objection and follow up when the buyer asked.</p></div></article>
+          <article><span class="sales-benefit-icon"><img src="./assets/figma-250-2/250-314-imgSvg2.svg" alt=""></span><div><h3>Know the limit</h3><p>Send exceptions and unverified promises to a person with the full thread.</p></div></article>
         </div>
       </div>
     </section>
 
     <section class="partners section-pad" id="partners" aria-labelledby="partners-title">
       <div class="shell partners-grid">
-        <div class="partners-copy"><span class="eyebrow">For agencies &amp; operators</span><h2 id="partners-title">Know an industry?<br><em>Sell its AI rep.</em></h2><p>Package the questions buyers always ask, the objections that stall deals, and the answers that move them forward. Adapt that playbook to each client’s prices, proof, and policies.</p><a class="button button-dark" href="mailto:hello@reply2lead.com?subject=Reply2Lead%20partner%20and%20reseller%20options">Discuss partner options <span aria-hidden="true">↗</span></a></div>
+        <div class="partners-copy"><h2 id="partners-title">Know an industry?<br><em>Sell its AI rep.</em></h2><p>Turn the questions and objections you know by heart into a repeatable client offer. Tailor each assistant to the client's approved prices, proof, and policies; ask us about the partner model.</p><a class="button button-dark" href="#contact">Discuss a partnership</a></div>
         <div class="partners-visual" aria-label="Illustrative example: an industry playbook and approved client facts help Ray answer an objection and prepare a human handoff">
           <div class="partners-playbook">
             <div class="partners-playbook-head"><span class="partners-playbook-icon" aria-hidden="true">✳</span><div><strong>Sales playbook</strong><small>Built for each client</small></div></div>
@@ -196,128 +171,67 @@
           <div class="partners-chat">
             <div class="partners-chat-head"><div class="partners-chat-identity"><span class="partners-ray-mark" aria-hidden="true">✳</span><div><strong>Ray · sales assistant</strong><small>Illustrative conversation</small></div></div><span class="partners-live"><i aria-hidden="true"></i> Active</span></div>
             <div class="partners-chat-body">
-              <div class="partners-buyer"><span class="partners-avatar" aria-hidden="true">B</span><p>Another provider quoted less. Can you match their price?</p></div>
-              <div class="partners-reply"><span class="partners-reply-mark" aria-hidden="true">✳</span><div class="partners-reply-content"><p>Good question. I can walk you through what’s included in your proposal and share the approved comparison. I’ll ask the team before promising any price change.</p><div class="partners-source-tags"><span>✓ Approved offer</span><span>✓ Pricing rule</span></div></div></div>
-              <div class="partners-buyer partners-buyer-followup"><span class="partners-avatar" aria-hidden="true">B</span><p>Could someone review the two quotes with me?</p></div>
-              <div class="partners-handoff"><span class="partners-handoff-icon" aria-hidden="true">↗</span><div><strong>Ready for your team</strong><small>Quote comparison request · full context attached</small></div><span class="partners-handoff-check" aria-hidden="true">✓</span></div>
+              <div class="partners-buyer partners-story-line"><span class="partners-avatar" aria-hidden="true">B</span><p>Another provider quoted less. Can you match their price?</p></div>
+              <div class="partners-typing" aria-label="Ray is typing"><span class="partners-reply-mark" aria-hidden="true">✳</span><span class="partners-typing-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+              <div class="partners-reply partners-story-line"><span class="partners-reply-mark" aria-hidden="true">✳</span><div class="partners-reply-content"><p>Good question. I can walk you through what’s included in your proposal and share the approved comparison. I’ll ask the team before promising any price change.</p><div class="partners-source-tags"><span>✓ Approved offer</span><span>✓ Pricing rule</span></div></div></div>
+              <div class="partners-buyer partners-buyer-followup partners-story-line"><span class="partners-avatar" aria-hidden="true">B</span><p>Could someone review the two quotes with me?</p></div>
+              <div class="partners-handoff partners-story-line"><span class="partners-handoff-icon" aria-hidden="true">✓</span><div><strong>Ready for your team</strong><small>Quote comparison request · full context attached</small></div><span class="partners-handoff-check" aria-hidden="true">✓</span></div>
             </div>
           </div>
-          <div class="partners-outcome"><span class="partners-outcome-icon" aria-hidden="true">↗</span><div><small>Conversation outcome</small><strong>A qualified next step.</strong></div></div>
+          <div class="partners-outcome partners-story-line"><span class="partners-outcome-icon" aria-hidden="true">↗</span><div><small>Conversation outcome</small><strong>A qualified next step.</strong></div></div>
         </div>
       </div>
     </section>
 
     <section class="credit-continuity section-pad" id="credit-continuity" aria-labelledby="credit-title">
       <div class="shell">
-        <div class="section-head two-col"><span class="eyebrow">Always-on answers</span><div><h2 id="credit-title">Out of credits. <em>Still in the conversation.</em></h2><p>At zero AI credits, Ray can still reply to questions covered by the knowledge you added and answers you approved. Anything it cannot verify goes to your team.</p></div></div>
+        <div class="section-head two-col"><span class="eyebrow">Always-on answers</span><div><h2 id="credit-title">Out of credits? <em>Still in the conversation.</em></h2><p>A zero balance does not have to end the chat. Ray can still use your approved answers for covered questions; anything it cannot verify goes to your team.</p></div></div>
         <div class="credit-demo" data-mode="exhausted">
           <div class="credit-panel">
             <div class="credit-panel-top"><span class="ui-kicker">CREDIT CONTINUITY</span><span class="credit-badge"><i aria-hidden="true"></i><span id="credit-badge-text">Knowledge mode</span></span></div>
             <div class="credit-panel-main"><span class="credit-count" id="credit-count" aria-live="polite">0 AI credits left</span><div class="credit-track" aria-hidden="true"><span class="credit-level"></span></div><p>Your approved answers stay ready for the questions customers ask again and again.</p></div>
           <div class="credit-mode-controls" role="group" aria-label="Credit balance"><button type="button" data-credit-mode="available" aria-pressed="false">Credits available</button><button type="button" data-credit-mode="exhausted" aria-pressed="true">Credits exhausted</button></div>
           </div>
-          <div class="credit-conversation" aria-label="Conversation with Ray"><div class="credit-conversation-head"><span class="ray-mark" aria-hidden="true">✳</span><div><strong>Ray</strong><small>Instagram DM</small></div><svg class="social-icon instagram" aria-hidden="true"><use href="#social-instagram"></use></svg></div><div class="credit-thread"><div class="credit-message credit-customer"><small>Customer</small><p>Can I reschedule my appointment?</p></div><div class="credit-typing" aria-hidden="true"><span></span><span></span><span></span><small>Ray is checking your booking policy</small></div><div class="credit-message credit-ray"><small>Ray</small><p>Yes. You can reschedule up to 24 hours before your appointment using the link in your confirmation.</p></div><div class="credit-source"><span aria-hidden="true">✓</span> Answered from your approved booking policy</div></div><div class="credit-conversation-bottom"><span class="credit-state-dot" aria-hidden="true"></span><strong id="credit-state" aria-live="polite">Reply sent · no AI credits used</strong></div></div>
+          <div class="credit-conversation" aria-label="Conversation with Ray"><div class="credit-conversation-head"><span class="ray-mark" aria-hidden="true">✳</span><div><strong>Ray</strong><small>Instagram DM</small></div><img class="credit-instagram-icon" src="./assets/figma-250-2/250-438-imgGroup.svg" alt="Instagram"></div><div class="credit-thread"><div class="credit-message credit-customer"><small>Customer</small><p>Can I reschedule my appointment?</p></div><div class="credit-typing" aria-hidden="true"><span></span><span></span><span></span><small>Ray is checking your booking policy</small></div><div class="credit-message credit-ray"><small>Ray</small><p>Yes. You can reschedule up to 24 hours before your appointment using the link in your confirmation.</p></div><div class="credit-source"><span aria-hidden="true">✓</span> Answered from your approved booking policy</div></div><div class="credit-conversation-bottom"><span class="credit-state-dot" aria-hidden="true"></span><strong id="credit-state" aria-live="polite">Reply sent · no AI credits used</strong></div></div>
         </div>
       </div>
     </section>
 
-    <section class="stories section-pad" id="outcomes" aria-label="Three ways Ray helps">
-      <div class="shell story-tiles">
-        <article class="story-card story-support">
-          <div class="story-image" aria-label="AI support conversation across social channels">
-            <img class="story-backdrop" src="./assets/story-support-bg.webp" alt="" loading="lazy">
-            <div class="story-channel-stack" aria-hidden="true">
-              <span class="story-channel story-channel-whatsapp"><svg class="social-icon whatsapp"><use href="#social-whatsapp"></use></svg></span>
-              <span class="story-channel story-channel-instagram"><svg class="social-icon instagram"><use href="#social-instagram"></use></svg></span>
-              <span class="story-channel story-channel-messenger"><svg class="social-icon messenger"><use href="#social-messenger"></use></svg></span>
-            </div>
-            <div class="story-phone iphone-16-pro-max" aria-hidden="true">
-              <div class="iphone-screen">
-                <div class="iphone-statusbar"><strong>9:41</strong><span class="iphone-dynamic-island"></span><span class="iphone-system-icons"><svg viewBox="0 0 40 16"><path d="M1 14h3V9H1zm5 0h3V6H6zm5 0h3V3h-3zm7-8a13 13 0 0 1 17 0l-2 2a10 10 0 0 0-13 0zm4 4a7 7 0 0 1 9 0l-4.5 5z" fill="currentColor"/></svg><i></i></span></div>
-                <div class="story-phone-head"><span class="story-phone-back">‹</span><span class="story-phone-ray">✳</span><span><strong>Ray assistant</strong><small>Online <i></i></small></span></div>
-                <div class="story-phone-thread"><span class="story-phone-bubble">Tell me what you need to achieve. I can explain the options and bring in a specialist when needed.</span><span class="story-phone-bubble user">Can we start with one team and expand later?</span><span class="story-phone-bubble">A phased start is in the guide. What is your deadline for the second team?</span><span class="story-mini-product"><span class="story-mini-product-icon">◧</span><span><strong>Phased rollout</strong><small>Two teams · Timing</small></span><span class="story-mini-cart">Review plan</span></span></div>
-                <div class="story-phone-compose">Type a message... <span>➤</span></div>
-                <span class="iphone-home-indicator"></span>
-              </div>
-            </div>
-          </div>
-          <h3>Support</h3><p>Handle nuanced questions<br>across your channels.</p>
-        </article>
-        <article class="story-card story-lead">
-          <div class="story-image" aria-label="Qualified lead ready to add to a CRM">
-            <div class="story-lead-ghost" aria-hidden="true"></div>
-            <div class="story-lead-panel">
-              <div class="story-lead-head"><span class="story-lead-avatar">SK</span><span><strong>New lead</strong><small>From Instagram</small></span><svg class="social-icon instagram" aria-hidden="true"><use href="#social-instagram"></use></svg></div>
-              <dl><div><dt>Name</dt><dd>Sarah Kim</dd></div><div><dt>Email</dt><dd>sarah@example.com</dd></div><div><dt>Phone</dt><dd>+1 (555) 010-0199</dd></div></dl>
-              <button class="story-crm-button" type="button" aria-label="Add lead to CRM" aria-pressed="false">↗ &nbsp; Add to CRM</button>
-            </div>
-          </div>
-          <h3>Lead capture</h3><p>Capture scope, urgency, and<br>the next sales step.</p>
-        </article>
-        <article class="story-card story-handoff">
-          <div class="story-image" aria-label="AI conversation handed to a human teammate">
-            <img class="story-backdrop" src="./assets/story-handoff-agent.webp" alt="Customer support specialist wearing a headset" loading="lazy">
-            <span class="story-handoff-pill">ϟ &nbsp; AI handled the initial questions</span>
-            <span class="story-handoff-ray"><span class="story-ray-avatar">✳</span><span>I'll connect you with a specialist to help with that. One moment...</span></span>
-            <span class="story-handoff-connected"><span aria-hidden="true">♙</span> Connected to a human</span>
-            <span class="story-handoff-human"><span class="story-human-avatar">E</span><span>Hi, I'm Emma. Ray shared your deadline and contract question. Let's review the options.</span></span>
-          </div>
-          <h3>Human handoff</h3><p>Bring in a person when<br>approval or judgment matters.</p>
-        </article>
-      </div>
+    <section class="stories figma-stories" aria-label="Three ways Ray helps">
+      <img src="./assets/figma-250-2/250-478-imgImage7.png" alt="Three examples of Ray handling buyer questions, qualifying leads, and handing conversations to a person" width="2027" height="776" loading="lazy">
     </section>
 
     <section class="steps section-pad" id="steps" aria-labelledby="steps-title">
       <div class="shell">
-        <div class="tour-heading"><span class="eyebrow">Get started</span><h2 id="steps-title">Go live knowing <em>what Ray knows.</em></h2><p>Connect your channels, add your answers, and test Ray before launch.</p></div>
+        <div class="section-head two-col"><span class="eyebrow">Get started</span><div><h2 id="steps-title">Go live knowing what Ray knows.</h2><p>Connect your channels, choose the knowledge Ray should use, and test the awkward questions before a buyer asks them.</p></div></div>
         <div class="product-tour" data-product-tour>
-          <div class="tour-steps" role="group" aria-label="Explore the three setup steps">
-            <button class="tour-step is-active" type="button" data-tour-step="0" aria-pressed="true" aria-controls="tour-panel-0"><span class="tour-step-number">01</span><span class="tour-step-copy"><strong>Connect</strong></span></button>
-            <button class="tour-step" type="button" data-tour-step="1" aria-pressed="false" aria-controls="tour-panel-1"><span class="tour-step-number">02</span><span class="tour-step-copy"><strong>Bring your answers</strong></span></button>
-            <button class="tour-step" type="button" data-tour-step="2" aria-pressed="false" aria-controls="tour-panel-2"><span class="tour-step-number">03</span><span class="tour-step-copy"><strong>Test the edge cases</strong></span></button>
+          <div class="tour-steps" role="tablist" aria-label="Explore the three setup steps" aria-orientation="vertical">
+            <button class="tour-step is-active" id="tour-tab-0" role="tab" type="button" data-tour-step="0" aria-selected="true" aria-controls="tour-panel-0" tabindex="0"><span class="tour-step-number">01</span><span class="tour-step-copy"><strong>Connect</strong><small>Bring customer conversations into one place.</small></span><span class="tour-step-arrow" aria-hidden="true">↗</span></button>
+            <button class="tour-step" id="tour-tab-1" role="tab" type="button" data-tour-step="1" aria-selected="false" aria-controls="tour-panel-1" tabindex="-1"><span class="tour-step-number">02</span><span class="tour-step-copy"><strong>Bring your answers</strong><small>Choose website pages, FAQs, and files Ray can use.</small></span><span class="tour-step-arrow" aria-hidden="true">↗</span></button>
+            <button class="tour-step" id="tour-tab-2" role="tab" type="button" data-tour-step="2" aria-selected="false" aria-controls="tour-panel-2" tabindex="-1"><span class="tour-step-number">03</span><span class="tour-step-copy"><strong>Test the edge cases</strong><small>Try tough questions and check when Ray hands off.</small></span><span class="tour-step-arrow" aria-hidden="true">↗</span></button>
           </div>
           <div class="tour-screen">
+            <div class="tour-screen-top"><span class="tour-screen-dot" aria-hidden="true"></span><span>From the Reply2Lead app</span><span class="tour-screen-count" aria-live="polite">01 / 03</span></div>
             <div class="tour-screen-stage">
-              <figure class="tour-panel is-active" id="tour-panel-0" data-tour-panel="0" aria-hidden="false"><img src="./assets/product-ui/channels.jpg" alt="Actual Channels screen showing Facebook Messenger, Instagram, WhatsApp, Threads and TikTok, with connected statuses" loading="lazy" width="1095" height="300"></figure>
-              <figure class="tour-panel" id="tour-panel-1" data-tour-panel="1" aria-hidden="true"><picture><source media="(max-width: 760px)" srcset="./assets/product-ui/data-sources-mobile.jpg"><img src="./assets/product-ui/data-sources.jpg" alt="Actual Data sources screen showing the FAQ editor alongside documents, raw text, websites and Facebook sources" loading="lazy" width="1200" height="280"></picture></figure>
-              <figure class="tour-panel" id="tour-panel-2" data-tour-panel="2" aria-hidden="true"><img src="./assets/product-ui/ray-preview.jpg" alt="Actual Ray Assistant screen showing strict boundaries beside a customer preview conversation and Ray’s answer" loading="lazy" width="1200" height="430"></figure>
+              <figure class="tour-panel is-active" id="tour-panel-0" role="tabpanel" aria-labelledby="tour-tab-0" data-tour-panel="0" aria-hidden="false" tabindex="0"><img src="./assets/product-ui/channels.jpg" alt="Channels screen: Facebook Messenger, Instagram, WhatsApp, Threads and TikTok, with connected statuses" loading="lazy" width="1095" height="300"></figure>
+              <figure class="tour-panel" id="tour-panel-1" role="tabpanel" aria-labelledby="tour-tab-1" data-tour-panel="1" aria-hidden="true" tabindex="-1"><picture><source media="(max-width: 760px)" srcset="./assets/product-ui/data-sources-mobile.jpg"><img src="./assets/product-ui/data-sources.jpg" alt="Data sources screen: FAQ editor alongside documents, raw text, websites and Facebook sources" loading="lazy" width="1200" height="280"></picture></figure>
+              <figure class="tour-panel" id="tour-panel-2" role="tabpanel" aria-labelledby="tour-tab-2" data-tour-panel="2" aria-hidden="true" tabindex="-1"><img src="./assets/product-ui/ray-preview.jpg" alt="Ray Assistant screen: strict boundaries beside a customer preview conversation and Ray’s answer" loading="lazy" width="1200" height="430"></figure>
             </div>
+            <div class="tour-screen-bottom"><span>Product interface, captured from the app</span><span class="tour-screen-spark" aria-hidden="true">✳</span></div>
           </div>
-          <div class="tour-meta"><span>Actual Reply2Lead product interface</span><span class="tour-screen-count">01 / 03</span></div>
         </div>
       </div>
     </section>
 
-    <section class="proof section-pad" id="examples" aria-labelledby="proof-title">
-      <div class="shell proof-grid">
-        <div class="proof-photo">
-          <img src="./assets/proof-ready.webp" alt="A customer considering her options while working at a laptop" loading="lazy">
-          <div class="proof-chat-panel" aria-label="Customer conversation with Ray">
-            <div class="proof-chat-head"><span class="proof-chat-avatar" aria-hidden="true">✳</span><div><strong>Ray</strong><small>Instagram DM</small></div><span class="proof-online" aria-hidden="true"></span></div>
-            <div class="proof-chat-thread" aria-live="off">
-              <div class="proof-message proof-message-customer" data-proof-step="1"><small>Customer</small><p id="proof-customer-question">Could we start with one site and add the second later?</p></div>
-              <div class="proof-typing" data-proof-step="2" aria-hidden="true"><i></i><i></i><i></i></div>
-              <div class="proof-message proof-message-ray" data-proof-step="3"><small>Ray</small><p id="proof-ray-answer">Our approved scope supports phases. Is your first opening date fixed?</p></div>
-              <div class="proof-message proof-message-customer" data-proof-step="4"><small>Customer</small><p id="proof-customer-detail">Yes, six weeks. Site two is waiting on permits.</p></div>
-              <div class="proof-typing" data-proof-step="5" aria-hidden="true"><i></i><i></i><i></i></div>
-              <div class="proof-message proof-message-ray" data-proof-step="6"><small>Ray</small><p id="proof-ray-followup">I’ll ask a specialist to quote site one now and confirm site two after permits clear.</p></div>
-            </div>
-            <div class="proof-chat-result" data-proof-step="7"><span aria-hidden="true">✓</span><span id="proof-chat-result">Scope and deadline sent to your team</span></div>
-          </div>
-        </div>
-        <div class="proof-content"><h2 id="proof-title">When they’re<br>ready, <em>you’ll know.</em></h2><a class="button button-dark" href="#assistant">Meet Ray <span aria-hidden="true">↗</span></a><div class="example-slider" aria-live="polite"><div class="example-quote" id="example-quote">“Could we start with one site and add the second later?”</div><p id="example-description">Ray checks the deadline, clarifies the scope, and leaves the custom quote to your team.</p><div class="slider-bottom"><span id="example-count">01 / 03</span><div><button type="button" id="example-prev" aria-label="Previous conversation">←</button><button type="button" id="example-next" aria-label="Next conversation">→</button></div></div></div></div>
-      </div>
-    </section>
-
-    <section class="assistant section-pad" id="assistant" aria-labelledby="assistant-title"><div class="shell"><div class="section-head two-col"><span class="eyebrow">Assistant</span><div><h2 id="assistant-title">Ray qualifies the deal. <em>You make the call.</em></h2><p>Ray gathers the facts and keeps the conversation moving. Custom terms and uncertain answers reach your team with the full context.</p></div></div><div class="assistant-stage" data-chat-phase="complete"><div class="assistant-haze" aria-hidden="true"></div><div class="phone-ui iphone-16-pro-max"><div class="iphone-screen"><div class="iphone-statusbar"><strong>9:41</strong><span class="iphone-dynamic-island"></span><span class="iphone-system-icons"><svg viewBox="0 0 40 16" aria-hidden="true"><path d="M1 14h3V9H1zm5 0h3V6H6zm5 0h3V3h-3zm7-8a13 13 0 0 1 17 0l-2 2a10 10 0 0 0-13 0zm4 4a7 7 0 0 1 9 0l-4.5 5z" fill="currentColor"/></svg><i></i></span></div><div class="phone-header"><span class="ray-mark">✳</span><div><strong>Ray</strong><small>Ready to help</small></div></div><div class="phone-day">Today</div><div class="phone-bubble right">Can someone approve a custom contract term?</div><div class="phone-typing" aria-label="Ray is typing"><i></i><i></i><i></i></div><div class="phone-bubble left">I’ll send the clause and your deadline to the team so they can review it.</div><div class="phone-status"><span></span> Handed to your team</div><div class="phone-input">Message a customer <span>↑</span></div><span class="iphone-home-indicator"></span></div></div><div class="assistant-side"><span>Let Ray handle the repeatable sales hours. Keep your team focused on decisions that need a person.</span><a class="button button-white" href="#contact">Talk to us ↗</a></div></div></div></section>
+    <section class="assistant section-pad" id="assistant" aria-labelledby="assistant-title"><div class="shell"><div class="section-head two-col"><span class="eyebrow">Assistant</span><div><h2 id="assistant-title">Ray qualifies the deal. <em>You make the call.</em></h2><p>Ray collects the need, timing, and objection. When a request needs approval, your team gets the whole thread and a clear reason to step in.</p></div></div><div class="assistant-stage" data-chat-phase="complete"><div class="assistant-haze" aria-hidden="true"></div><div class="phone-ui iphone-16-pro-max"><div class="iphone-screen"><div class="iphone-statusbar"><strong>9:41</strong><span class="iphone-dynamic-island"></span><span class="iphone-system-icons"><svg viewBox="0 0 40 16" aria-hidden="true"><path d="M1 14h3V9H1zm5 0h3V6H6zm5 0h3V3h-3zm7-8a13 13 0 0 1 17 0l-2 2a10 10 0 0 0-13 0zm4 4a7 7 0 0 1 9 0l-4.5 5z" fill="currentColor"/></svg><i></i></span></div><div class="phone-header"><span class="ray-mark">✳</span><div><strong>Ray</strong><small>Ready to help</small></div></div><div class="phone-day">Today</div><div class="phone-bubble right">Can someone approve a custom contract term?</div><div class="phone-typing" aria-label="Ray is typing"><i></i><i></i><i></i></div><div class="phone-bubble left">I’ll send the clause and your deadline to the team so they can review it.</div><div class="phone-status"><span></span> Handed to your team</div><div class="phone-input">Message a customer <span>↑</span></div><span class="iphone-home-indicator"></span></div></div><div class="assistant-side"><span>Give Ray the repeatable conversations. Save your team's time for the choices that build trust and close the deal.</span><a class="button button-white" href="#contact">Request a demo</a></div></div></div></section>
 
     <section class="economics section-pad" id="economics" aria-labelledby="economics-title">
       <div class="shell economics-grid">
         <div class="economics-copy">
-          <span class="eyebrow">The cost of coverage</span>
+
           <h2 id="economics-title">Count the hours. <em>Compare the cost.</em></h2>
-          <p>A human sales assistant brings judgment, relationships, and accountability. Ray can cover repeatable buyer conversations and follow-up. Estimate the cost of those hours with your own team’s numbers, then compare it with a full Reply2Lead quote.</p>
-          <a class="button button-white" href="mailto:hello@reply2lead.com?subject=Reply2Lead%20sales%20assistant%20cost%20comparison">Get my cost comparison <span aria-hidden="true">↗</span></a>
+          <p>See what repeatable buyer conversations cost your team today. Use your real hours and labor cost, then compare that scenario with a full Reply2Lead quote. Keep human judgment where it counts.</p>
+
         </div>
         <div class="economics-panel" aria-label="Compare potential human sales assistant labor cost with Reply2Lead">
           <div class="economics-panel-head"><span>YOUR SALES HOURS</span><span>Editable scenario</span></div>
@@ -334,10 +248,10 @@
       </div>
     </section>
 
-    <section class="faq section-pad shell" id="faq" aria-labelledby="faq-title"><div class="faq-heading"><span class="eyebrow">FAQ</span><h2 id="faq-title">Know exactly <em>how Ray works.</em></h2><a class="button button-outline" href="mailto:hello@reply2lead.com?subject=Question%20about%20Reply2Lead">Ask us something ↗</a></div><div class="faq-list"><details><summary>Can Ray handle difficult buyer questions?<span>+</span></summary><p>Give Ray approved pricing, case studies, policies, and exceptions. It can ask for missing context and respond from those materials. When a promise, special term, or answer is not verified, it passes the full conversation to a person.</p></details><details><summary>How much could this save versus a human sales assistant?<span>+</span></summary><p>Use the calculator above with your actual paid hours and fully loaded labor cost. It estimates the value of repeatable work Ray could cover. The cash difference depends on your full Reply2Lead quote and whether you reduce paid hours or avoid a hire. Ray does not replace human judgment or every sales task.</p></details><details><summary>Can I resell an assistant for my industry?<span>+</span></summary><p>You can discuss a partner offering built around your industry knowledge: common buyer questions, qualification, objections, and follow-up. Each client still needs their own approved prices, proof, policies, and tests. Contact us to confirm commercial terms and supported deployment options.</p></details><details><summary>Do I need to write a sales playbook?<span>+</span></summary><p>Start with your website, FAQs, policies, files, and past chats. Test Ray against real difficult questions, then approve answers and handoff rules before launch.</p></details><details><summary>What happens when a lead goes quiet?<span>+</span></summary><p>Ray can keep the context and follow up at the agreed time, so a promising conversation does not disappear when your team logs off.</p></details><details><summary>What will I actually pay?<span>+</span></summary><p>Request a quote that separates the monthly plan, included AI credits, extra usage, setup, and any channel delivery fees. Enter that full cost in the calculator above to compare it with the sales hours you expect Ray to cover.</p></details></div></section>
+    <section class="faq section-pad shell" id="faq" aria-labelledby="faq-title"><div class="faq-heading"><span class="eyebrow">FAQ</span><h2 id="faq-title">Know exactly <em>how Ray works.</em></h2><a class="button button-outline" href="mailto:hello@reply2lead.com?subject=Question%20about%20Reply2Lead">Ask us something ↗</a></div><div class="faq-list"><details><summary>What if Ray cannot verify an answer?<span>+</span></summary><p>Ray answers from your approved sources and asks for missing details. If a buyer requests an unapproved discount, contract change, or promise, it passes the full thread to your team. You can test these cases before launch.</p></details><details><summary>How do I compare Ray with hiring?<span>+</span></summary><p>Enter your real hours, labor cost, estimated coverage, and full Reply2Lead quote. The calculator estimates the value of repeatable work, not guaranteed savings. Cash savings depend on paid hours you actually reduce or a hire you avoid.</p></details><details><summary>Can I offer this to my own clients?<span>+</span></summary><p>Let us discuss a partner offer built on your industry playbook. Each client needs their own approved prices, proof, policies, and testing. We will confirm the commercial terms and supported deployment options with you.</p></details><details><summary>How do I teach Ray my business?<span>+</span></summary><p>Start with the pages and files you would hand a new salesperson: offers, FAQs, policies, and useful past chats. Leave out irrelevant material, test tough questions, and refine the handoff rules before launch.</p></details><details><summary>Can Ray follow up without spamming?<span>+</span></summary><p>Set follow-up timing that fits the buyer and the channel. Ray can keep the context and return at the agreed time; test the experience before you turn it on.</p></details><details><summary>What will I actually pay?<span>+</span></summary><p>Ask for a quote that separates the plan, included credits, extra usage, setup, and channel fees. Put the full monthly cost into the calculator to compare it with the sales hours Ray could cover.</p></details></div></section>
 
     <section class="final-cta frame" id="contact" aria-labelledby="final-title">
-      <img src="./assets/cta-after-hours.webp" alt="Business owner at her laptop beside a city window at sunset" loading="lazy">
+      <img src="./assets/figma-250-2/250-619-imgImage8.png" alt="Business owner at her laptop beside a city window at sunset" loading="lazy">
       <div class="final-shade" aria-hidden="true"></div>
       <div class="cta-signals" aria-hidden="true">
         <div class="cta-signal cta-signal-one"><span class="cta-signal-avatar">M</span><span>Can we start in December?</span><small>Now</small></div>
@@ -350,10 +264,26 @@
       <div class="final-inner">
         <a class="wordmark wordmark-light" href="#top">reply<span>2</span>lead<span class="wordmark-spark">✳</span></a>
         <h2 id="final-title"><span>Keep qualifying</span><em>after hours.</em></h2>
-        <div class="final-bottom"><p>Bring your toughest buyer questions. See how Ray uses your knowledge, handles objections, follows up, and knows when to bring your team in.</p><a class="button button-white" href="mailto:hello@reply2lead.com?subject=Reply2Lead%20demo%20and%20pricing">Request demo &amp; pricing <span aria-hidden="true">↗</span></a></div>
+        <div class="final-bottom"><p>Bring one of your hardest buyer questions. We'll show you how Ray uses your answers, what it asks next, and when it brings your team in.</p><a class="button button-white" href="mailto:hello@reply2lead.com?subject=Reply2Lead%20demo%20and%20pricing">Request demo &amp; pricing <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
   </main>
-  <footer class="footer shell"><div><strong class="wordmark">reply<span>2</span>lead<span class="wordmark-spark">✳</span></strong><p>A sales assistant for every conversation.</p></div><nav aria-label="Footer navigation"><a href="#evidence">Why Reply2Lead</a><a href="#product">Product</a><a href="#partners">For partners</a><a href="#economics">Cost</a><a href="#faq">FAQ</a></nav><div class="footer-contact"><a href="mailto:hello@reply2lead.com">hello@reply2lead.com ↗</a><span>© 2026 Reply2Lead</span></div></footer>
+  <footer class="footer shell" aria-label="Site footer">
+    <div>
+      <a class="wordmark" href="#top">reply<span>2</span>lead<span class="wordmark-spark">✳</span></a>
+      <p>Better buyer conversations, from first DM to handoff.</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <a href="#evidence">Why Reply2Lead</a>
+      <a href="#product">Product</a>
+      <a href="#partners">For partners</a>
+      <a href="#economics">Cost</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="mailto:hello@reply2lead.com">hello@reply2lead.com ↗</a>
+      <span>© 2026 Reply2Lead</span>
+    </div>
+  </footer>
 </body>
 </html>

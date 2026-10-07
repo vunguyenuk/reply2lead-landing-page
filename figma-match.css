@@ -1,0 +1,364 @@
+/* Reply2Lead frame 250:2, translated from the 1920px Figma composition. */
+@font-face{font-family:"Inter Display";src:url("./assets/fonts/InterDisplay-Regular.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Inter Display";src:url("./assets/fonts/InterDisplay-Medium.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap}
+@font-face{font-family:"Inter Display";src:url("./assets/fonts/InterDisplay-SemiBold.woff2") format("woff2");font-style:normal;font-weight:600;font-display:swap}
+@font-face{font-family:"Inter Display";src:url("./assets/fonts/InterDisplay-Bold.woff2") format("woff2");font-style:normal;font-weight:700;font-display:swap}
+:root{--ink:#202522;--paper:#f7f8f6;--green:#25d366;--deep:#111b21;--sans:"DM Sans",Arial,sans-serif;--display:"Inter Display","DM Sans",sans-serif;--type-section:3.5rem;--type-body:1rem;--leading-section:1.17857}
+body{background:var(--paper);font-family:var(--display);font-kerning:normal}
+h1,h2,h3{font-family:var(--display)}
+h1 em,h2 em,h3 em{font-family:var(--display)!important}
+@media(min-width:1300px){:root{--shell:min(calc(100vw - 160px),1440px)}}
+
+/* Hero: the photograph is inset beneath a white navigation bar. */
+.hero.frame{height:960px;margin:0;border-radius:0;background:#fff;color:#fff}
+.hero-photo{position:absolute;left:50%;top:98px;transform:translateX(-50%);width:min(1748px,calc(100% - 172px));height:862px;overflow:hidden;border-radius:25px}
+.hero-photo .hero-image{position:absolute;inset:auto;left:-22.44%;top:0;width:124.5%;height:100%;max-width:none;object-fit:cover;object-position:center 1.5%;border-radius:0;animation:none}
+.hero-photo .hero-overlay{position:absolute;inset:0;width:100%;height:100%;border-radius:0;background:rgba(0,0,0,.2)}
+.hero .nav-bar{height:98px;max-width:1920px;margin-inline:auto;padding:30px 83px;gap:30px;color:#29312e}
+.hero .wordmark{font-size:31px}
+.hero .nav-links{font-size:14px;color:#29312e;gap:32px}
+.hero .nav-actions{display:flex;align-items:center;gap:10px;margin-left:14px}
+.hero .nav-login,.hero .nav-button{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-height:43px;padding:10px 20px;border-radius:22px;font-size:13px;font-weight:700;white-space:nowrap;box-shadow:none}
+.hero .nav-login{border:1px solid #cfd9d3;background:#fff;color:#29312e}
+.hero .nav-button{background:#25d366;color:#fff}
+.hero .nav-login:hover,.hero .nav-button:hover{transform:translateY(-2px)}
+.hero-content{left:max(9.7vw,calc((100vw - 1548px)/2));top:229px;width:575px;max-width:43vw;transform:none;text-align:left}
+.hero h1{font-size:64px;line-height:1.156;letter-spacing:-.05em;font-weight:600;margin:0 0 20px}
+.hero h1 span,.hero h1 em{display:block;white-space:normal;font-size:inherit;line-height:inherit;letter-spacing:inherit;color:#fff;font-style:normal}
+.hero p{width:464px;max-width:100%;font-family:var(--display);font-size:16px;line-height:1.647;font-weight:400;color:#fff;margin:0 0 57px}
+.hero .hero-button{min-height:52px;padding:14px 27px;border-radius:64px;background:#25d366;color:#fff;font-size:16px;gap:24px;box-shadow:none}
+.hero-bottom{display:none}
+.hero-flow{color:#1d2823}
+.hero-social-instagram{left:63.75%;top:18.5%}.hero-social-whatsapp{right:2.2%;top:19.4%}.hero-social-messenger{left:38.9%;top:39.7%}
+.hero-message-question{left:65%;top:24.2%;width:476px;min-width:0;border-radius:11px}
+.hero-message-ray{left:67.7%;top:32.1%;width:538px;min-width:0;border-radius:11px}
+.hero-message-followup{left:63.4%;top:58.9%;width:520px;min-width:0;border-radius:11px}
+.hero-message-booking{left:70.9%;top:69.2%;width:462px;min-width:0;border-radius:11px}
+.hero-send{right:3.6%;top:42.6%}
+
+/* The imported frame has a quote and a clean video placeholder here. */
+.figma-overview{height:1108px;position:relative;background:#f7f8f6;padding:0}
+.overview-intro{position:absolute;top:60px;left:calc(50% - 140px);width:576px;max-width:calc(50% - 40px)}
+.overview-intro h2{margin:0 0 15px;font-size:28px;font-weight:400;line-height:1.27;letter-spacing:-.035em;color:#111b21}
+.overview-intro p{margin:0;font-family:var(--display);font-size:26px;line-height:1.35;letter-spacing:-.03em;color:rgba(0,0,0,.3)}
+.overview-video{position:absolute;top:303px;left:50%;transform:translateX(-50%);width:min(1389px,calc(100% - 96px));aspect-ratio:16/9;overflow:hidden;border-radius:22px;background:#111b21}
+.overview-video video{display:block;width:100%;height:100%;object-fit:contain}
+
+.market-evidence{min-height:1075px;padding:168px 0 90px;background:#111b21;color:#f3faf5}
+.market-evidence-head{display:flex;justify-content:space-between;align-items:center;gap:40px;margin:0 0 72px}
+.market-evidence-head h2{font-size:56px;line-height:1.18;letter-spacing:-.05em;font-weight:500;max-width:none;margin:0}
+.market-evidence-head h2 em{color:#25d366;letter-spacing:inherit}
+.market-evidence-head p{width:362px;max-width:36%;margin:0;font-family:var(--display);font-size:16px;line-height:1.52;color:#c4d5ca}
+.owner-stories{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.reddit-capture:last-child{grid-column:auto;width:auto;justify-self:stretch}
+.reddit-capture img{aspect-ratio:468/260.84;border-radius:14px}
+.reddit-capture>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.market-evidence-bottom{grid-template-columns:250px 1fr;gap:90px;padding-top:93px}
+.market-evidence-bottom>div:first-child>.eyebrow{display:none}
+.market-evidence-bottom>div:first-child p{margin:0}
+.market-facts{gap:25px}
+.market-facts strong{color:#25d366}
+
+/* Exact visual asset from the three-story frame. */
+.figma-stories{height:833px;display:flex;align-items:flex-start;justify-content:center;padding:89px 0 0;background:#fff;overflow:hidden}
+.figma-stories>img{width:min(1709px,calc(100% - 96px));height:auto;max-width:none}
+
+/* Target frame keeps the closing image inset and rounded. */
+@media(min-width:1300px){.final-cta.frame{width:min(1765px,calc(100% - 156px));height:740px;margin:0 auto;border-radius:42px}.final-inner{padding-inline:72px}}
+.final-cta>img{object-position:50% 48%}
+.final-cta h2 em{font-family:var(--display)}
+
+@media(max-width:1299px){
+  .hero.frame{height:800px}
+  .hero-photo{left:32px;top:88px;transform:none;width:calc(100% - 64px);height:712px}
+  .hero .nav-bar{height:88px;padding:20px 32px}
+  .hero-content{left:8%;top:190px;max-width:48%;width:520px}
+  .hero h1{font-size:clamp(44px,5vw,60px)}
+  .hero-flow{transform:scale(.78);transform-origin:top right;width:128%;left:auto;right:0}
+  .figma-overview{height:960px}
+  .overview-intro{left:44%;width:50%}
+  .overview-video{top:270px}
+  .market-evidence{padding-top:110px;min-height:0}
+  .market-evidence-bottom{gap:35px}
+  .figma-stories{height:auto;min-height:600px;padding:65px 0}
+}
+@media(max-width:900px){
+  .hero .nav-actions{margin-left:auto}
+  .hero .nav-links{display:none}
+  .hero-content{max-width:53%;left:7%}
+  .hero h1{font-size:clamp(38px,6vw,54px)}
+  .hero p{font-size:15px;line-height:1.5;margin-bottom:32px}
+  .market-evidence-head{align-items:flex-start;flex-direction:column;gap:20px}
+  .market-evidence-head p{max-width:600px;width:auto}
+  .market-evidence-bottom{grid-template-columns:1fr;gap:25px}
+  .owner-stories{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .figma-stories{overflow-x:auto;justify-content:flex-start;padding-left:32px;min-height:0}
+  .figma-stories>img{width:1050px;min-width:1050px}
+}
+@media(max-width:700px){
+  .hero.frame{height:865px}
+  .hero-photo{left:8px;top:78px;transform:none;width:calc(100% - 16px);height:787px;border-radius:20px}
+  .hero-photo .hero-image{left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:52% center}
+  .hero-photo .hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.38) 42%,rgba(0,0,0,.12) 70%,rgba(0,0,0,.3) 100%)}
+  .hero .nav-bar{height:78px;padding:17px 20px}
+  .hero .wordmark{font-size:25px}
+  .hero .nav-actions{margin-left:auto}
+  .hero .nav-login{display:none}
+  .hero .nav-button{min-height:38px;padding:8px 12px;font-size:11px}
+  .hero .menu-button{display:flex;margin-left:5px}
+  .hero-content{top:126px;left:25px;width:calc(100% - 50px);max-width:500px}
+  .hero h1{font-size:clamp(38px,9vw,54px);line-height:1.1;margin-bottom:18px}
+  .hero p{width:min(100%,390px);font-size:14px;line-height:1.48;margin-bottom:22px}
+  .hero .hero-button{min-height:44px;font-size:13px;padding:10px 18px}
+  .hero-flow{transform:none;width:auto;left:0;right:0}
+  .hero-message-question{left:auto;right:4%;top:59%;width:72%}
+  .hero-message-ray{left:9%;top:66%;width:79%}
+  .hero-message-followup{left:4%;top:82%;width:78%}
+  .hero-message-booking{left:auto;right:4%;top:85%;width:70%}
+  .figma-overview{height:auto;padding:70px 20px 80px}
+  .overview-intro{position:static;width:auto;max-width:580px;margin:0 auto 45px}
+  .overview-intro h2{font-size:25px}
+  .overview-intro p{font-size:20px}
+  .overview-video{position:static;transform:none;width:100%;height:auto;border:1px solid #edf1ee}
+  .market-evidence{padding:80px 0}
+  .market-evidence-head h2{font-size:clamp(40px,9vw,54px)}
+  .owner-stories{grid-template-columns:1fr;gap:18px}
+  .reddit-capture:last-child{grid-column:auto}
+  .market-evidence-bottom{padding-top:55px}
+  .figma-stories{padding:50px 16px;scroll-snap-type:x mandatory}
+  .figma-stories>img{width:880px;min-width:880px;scroll-snap-align:start}
+}
+@media(prefers-reduced-motion:reduce){.hero .nav-login,.hero .nav-button{transition:none}}
+
+@media(min-width:1920px){.hero-photo{left:calc(50% - 882px);transform:none;width:1748px}.hero-flow{left:50%;right:auto;width:1920px;transform:translateX(-50%)}}
+.shop-product-art img{width:92%;height:92%;object-fit:contain;filter:drop-shadow(0 8px 5px #091a1f26)}
+@media(min-width:1300px){
+  .assistant-stage{height:690px;display:block}
+  .assistant-stage .phone-ui.iphone-16-pro-max{position:absolute;left:68px;top:80px;width:608px;margin:0;align-self:auto}
+  .assistant-stage .assistant-side{position:absolute;left:797px;top:190px;width:285px;margin:0;align-self:auto}
+}
+@media(min-width:1300px){.final-cta>img{inset:auto;left:-1.36%;top:0;width:127.37%;height:100%;max-width:none;object-fit:cover;object-position:center 8.8%}}
+
+/* Typography and section rhythm audited against each visible Figma frame. */
+:where(#performance-title,#flow-title,#product-title,#knowledge-title,#partners-title,#credit-title,#steps-title,#assistant-title,#economics-title,#faq-title,#final-title){
+  font-family:var(--display);
+  font-size:var(--type-section);
+  line-height:var(--leading-section);
+  font-weight:500;
+  letter-spacing:-.04em;
+}
+:where(.section-head p,.perf-photo-copy p,.planning-copy>p,.partners-copy>p,.sales-knowledge-heading p,.economics-copy>p){
+  font-family:var(--display);
+  font-size:var(--type-body);
+  line-height:1.5;
+  font-weight:400;
+  letter-spacing:0;
+}
+.eyebrow{font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.12em}
+.section-head h2 em,.planning-copy h2 em,.partners-copy h2 em,.economics-copy h2 em,.sales-knowledge-heading h2 em,.final-cta h2 em{font-family:var(--display);font-size:inherit;font-weight:inherit;letter-spacing:inherit}
+
+/* Performance sits inside a 1440px image, with a compact answer card. */
+.performance.section-pad{padding-top:134px;padding-bottom:116px}
+.performance-story{min-height:760px}
+.perf-photo-copy h2{font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.perf-photo-copy p{max-width:350px;font-size:var(--type-body);line-height:1.5}
+
+/* The next chapter fills exactly one 820px band. */
+.planning{min-height:820px;background:radial-gradient(ellipse at 69% 44%,#e1ebe5 0,#f5f8f5 54%,#f8faf7 100%)}
+.planning-inner{min-height:820px}
+.planning-copy{padding:0 45px 0 0}
+.planning-copy h2{max-width:540px;margin:0 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em;white-space:normal}
+.planning-copy h2 em{display:inline;color:#0f583c;white-space:normal}
+.planning-copy p{max-width:390px;margin:0 0 40px;font-size:var(--type-body);line-height:1.5}
+.planning-copy .button,.partners-copy .button,.assistant-side .button{min-width:0;min-height:52px;padding:14px 27px;border:0;border-radius:64px;background:#25d366;color:#071b15;font-family:var(--display);font-size:1rem;font-weight:500;gap:0;box-shadow:none}
+.planning-copy .button:hover,.partners-copy .button:hover,.assistant-side .button:hover{background:#19bc56;color:#071b15}
+
+/* Product and knowledge share the same 56/66 editorial heading treatment. */
+.product.section-pad{min-height:1102px;padding-top:77px;padding-bottom:132px}
+.product-head{margin-bottom:76px}
+.product-head h2{max-width:464px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.product-head p{max-width:392px;margin-top:27px;font-size:var(--type-body);line-height:1.5}
+.product-stage{height:610px;background:radial-gradient(ellipse at 50% 40%,#d9e6df 0,#becfd0 78%,#d2dfd6 100%)}
+.knowledge.section-pad{min-height:1363px;padding-block:90px 160px;background:#f7f8f6}
+.sales-knowledge-heading{grid-template-columns:41% minmax(0,59%)}
+.sales-knowledge-heading h2{font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.sales-knowledge-heading p{max-width:540px;margin-top:40px;font-size:var(--type-body);line-height:1.5}
+.sales-knowledge-stage{min-height:630px;margin-top:86px;background:radial-gradient(ellipse at 25% 85%,#d9ecde 0,#edf4ef 50%,#f3f6f0 100%)}
+.sales-ai-card{right:3.6%}
+
+/* Partner and credit chapters use the same quiet body scale. */
+.partners.section-pad{min-height:787px;padding-block:116px;background:#f5f8f5}
+.partners-copy h2{margin:0 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.partners-copy p{max-width:380px;margin:0 0 40px;font-size:var(--type-body);line-height:1.5}
+.credit-continuity.section-pad{min-height:1012px;padding-block:116px;background:#f7f8f6}
+.credit-continuity .section-head{margin-bottom:69px}
+.credit-continuity .section-head h2{max-width:614px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.credit-continuity .section-head p{max-width:614px;margin-top:40px;font-size:var(--type-body);line-height:1.5}
+
+/* Figma's setup chapter uses a plain charcoal canvas and a single-line title. */
+.steps.section-pad{min-height:736px;padding-block:76px;background:#111b21}
+.steps .section-head{margin-bottom:64px}
+.steps .section-head h2{max-width:850px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em;white-space:normal;color:#fff}
+.steps .section-head h2 em{color:inherit}
+.steps .section-head p{max-width:664px;margin-top:40px;font-size:var(--type-body);line-height:1.5;color:#d3dfd7}
+.steps .eyebrow{color:#25d366}
+
+/* The assistant starts after one quiet break, then the cost section follows. */
+.assistant.section-pad{padding-top:106px;padding-bottom:0}
+.assistant .section-head{margin-bottom:43px}
+.assistant .section-head h2{max-width:614px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.assistant .section-head p{max-width:614px;margin-top:40px;font-size:var(--type-body);line-height:1.5}
+.assistant-haze{display:none}
+.assistant-side>span{font-family:var(--display);font-size:1.5rem;font-weight:400;line-height:1.2;letter-spacing:-.03em}
+.assistant-side .button{min-height:52px}
+.economics.section-pad{min-height:1029px;padding-block:116px;background:#111b21}
+.economics-copy .eyebrow{display:none}
+.economics-copy h2{max-width:510px;margin:0 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.economics-copy h2 em{color:#25d366}
+.economics-copy p{max-width:475px;margin:0;font-size:var(--type-body);line-height:1.6;color:#c4d5ca}
+.economics-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px}
+.economics-panel{border-color:#e1ebe3;background:#f7faf7}
+.economics-result strong{color:#25d366}
+.economics-panel>a{background:#111b21}
+
+/* FAQ is deliberately restrained, and the closing photo retains the frame's type scale. */
+.faq.section-pad{min-height:647px;margin-top:36px;padding-block:116px;background:#f7f8f6}
+.faq-heading h2{max-width:529px;margin:30px 0 40px;font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.faq summary{font-family:var(--display);font-size:1rem;font-weight:500;letter-spacing:0}
+.faq .button-outline{min-height:52px;padding:14px 27px;border:1px solid #25d366;border-radius:64px;background:transparent;color:#111b21;font-size:1rem;font-weight:500}
+.final-cta.frame{margin-top:24px}
+.final-cta h2{font-size:var(--type-section);line-height:var(--leading-section);font-weight:500;letter-spacing:-.04em}
+.final-cta h2 em{font-size:inherit;letter-spacing:inherit}
+.final-bottom p{font-family:var(--display);font-size:var(--type-body);line-height:1.5}
+@media(min-width:1300px){
+  .final-inner{padding:82px}
+  .final-cta h2{position:absolute;left:82px;top:308px;width:495px;margin:0}
+  .final-bottom{position:absolute;left:82px;right:82px;bottom:74px}
+}
+@media(max-width:1299px){
+  :root{--type-section:clamp(2.5rem,4.1vw,3.5rem)}
+  .performance.section-pad,.product.section-pad,.knowledge.section-pad,.partners.section-pad,.credit-continuity.section-pad,.assistant.section-pad,.economics.section-pad,.faq.section-pad{min-height:0}
+  .performance.section-pad{padding-top:90px}
+  .product.section-pad{padding-block:80px}
+  .knowledge.section-pad{padding-block:90px}
+  .partners.section-pad,.credit-continuity.section-pad,.economics.section-pad,.faq.section-pad{padding-block:90px}
+  .steps.section-pad{min-height:0;padding-block:76px}
+  .steps .section-head{margin-bottom:48px}
+  .steps .section-head h2{white-space:normal}
+  .assistant.section-pad{padding-top:90px;padding-bottom:0}
+  .faq.section-pad{margin-top:0}
+  .final-cta.frame{margin-top:24px}
+}
+@media(max-width:700px){
+  :root{--type-section:clamp(2.25rem,9vw,3rem)}
+  .performance.section-pad,.product.section-pad,.knowledge.section-pad,.partners.section-pad,.credit-continuity.section-pad,.assistant.section-pad,.economics.section-pad,.faq.section-pad{padding-block:72px}
+  .assistant.section-pad{padding-top:72px;padding-bottom:0}
+  .assistant-stage{width:calc(100% + 36px);height:clamp(350px,95vw,470px);margin-left:-18px;border-radius:22px 22px 0 0}
+  .assistant-stage .phone-ui.iphone-16-pro-max{position:absolute;top:26px;left:50%;width:clamp(225px,74vw,300px);max-width:calc(100% - 42px);margin:0;transform:translateX(-50%)}
+  .planning{min-height:0}
+  .planning-inner{min-height:0}
+  .planning-copy{padding:0}
+  .planning-copy h2{margin:0 0 24px}
+  .planning-copy p,.partners-copy p{margin-bottom:24px}
+  .product-head{margin-bottom:40px}
+  .knowledge.section-pad{padding-block:72px}
+  .sales-knowledge-heading{grid-template-columns:1fr}
+  .sales-knowledge-stage{margin-top:40px}
+  .credit-continuity .section-head,.assistant .section-head{margin-bottom:38px}
+  .credit-continuity .section-head p,.assistant .section-head p{margin-top:20px}
+  .steps .section-head{margin-bottom:32px}
+  .steps .section-head p{margin-top:20px}
+  .assistant-side .button{min-height:52px}
+  .economics-grid{grid-template-columns:1fr;gap:36px}
+  .faq-heading h2{margin:20px 0 28px}
+  .final-cta h2{position:static;width:auto;margin:auto 0;font-size:var(--type-section)}
+}
+.hero-brand-icon,.hero-inline-icon{display:block;width:auto;height:auto;max-width:none;flex:none}
+.shop-customer-avatar img{width:100%;height:100%;object-fit:cover;object-position:55% 20%;transform:scale(1.8)}
+.flow-connector{background:url("./assets/figma-250-2/250-158-imgInstagramCommentBecomingAPrivateConversation.svg") 0 0/100% 100% no-repeat}
+.planning.demo-active .flow-connector{animation:flow-line-reveal 1.2s cubic-bezier(.22,1,.36,1) 1s both}
+@keyframes flow-line-reveal{from{clip-path:inset(0 100% 0 0);opacity:0}to{clip-path:inset(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.planning.demo-active .flow-connector{animation:none}}
+.sales-benefit-icon img{display:block;width:auto;height:auto;max-width:none}
+
+/* The device artwork has a transparent screen cutout. Place the chat inside that
+   cutout, then draw the real bezel and camera above it at every viewport width. */
+.assistant-stage .phone-ui.iphone-16-pro-max{
+  aspect-ratio:1736 / 3528;
+  height:auto;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+.assistant-stage .phone-ui.iphone-16-pro-max::before{display:none}
+.assistant-stage .phone-ui.iphone-16-pro-max::after{
+  display:block;
+  content:"";
+  position:absolute;
+  z-index:3;
+  inset:0;
+  width:100%;
+  height:100%;
+  border-radius:0;
+  background:url("./assets/figma-250-2/250-512-imgDeepPurple.png") center/100% 100% no-repeat;
+  box-shadow:none;
+  pointer-events:none;
+}
+.assistant-stage .phone-ui .iphone-screen{
+  position:absolute;
+  z-index:1;
+  inset:2.18% 5.18% 2.21%;
+  width:auto;
+  height:auto;
+  border:0;
+  border-radius:14.1% / 6.5%;
+}
+.assistant-stage .iphone-dynamic-island{display:none}
+
+/* Keep the conversation legible as the device artwork changes size. */
+.assistant-stage .phone-ui .phone-header strong{font-size:.875rem}
+.assistant-stage .phone-ui .phone-header small{font-size:.6875rem}
+.assistant-stage .phone-ui .phone-day{font-size:.75rem}
+.assistant-stage .phone-ui .phone-bubble{
+  padding:.75rem .875rem;
+  font-size:.8125rem;
+  line-height:1.45;
+  margin-bottom:.75rem;
+}
+.assistant-stage .phone-ui .phone-status{font-size:.75rem;line-height:1.4}
+.assistant-stage .phone-ui .phone-input{font-size:.75rem}
+@container (min-width:400px){
+  .assistant-stage .phone-ui .phone-header strong{font-size:1rem}
+  .assistant-stage .phone-ui .phone-header small{font-size:.75rem}
+  .assistant-stage .phone-ui .phone-day{font-size:.8125rem}
+  .assistant-stage .phone-ui .phone-bubble{padding:.875rem 1.0625rem;font-size:1rem}
+  .assistant-stage .phone-ui .phone-status,.assistant-stage .phone-ui .phone-input{font-size:.875rem}
+}
+
+/* Figma's conversation avatars and action icons across the mockups. */
+.credit-conversation-head .credit-instagram-icon{width:19px;height:19px;margin-left:auto;object-fit:contain}
+.shop-ray-avatar,.flow-ai-chip>span,.flow-ray-mark,.sales-ai-mark,.credit-conversation-head .ray-mark,.phone-header .ray-mark,.cta-ray-mark{overflow:hidden;font-family:"DM Sans",sans-serif;line-height:1}
+.shop-ray-avatar{font-size:42px}
+.flow-ai-chip>span{font-size:42px}
+.flow-ray-mark{font-size:37px}
+.sales-ai-mark{font-size:65px}
+.credit-conversation-head .ray-mark{font-size:44px}
+.phone-header .ray-mark{font-size:38px}
+.cta-ray-mark{font-size:32px}
+.shop-actions{display:flex;flex-wrap:wrap;gap:9px}
+.shop-actions .shop-demo-action{min-height:35px;width:auto;padding:8px 16px;border-radius:99px;background:#fff;color:#1c1e21;font:700 12px var(--display)}
+.shop-actions .shop-demo-action:first-child{border-color:#111;background:#fff;color:#1c1e21}
+.shop-actions .shop-demo-action:last-child{border-color:#25d366;background:#25d366;color:#111}
+.shop-actions .shop-demo-action img{width:6px;height:10px;margin-left:8px;object-fit:contain}
+@media(max-width:1200px){
+  .flow-instagram img{width:20px;height:20px}
+  .flow-send-icon img{width:34px;height:34px}
+}
+@media(max-width:900px){.shop-ray-avatar{font-size:34px}}
+@media(max-width:500px){
+  .flow-send-icon img{width:29px;height:29px}
+  .flow-chat-head .flow-head-icon{width:19px;height:19px}
+  .sales-ai-mark{font-size:43px}
+}

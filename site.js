@@ -57,62 +57,45 @@ if (productTour) {
   const tourButtons = [...productTour.querySelectorAll('[data-tour-step]')];
   const tourPanels = [...productTour.querySelectorAll('[data-tour-panel]')];
   const tourCount = productTour.querySelector('.tour-screen-count');
-  let currentStep = 0;
-  let tourVisible = false;
-  let tourPaused = false;
-  let tourInteracted = false;
-  let tourTimer;
-
-  const stopTour = () => {
-    clearTimeout(tourTimer);
-    tourTimer = undefined;
-  };
   const showTourStep = index => {
-    currentStep = (index + tourButtons.length) % tourButtons.length;
+    const activeIndex = (index + tourButtons.length) % tourButtons.length;
     tourButtons.forEach((button, position) => {
-      const active = position === currentStep;
+      const active = position === activeIndex;
       button.classList.toggle('is-active', active);
-      button.setAttribute('aria-pressed', String(active));
+      button.setAttribute('aria-selected', String(active));
+      button.tabIndex = active ? 0 : -1;
     });
     tourPanels.forEach((panel, position) => {
-      const active = position === currentStep;
+      const active = position === activeIndex;
       panel.classList.toggle('is-active', active);
       panel.setAttribute('aria-hidden', String(!active));
+      panel.tabIndex = active ? 0 : -1;
+      if (active) panel.scrollLeft = 0;
     });
-    tourCount.textContent = `0${currentStep + 1} / 03`;
+    tourCount.textContent = `0${activeIndex + 1} / 03`;
   };
-  const scheduleTour = () => {
-    stopTour();
-    if (prefersReducedMotion || !tourVisible || tourPaused || tourInteracted || document.hidden) return;
-    tourTimer = setTimeout(() => {
-      showTourStep(currentStep + 1);
-      scheduleTour();
-    }, 5200);
-  };
-
-  tourButtons.forEach((button, index) => button.addEventListener('click', () => {
-    tourInteracted = true;
-    stopTour();
-    showTourStep(index);
-  }));
-  productTour.addEventListener('pointerenter', () => { tourPaused = true; stopTour(); });
-  productTour.addEventListener('pointerleave', () => { tourPaused = false; scheduleTour(); });
-  productTour.addEventListener('focusin', () => { tourPaused = true; stopTour(); });
-  productTour.addEventListener('focusout', event => {
-    if (!productTour.contains(event.relatedTarget)) { tourPaused = false; scheduleTour(); }
+  tourButtons.forEach((button, index) => {
+    button.addEventListener('click', () => showTourStep(index));
+    button.addEventListener('keydown', event => {
+      const nextIndex = {
+        ArrowDown: index + 1,
+        ArrowRight: index + 1,
+        ArrowUp: index - 1,
+        ArrowLeft: index - 1,
+        Home: 0,
+        End: tourButtons.length - 1,
+      }[event.key];
+      if (nextIndex === undefined) return;
+      event.preventDefault();
+      const targetIndex = (nextIndex + tourButtons.length) % tourButtons.length;
+      showTourStep(targetIndex);
+      tourButtons[targetIndex].focus();
+    });
   });
-  document.addEventListener('visibilitychange', scheduleTour);
-  if (!prefersReducedMotion) {
-    const tourObserver = new IntersectionObserver(([entry]) => {
-      tourVisible = entry.isIntersecting;
-      scheduleTour();
-    }, { threshold: .25 });
-    tourObserver.observe(productTour);
-  }
 }
 
 if (!prefersReducedMotion) {
-  const revealTargets = [...document.querySelectorAll('.section-head, .performance-grid .perf-photo, .planning-copy, .flow-card, .product-stage, .sales-knowledge-heading, .sales-knowledge-benefits article, .story-tiles article, .step-card, .proof-photo, .proof-content, .assistant-stage, .faq-heading, .faq-list, .final-inner')];
+  const revealTargets = [...document.querySelectorAll('.section-head, .performance-grid .perf-photo, .planning-copy, .flow-card, .product-stage, .sales-knowledge-heading, .sales-knowledge-benefits article, .step-card, .assistant-stage, .faq-heading, .faq-list, .final-inner')];
   revealTargets.forEach((target, index) => {
     target.classList.add('reveal-target');
     target.style.setProperty('--reveal-delay', `${(index % 4) * 55}ms`);
@@ -128,7 +111,7 @@ if (!prefersReducedMotion) {
   }, { threshold: .08, rootMargin: '0px 0px -20px 0px' });
   revealTargets.forEach(target => revealObserver.observe(target));
 
-  const storyStages = document.querySelectorAll('.performance-grid .card, .flow-art, .sales-knowledge-stage, .final-cta');
+  const storyStages = document.querySelectorAll('.performance-grid .card, .flow-art, .sales-knowledge-stage');
   const storyObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -141,6 +124,189 @@ if (!prefersReducedMotion) {
     });
   }, { threshold: .35 });
   storyStages.forEach(stage => storyObserver.observe(stage));
+}
+
+// Pair each buyer question with the action Ray takes, then replay while the CTA is visible.
+const finalCta = document.querySelector('.final-cta');
+if (finalCta && !prefersReducedMotion) {
+  const signals = [...finalCta.querySelectorAll('.cta-signal')];
+  let ctaVisible = false;
+  let ctaTimers = [];
+  const clearCtaTimers = () => {
+    ctaTimers.forEach(clearTimeout);
+    ctaTimers = [];
+  };
+  const showAllCtaSignals = () => signals.forEach(signal => signal.classList.add('is-shown'));
+  const playCtaSignals = () => {
+    if (!ctaVisible || document.hidden) return;
+    clearCtaTimers();
+    signals.forEach(signal => signal.classList.remove('is-shown'));
+    [450, 1150, 2450, 3150, 4450, 5150].forEach((delay, index) => {
+      ctaTimers.push(setTimeout(() => {
+        if (ctaVisible && !document.hidden) signals[index]?.classList.add('is-shown');
+      }, delay));
+    });
+    ctaTimers.push(setTimeout(playCtaSignals, 10300));
+  };
+  finalCta.classList.add('cta-ready');
+  const ctaObserver = new IntersectionObserver(([entry]) => {
+    ctaVisible = entry.isIntersecting;
+    if (ctaVisible) playCtaSignals();
+    else {
+      clearCtaTimers();
+      showAllCtaSignals();
+    }
+  }, { threshold: .3 });
+  ctaObserver.observe(finalCta);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearCtaTimers();
+      showAllCtaSignals();
+    } else if (ctaVisible) playCtaSignals();
+  });
+}
+
+// Finish the Instagram DM after a short typing beat instead of leaving it loading.
+const flowArt = document.querySelector('.flow-art');
+if (flowArt) {
+  if (prefersReducedMotion) {
+    flowArt.dataset.chatPhase = 'complete';
+  } else {
+    let flowVisible = false;
+    let flowTimers = [];
+    const clearFlowTimers = () => {
+      flowTimers.forEach(clearTimeout);
+      flowTimers = [];
+    };
+    const playFlowChat = () => {
+      if (!flowVisible || document.hidden) return;
+      clearFlowTimers();
+      flowArt.dataset.chatPhase = 'intro';
+      flowTimers.push(setTimeout(() => {
+        if (flowVisible && !document.hidden) flowArt.dataset.chatPhase = 'typing';
+      }, 3200));
+      flowTimers.push(setTimeout(() => {
+        if (!flowVisible || document.hidden) return;
+        flowArt.dataset.chatPhase = 'complete';
+        const thread = flowArt.querySelector('.flow-chat-thread');
+        thread?.scrollTo({ top: thread.scrollHeight, behavior: 'smooth' });
+      }, 4500));
+    };
+    const flowObserver = new IntersectionObserver(([entry]) => {
+      flowVisible = entry.isIntersecting;
+      if (flowVisible) playFlowChat();
+      else {
+        clearFlowTimers();
+        flowArt.dataset.chatPhase = 'complete';
+      }
+    }, { threshold: .35 });
+    flowObserver.observe(flowArt);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        clearFlowTimers();
+        flowArt.dataset.chatPhase = 'complete';
+      } else if (flowVisible) playFlowChat();
+    });
+  }
+}
+
+// Continue the buyer exchange in the headset card and bring new messages into view.
+const shopCard = document.querySelector('.perf-answer');
+if (shopCard) {
+  if (prefersReducedMotion) {
+    shopCard.dataset.shopPhase = 'team';
+  } else {
+    let shopVisible = false;
+    let shopTimers = [];
+    const shopThread = shopCard.querySelector('.shop-thread');
+    const clearShopTimers = () => {
+      shopTimers.forEach(clearTimeout);
+      shopTimers = [];
+    };
+    const showShopPhase = phase => {
+      shopCard.dataset.shopPhase = phase;
+      requestAnimationFrame(() => shopThread?.scrollTo({ top: shopThread.scrollHeight, behavior: 'smooth' }));
+    };
+    const playShopChat = () => {
+      if (!shopVisible || document.hidden) return;
+      clearShopTimers();
+      shopCard.dataset.shopPhase = 'intro';
+      shopThread?.scrollTo({ top: 0, behavior: 'auto' });
+      shopTimers.push(setTimeout(() => {
+        if (shopVisible && !document.hidden) showShopPhase('buyer');
+      }, 2750));
+      shopTimers.push(setTimeout(() => {
+        if (shopVisible && !document.hidden) showShopPhase('team');
+      }, 4550));
+    };
+    const shopObserver = new IntersectionObserver(([entry]) => {
+      shopVisible = entry.isIntersecting;
+      if (shopVisible) playShopChat();
+      else {
+        clearShopTimers();
+        shopCard.dataset.shopPhase = 'team';
+      }
+    }, { threshold: .35 });
+    shopObserver.observe(shopCard);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        clearShopTimers();
+        shopCard.dataset.shopPhase = 'team';
+      } else if (shopVisible) playShopChat();
+    });
+  }
+}
+
+// Replay the partner example while visible: objection, approved sources, reply, handoff.
+const partnersVisual = document.querySelector('.partners-visual');
+if (partnersVisual && !prefersReducedMotion) {
+  const storyLines = [...partnersVisual.querySelectorAll('.partners-story-line')];
+  let partnersVisible = false;
+  let partnersTimers = [];
+  const clearPartnersTimers = () => {
+    partnersTimers.forEach(clearTimeout);
+    partnersTimers = [];
+  };
+  const showPartnersStep = (step, count) => {
+    partnersVisual.dataset.storyStep = step;
+    storyLines.forEach((line, index) => line.classList.toggle('is-shown', index < count));
+  };
+  const playPartnersStory = () => {
+    if (!partnersVisible || document.hidden) return;
+    clearPartnersTimers();
+    showPartnersStep('start', 0);
+    [
+      [520, 'question', 1],
+      [1250, 'sources', 1],
+      [1650, 'typing', 1],
+      [2550, 'answer', 2],
+      [4550, 'followup', 3],
+      [5950, 'handoff', 4],
+      [7050, 'complete', 5],
+    ].forEach(([delay, step, count]) => {
+      partnersTimers.push(setTimeout(() => {
+        if (partnersVisible && !document.hidden) showPartnersStep(step, count);
+      }, delay));
+    });
+    partnersTimers.push(setTimeout(playPartnersStory, 12500));
+  };
+  partnersVisual.classList.add('story-ready');
+  showPartnersStep('start', 0);
+  const partnersObserver = new IntersectionObserver(([entry]) => {
+    partnersVisible = entry.isIntersecting;
+    if (partnersVisible) playPartnersStory();
+    else {
+      clearPartnersTimers();
+      showPartnersStep('complete', storyLines.length);
+    }
+  }, { threshold: .2 });
+  partnersObserver.observe(partnersVisual);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearPartnersTimers();
+      showPartnersStep('complete', storyLines.length);
+    } else if (partnersVisible) playPartnersStory();
+  });
 }
 
 // Loop the phone conversation while it is in view so the handoff reads as a real exchange.
@@ -269,125 +435,6 @@ if (creditDemo) {
   }
 }
 
-const demoWindow = document.querySelector('.demo-window');
-const demoMessages = document.getElementById('demo-messages');
-const demoBubbles = [...document.querySelectorAll('.demo-window .demo-bubble')];
-const demoTyping = document.querySelector('.demo-window .demo-typing');
-const demoStatus = document.getElementById('demo-status');
-const demoPauseButton = document.querySelector('.demo-pause');
-const demoDelays = [1100, 1700, 1200, 2200, 1200, 2200, 1100, 3600];
-let demoTimer;
-let demoStep = -1;
-let demoVisible = false;
-let demoPaused = false;
-let demoDueAt = 0;
-let demoRemaining = 0;
-
-function scheduleDemo(delay) {
-  clearTimeout(demoTimer);
-  demoRemaining = delay;
-  demoDueAt = performance.now() + delay;
-  demoTimer = setTimeout(advanceDemo, delay);
-}
-
-function holdDemo() {
-  if (demoDueAt) demoRemaining = Math.max(0, demoDueAt - performance.now());
-  clearTimeout(demoTimer);
-  demoDueAt = 0;
-}
-
-function showDemoStep(nextStep) {
-  demoStep = nextStep;
-  demoBubbles.forEach((bubble, index) => bubble.classList.toggle('is-shown', index <= nextStep));
-  demoTyping?.classList.toggle('is-typing', nextStep === 0 || nextStep === 2 || nextStep === 4 || nextStep === 6);
-  if (demoMessages && nextStep > 0) {
-    requestAnimationFrame(() => demoMessages.scrollTo({ top: demoMessages.scrollHeight, behavior: 'smooth' }));
-  }
-  if (demoStatus) {
-    demoStatus.textContent = nextStep === demoBubbles.length - 1 ? 'Specialist follow-up requested' :
-      nextStep % 2 === 0 ? 'Ray is reviewing the buyer’s context' : 'Ray is handling this conversation';
-  }
-  if (demoPauseButton) demoPauseButton.hidden = false;
-}
-
-function advanceDemo() {
-  clearTimeout(demoTimer);
-  if (demoPaused || !demoVisible || document.visibilityState !== 'visible') return;
-  if (demoStep >= demoBubbles.length - 1) {
-    restartDemo();
-    return;
-  }
-  showDemoStep(demoStep + 1);
-  scheduleDemo(demoStep < demoBubbles.length - 1 ? demoDelays[demoStep] : 4200);
-}
-
-function restartDemo() {
-  clearTimeout(demoTimer);
-  demoPaused = false;
-  demoPauseButton?.setAttribute('aria-label', 'Pause conversation');
-  if (demoPauseButton) demoPauseButton.textContent = 'Pause';
-  demoStep = -1;
-  demoRemaining = 0;
-  demoDueAt = 0;
-  if (demoMessages) demoMessages.scrollTop = 0;
-  if (prefersReducedMotion) {
-    showDemoStep(demoBubbles.length - 1);
-    return;
-  }
-  demoVisible = true;
-  advanceDemo();
-}
-
-document.querySelector('.demo-replay')?.addEventListener('click', restartDemo);
-demoPauseButton?.addEventListener('click', () => {
-  demoPaused = !demoPaused;
-  demoPauseButton.textContent = demoPaused ? 'Play' : 'Pause';
-  demoPauseButton.setAttribute('aria-label', demoPaused ? 'Resume conversation' : 'Pause conversation');
-  if (demoPaused) holdDemo();
-  else if (demoVisible && document.visibilityState === 'visible') scheduleDemo(demoRemaining || (demoStep < demoBubbles.length - 1 ? demoDelays[demoStep] : 4200));
-});
-if (demoWindow && !prefersReducedMotion) {
-  const observer = new IntersectionObserver(entries => {
-    const inView = entries.some(entry => entry.intersectionRatio >= .28);
-    if (!inView && demoVisible) holdDemo();
-    demoVisible = inView;
-    if (demoVisible && !demoPaused && document.visibilityState === 'visible') {
-      if (demoStep < 0) advanceDemo();
-      else scheduleDemo(demoRemaining || (demoStep < demoBubbles.length - 1 ? demoDelays[demoStep] : 4200));
-    }
-  }, { threshold: [.28] });
-  observer.observe(demoWindow);
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') holdDemo();
-    else if (demoVisible && !demoPaused) scheduleDemo(demoRemaining || (demoStep < demoBubbles.length - 1 ? demoDelays[demoStep] : 4200));
-  });
-} else if (demoWindow) {
-  showDemoStep(demoBubbles.length - 1);
-  if (demoPauseButton) demoPauseButton.hidden = true;
-}
-
-const shopThread = document.querySelector('.shop-thread');
-const shopExtra = document.querySelector('.shop-extra');
-function appendShopMessage(kind, message) {
-  const bubble = document.createElement('div');
-  bubble.className = `shop-extra-message ${kind}`;
-  const label = document.createElement('small');
-  label.textContent = kind === 'ray' ? '✳ Ray AI' : 'Customer';
-  bubble.append(label, document.createTextNode(message));
-  shopExtra.append(bubble);
-}
-function scrollShopThread() {
-  requestAnimationFrame(() => shopThread?.scrollTo({ top: shopThread.scrollHeight, behavior: prefersReducedMotion ? 'auto' : 'smooth' }));
-}
-document.querySelector('[data-shop-action="buy"]')?.addEventListener('click', () => {
-  appendShopMessage('ray', 'I have the quantity and deadline. A specialist can confirm the invoice, stock, and delivery quote before you commit.');
-  scrollShopThread();
-});
-document.querySelector('[data-shop-action="details"]')?.addEventListener('click', () => {
-  appendShopMessage('ray', 'Nova Mini · listed at $149 per unit. Volume pricing and Friday delivery need team confirmation.');
-  scrollShopThread();
-});
-
 const calcInputs = ['calc-hours', 'calc-rate', 'calc-share'].map(id => document.getElementById(id));
 const calcPlan = document.getElementById('calc-plan');
 const calcResult = document.getElementById('calc-result');
@@ -448,10 +495,11 @@ function selectConversation(item) {
   }
 }
 let productAutoDone = false;
-let productAutoTimers = [];
+let productAutoTimer;
+let productAutoVisible = false;
+let productAutoIndex = 0;
 function stopProductAuto() {
-  productAutoTimers.forEach(clearTimeout);
-  productAutoTimers = [];
+  clearTimeout(productAutoTimer);
   productAutoDone = true;
 }
 inboxItems.forEach(item => item.addEventListener('click', () => {
@@ -468,114 +516,25 @@ inboxFilters.forEach(filter => filter.addEventListener('click', () => {
 }));
 if (!prefersReducedMotion && inboxItems.length >= 3) {
   const productStage = document.querySelector('.product-stage');
-  const productObserver = new IntersectionObserver(entries => {
-    if (!entries.some(entry => entry.isIntersecting) || productAutoDone) return;
-    productAutoTimers = [
-      setTimeout(() => selectConversation(inboxItems[1]), 1300),
-      setTimeout(() => selectConversation(inboxItems[2]), 3900),
-      setTimeout(() => { selectConversation(inboxItems[0]); productAutoDone = true; }, 6500)
-    ];
-    productObserver.unobserve(productStage);
+  const autoOrder = [1, 2, 0];
+  const advanceProductDemo = () => {
+    if (!productAutoVisible || productAutoDone || document.hidden) return;
+    selectConversation(inboxItems[autoOrder[productAutoIndex % autoOrder.length]]);
+    productAutoIndex += 1;
+    productAutoTimer = setTimeout(advanceProductDemo, 3300);
+  };
+  const productObserver = new IntersectionObserver(([entry]) => {
+    productAutoVisible = entry.isIntersecting;
+    clearTimeout(productAutoTimer);
+    if (productAutoVisible && !productAutoDone && !document.hidden) {
+      productAutoTimer = setTimeout(advanceProductDemo, 1050);
+    }
   }, { threshold: .35 });
   productObserver.observe(productStage);
-}
-
-document.querySelector('.story-crm-button')?.addEventListener('click', (event) => {
-  const button = event.currentTarget;
-  const added = button.getAttribute('aria-pressed') === 'true';
-  button.setAttribute('aria-pressed', String(!added));
-  button.textContent = added ? '↗ Add to CRM' : '✓ Added to CRM';
-  button.setAttribute('aria-label', added ? 'Add lead to CRM' : 'Remove lead from CRM');
-});
-
-const examples = [
-  {
-    quote: '“Could we start with one site and add the second later?”',
-    description: 'Ray recognizes a phased rollout question, checks the buyer’s deadline, and leaves the custom quote to your team.',
-    question: 'Could we start with one site and add the second later?',
-    answer: 'Our approved scope supports phases. Is your first opening date fixed?',
-    detail: 'Yes, six weeks. Site two is waiting on permits.',
-    followup: 'I’ll ask a specialist to quote site one now and confirm how site two can be scheduled after permits clear.',
-    result: 'Scope and deadline sent to your team'
-  },
-  {
-    quote: '“Our budget opens next quarter. Can you wait?”',
-    description: 'Ray keeps the buying context and follows up when the budget opens, without restarting the sales conversation.',
-    question: 'Our budget opens next quarter. Can you wait?',
-    answer: 'Of course. What would you need to evaluate before then?',
-    detail: 'A case study from a 10-person team and a pilot price.',
-    followup: 'I’ll share an approved case study now and bring your pilot request to the team. I can follow up when your budget opens.',
-    result: 'Pilot request saved · Follow-up planned'
-  },
-  {
-    quote: '“Can you guarantee that exception in our contract?”',
-    description: 'Ray never invents a special term. It gathers the reason, then sends the exception to a person who can approve it.',
-    question: 'Can you guarantee that exception in our contract?',
-    answer: 'I can explain the standard policy, but an exception needs approval. Which term is the blocker?',
-    detail: 'We need a 30-day exit if the launch is delayed.',
-    followup: 'I’ve captured the clause and launch risk. I’ll ask a specialist to confirm what can be offered.',
-    result: 'Contract exception awaiting approval'
-  }
-];
-let exampleIndex = 0;
-const proofPanel = document.querySelector('.proof-chat-panel');
-const proofThread = document.querySelector('.proof-chat-thread');
-const proofSteps = [...document.querySelectorAll('[data-proof-step]')];
-let proofTimers = [];
-let proofVisible = false;
-
-function clearProofTimers() {
-  proofTimers.forEach(clearTimeout);
-  proofTimers = [];
-}
-
-function showProofStep(stage) {
-  proofSteps.forEach(element => {
-    const step = Number(element.dataset.proofStep);
-    element.classList.toggle('is-visible', element.classList.contains('proof-typing') ? step === stage : step <= stage);
-  });
-  if (stage > 0) requestAnimationFrame(() => proofThread?.scrollTo({ top: proofThread.scrollHeight, behavior: 'smooth' }));
-}
-
-function playProofConversation() {
-  if (!proofPanel || prefersReducedMotion || !proofVisible || document.hidden) return;
-  clearProofTimers();
-  showProofStep(0);
-  [[160, 1], [1300, 2], [2350, 3], [4750, 4], [6100, 5], [7250, 6], [10300, 7]].forEach(([delay, stage]) => {
-    proofTimers.push(setTimeout(() => {
-      if (proofVisible && !document.hidden) showProofStep(stage);
-    }, delay));
-  });
-  proofTimers.push(setTimeout(playProofConversation, 18000));
-}
-
-function setExample(next) {
-  exampleIndex = (next + examples.length) % examples.length;
-  const example = examples[exampleIndex];
-  document.getElementById('example-quote').textContent = example.quote;
-  document.getElementById('example-description').textContent = example.description;
-  document.getElementById('example-count').textContent = `0${exampleIndex + 1} / 0${examples.length}`;
-  document.getElementById('proof-customer-question').textContent = example.question;
-  document.getElementById('proof-ray-answer').textContent = example.answer;
-  document.getElementById('proof-customer-detail').textContent = example.detail;
-  document.getElementById('proof-ray-followup').textContent = example.followup;
-  document.getElementById('proof-chat-result').textContent = example.result;
-  if (proofVisible) playProofConversation();
-  else if (!prefersReducedMotion) showProofStep(7);
-}
-document.getElementById('example-prev')?.addEventListener('click', () => setExample(exampleIndex - 1));
-document.getElementById('example-next')?.addEventListener('click', () => setExample(exampleIndex + 1));
-if (proofPanel && !prefersReducedMotion) {
-  proofPanel.classList.add('proof-running');
-  showProofStep(7);
-  const proofObserver = new IntersectionObserver(entries => {
-    proofVisible = entries[0].isIntersecting;
-    if (proofVisible) playProofConversation();
-    else clearProofTimers();
-  }, { threshold: .35 });
-  proofObserver.observe(proofPanel);
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) clearProofTimers();
-    else if (proofVisible) playProofConversation();
+    clearTimeout(productAutoTimer);
+    if (!document.hidden && productAutoVisible && !productAutoDone) {
+      productAutoTimer = setTimeout(advanceProductDemo, 1050);
+    }
   });
 }

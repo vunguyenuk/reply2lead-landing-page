@@ -125,24 +125,15 @@
 .cta-signal-three {right: 3%; top: 48%;}
 .cta-signal-three-status {right: 7%; top: 56%;}
 
-.motion-ready .final-cta .cta-signal {
+.motion-ready .final-cta.cta-ready .cta-signal {
   opacity: 0;
   transform: translateY(16px) scale(.97);
+  transition: opacity .55s cubic-bezier(.22, 1, .36, 1), transform .55s cubic-bezier(.22, 1, .36, 1);
 }
 
-.motion-ready .final-cta.demo-active .cta-signal {
-  animation: cta-signal-in .65s cubic-bezier(.2, .8, .2, 1) forwards;
-}
-
-.motion-ready .final-cta.demo-active .cta-signal-one {animation-delay: .08s;}
-.motion-ready .final-cta.demo-active .cta-signal-one-status {animation-delay: .42s;}
-.motion-ready .final-cta.demo-active .cta-signal-two {animation-delay: .72s;}
-.motion-ready .final-cta.demo-active .cta-signal-two-status {animation-delay: 1.08s;}
-.motion-ready .final-cta.demo-active .cta-signal-three {animation-delay: 1.42s;}
-.motion-ready .final-cta.demo-active .cta-signal-three-status {animation-delay: 1.78s;}
-
-@keyframes cta-signal-in {
-  to { opacity: 1; transform: translateY(0) scale(1); }
+.motion-ready .final-cta.cta-ready .cta-signal.is-shown {
+  opacity: 1;
+  transform: none;
 }
 
 @media (max-width: 1050px) {
@@ -173,5 +164,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .motion-ready .final-cta .cta-signal {opacity: 1; transform: none; animation: none;}
+  .motion-ready .final-cta.cta-ready .cta-signal {opacity: 1; transform: none; transition: none;}
 }
